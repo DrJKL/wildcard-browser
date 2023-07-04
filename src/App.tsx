@@ -1,11 +1,25 @@
 import './App.scss';
 import './WildcardList.scss';
-import { wildcardFiles } from './lib/wildcards';
+import {
+  WildcardFile,
+  wildcardCollection,
+  wildcardFiles,
+} from './lib/wildcards';
 import { For } from 'million/react';
 import { WildcardList } from './WildcardList';
 import { block } from 'million';
 
+const renderWildcard = (wildcards: WildcardFile) => {
+  return (
+    <WildcardList
+      key={wildcards.filepath}
+      filename={wildcards.filename}
+      entries={wildcards.wildcardEntries}></WildcardList>
+  );
+};
+
 const AppBlock = block(function App() {
+  const wildcardsLocal = [...wildcardCollection];
   return (
     <>
       <h1>Wildcard Browser</h1>
@@ -13,16 +27,7 @@ const AppBlock = block(function App() {
       <h2>{Object.keys(wildcardFiles).length} files</h2>
 
       <div>
-        <For each={Object.entries(wildcardFiles)}>
-          {([filename, contents]) => {
-            return (
-              <WildcardList
-                key={filename}
-                filename={filename}
-                contents={contents}></WildcardList>
-            );
-          }}
-        </For>
+        <For each={wildcardsLocal}>{renderWildcard}</For>
       </div>
     </>
   );
