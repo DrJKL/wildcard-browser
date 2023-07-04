@@ -7,13 +7,31 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.6",
+    "@types/react-window": "^1.8.5",
+    "@types/sass": "^1.45.0",
+    "million": "^2.4.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-window": "^1.8.9",
+    "sass": "^1.63.6"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.25",
+    "@storybook/addon-interactions": "^7.0.25",
+    "@storybook/addon-links": "^7.0.25",
+    "@storybook/blocks": "^7.0.25",
+    "@storybook/react": "^7.0.25",
+    "@storybook/react-vite": "^7.0.25",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/prop-types": "^15.7.5",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
@@ -22,6 +40,9 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "eslint-plugin-storybook": "^0.6.12",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.25",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   }

@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss';
+import './WildcardList.scss';
+import { wildcardFiles } from './lib/wildcards';
+import { For } from 'million/react';
+import { WildcardList } from './WildcardList';
+import { block } from 'million';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const AppBlock = block(function App() {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <h1>Wildcard Browser</h1>
 
-export default App
+      <h2>{Object.keys(wildcardFiles).length} files</h2>
+
+      <div>
+        <For each={Object.entries(wildcardFiles)}>
+          {([filename, contents]) => {
+            return (
+              <WildcardList
+                key={filename}
+                filename={filename}
+                contents={contents}></WildcardList>
+            );
+          }}
+        </For>
+      </div>
+    </>
+  );
+});
+
+export default AppBlock;
