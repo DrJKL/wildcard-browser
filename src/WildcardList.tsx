@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import { blue, pink, red } from '@mui/material/colors';
+import { blue, red } from '@mui/material/colors';
 import { CSSProperties, MouseEventHandler, useState } from 'react';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 
