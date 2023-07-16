@@ -16,7 +16,7 @@ const App = () => {
   return (
     <>
       <header className="header">
-        <h1>Wildcard Browser</h1>
+        <h1 className="prose-h1">Wildcard Browser</h1>
         <h2>{wildcardsLocal.length} files</h2>
       </header>
 

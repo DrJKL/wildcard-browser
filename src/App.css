@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width:100%;
+  width: 100%;
   text-align: center;
-  // width: inherit;
 }
 
 .header {
@@ -14,6 +13,4 @@
 .wildcards-lists-container {
   flex: 1;
   overflow: auto;
-  // display: grid;
-  // grid-template: 1fr / 1fr;
 }
