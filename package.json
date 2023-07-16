@@ -26,7 +26,8 @@
     "react-virtualized": "^9.22.5",
     "react-virtualized-auto-sizer": "^1.0.20",
     "react-window": "^1.8.9",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "simple-update-notifier": "^2.0.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.27",

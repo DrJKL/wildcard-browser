@@ -1,20 +1,17 @@
 import './App.css';
-import { WildcardFile, wildcardCollection } from './lib/wildcards';
-import { For } from 'million/react';
 import { WildcardList } from './WildcardList';
-import { block } from 'million';
+import { WildcardFile, wildcardCollection } from './lib/wildcards';
 
 const renderWildcard = (wildcards: WildcardFile) => {
   return (
     <WildcardList
-      style={{}}
       key={wildcards.filepath}
       filename={wildcards.filename}
       entries={wildcards.wildcardEntries}></WildcardList>
   );
 };
 
-const AppBlock = block(() => {
+const App = () => {
   const wildcardsLocal = [...wildcardCollection].filter((_, idx) => idx < 50);
   return (
     <>
@@ -24,10 +21,10 @@ const AppBlock = block(() => {
       </header>
 
       <main className="wildcards-lists-container">
-        <For each={wildcardsLocal}>{renderWildcard}</For>
+        {wildcardsLocal.map((file) => renderWildcard(file))}
       </main>
     </>
   );
-});
+};
 
-export default AppBlock;
+export default App;

@@ -12,7 +12,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import { blue, red } from '@mui/material/colors';
-import { CSSProperties, MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 
 const theme = createTheme({
@@ -30,10 +30,8 @@ const theme = createTheme({
 export function WildcardList({
   filename,
   entries,
-  style,
 }: {
   filename: string;
-  style: CSSProperties;
   entries: readonly string[];
 }) {
   const [open, setOpen] = useState(false);
@@ -44,11 +42,7 @@ export function WildcardList({
 
   return (
     <ThemeProvider theme={theme}>
-      <Card
-        style={style}
-        variant="outlined"
-        className="wildcard-file"
-        key={filename}>
+      <Card variant="outlined" className="wildcard-file" key={filename}>
         <CardHeader
           title={WildcardHeaderTitle(filename, toggleOpen)}
           className="wildcards-filename">
