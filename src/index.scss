@@ -1,5 +1,6 @@
 :root {
-  font-family: Comic Sans MS, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Comic Sans MS, Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -23,12 +24,20 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
+}
+body {
+  // display: grid;
+  // grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  // height: 100vw;
+  margin: 0;
+  // min-height: 100vh;
   min-width: 320px;
-  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  // width: 100vw;
 }
 
 h1 {
