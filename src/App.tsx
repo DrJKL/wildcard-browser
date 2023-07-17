@@ -80,7 +80,9 @@ const App = () => {
           },
         }}
         anchor="left"
+        variant="temporary"
         open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
         ModalProps={{ keepMounted: true }}>
         <Toolbar />
         <h2 className="w-full text-center">🌳</h2>
@@ -100,7 +102,9 @@ const App = () => {
 };
 
 function FolderTree() {
-  const [expanded, setExpanded] = useState<string[]>([]);
+  const [expanded, setExpanded] = useState<string[]>([
+    ...Object.keys(fileTree),
+  ]);
 
   const nodeIds = new Set<string>();
   const registerNode = (nodeId: string) => {

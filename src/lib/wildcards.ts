@@ -62,7 +62,9 @@ function joiningArrays(objValue: unknown, srcValue: unknown) {
   }
 }
 
-export type FolderTree = { [key: string]: FolderTree | WildcardFile[] };
+export interface FolderTree {
+  [key: string]: FolderTree | WildcardFile[];
+}
 
 function buildWildcardFileTree() {
   let folderTree: FolderTree = {};
