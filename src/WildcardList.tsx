@@ -28,15 +28,19 @@ const theme = createTheme({
   },
 });
 
-export const WildcardList = ({
-  filename,
-  entries,
-  wildcards,
-}: {
+export interface WildcardListProps {
   filename: string;
   entries: readonly string[];
   wildcards: WildcardFile;
-}) => {
+  search: string;
+}
+
+export function WildcardList({
+  filename,
+  entries,
+  wildcards,
+  search,
+}: WildcardListProps) {
   const [open, setOpen] = useState(false);
 
   const toggleOpen: MouseEventHandler = () => {
@@ -46,12 +50,22 @@ export const WildcardList = ({
   const [, updateState] = useState({});
   const forceUpdate = useCallback(() => updateState({}), []);
 
+  const matchesSearch =
+    !!search && wildcards.filepath.toLowerCase().includes(search.toLowerCase());
+
   return (
     <ThemeProvider theme={theme}>
       <Card variant="outlined" className="wildcard-file" key={filename}>
         <CardHeader
-          title={WildcardHeaderTitle(wildcards, toggleOpen, open, forceUpdate)}
-          className="wildcards-filename"></CardHeader>
+          title={WildcardHeaderTitle({
+            wildcards,
+            matchesSearch,
+            onClick: toggleOpen,
+            isOpen: open,
+            forceUpdate,
+          })}
+          className={`wildcards-filename`}
+        />
         <Collapse in={open} mountOnEnter={true}>
           <CardContent>
             <FixedSizeList
@@ -68,7 +82,46 @@ export const WildcardList = ({
       </Card>
     </ThemeProvider>
   );
-};
+}
+
+interface WildcardHeaderTitleProps {
+  wildcards: WildcardFile;
+  onClick: MouseEventHandler;
+  isOpen: boolean;
+  forceUpdate: () => void;
+  matchesSearch: boolean;
+}
+
+function WildcardHeaderTitle({
+  wildcards,
+  onClick,
+  isOpen,
+  forceUpdate,
+  matchesSearch,
+}: WildcardHeaderTitleProps) {
+  const shuffleClick = () => {
+    wildcards.setRandomEntry();
+    forceUpdate();
+  };
+  return (
+    <h3 className="flex flex-row justify-start cursor-pointer">
+      <IconButton onClick={shuffleClick}>
+        <Shuffle />
+      </IconButton>
+      <span
+        className={`flex-grow cursor-pointer ${
+          matchesSearch ? 'text-blue-500' : ''
+        }`}
+        onClick={onClick}>
+        {wildcards.filename}
+      </span>
+      <span>{wildcards.getSelectedEntry()}</span>
+      <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
+        {isOpen ? <ExpandLess /> : <ExpandMore />}
+      </IconButton>
+    </h3>
+  );
+}
 
 function WildcardEntry(props: ListChildComponentProps) {
   const { data, index, style } = props;
@@ -88,31 +141,5 @@ function WildcardEntry(props: ListChildComponentProps) {
         <ListItemText style={{ whiteSpace: 'nowrap' }} primary={entry} />
       </ListItemButton>
     </ListItem>
-  );
-}
-
-function WildcardHeaderTitle(
-  wildcards: WildcardFile,
-  onClick: MouseEventHandler,
-  isOpen: boolean,
-  forceUpdate: () => void,
-) {
-  const shuffleClick = () => {
-    wildcards.setRandomEntry();
-    forceUpdate();
-  };
-  return (
-    <h3 className="flex flex-row justify-start cursor-pointer">
-      <IconButton onClick={shuffleClick}>
-        <Shuffle></Shuffle>
-      </IconButton>
-      <span className="flex-grow cursor-pointer" onClick={onClick}>
-        {wildcards.filename}
-      </span>
-      <span>{wildcards.getSelectedEntry()}</span>
-      <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
-        {isOpen ? <ExpandLess></ExpandLess> : <ExpandMore></ExpandMore>}
-      </IconButton>
-    </h3>
   );
 }

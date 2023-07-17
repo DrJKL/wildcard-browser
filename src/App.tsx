@@ -1,11 +1,5 @@
-import { useMemo, useState } from 'react';
-import { WildcardList } from './WildcardList';
-import {
-  FolderTree,
-  WildcardFile,
-  fileTree,
-  wildcardCollection,
-} from './lib/wildcards';
+import { ChevronRight, ExpandMore, Forest, Search } from '@mui/icons-material';
+import { TreeItem, TreeView } from '@mui/lab';
 import {
   AppBar,
   Box,
@@ -13,16 +7,20 @@ import {
   CssBaseline,
   Drawer,
   IconButton,
+  OutlinedInput,
   TablePagination,
   Toolbar,
+  Typography,
 } from '@mui/material';
-import { TreeItem, TreeView } from '@mui/lab';
-import { Forest, ExpandMore, ChevronRight } from '@mui/icons-material';
+import { useMemo, useState } from 'react';
+import { WildcardList } from './WildcardList';
+import { FolderTree, fileTree, wildcardCollection } from './lib/wildcards';
 
 const App = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [search, setSearch] = useState('');
   const wildcardsLocal = useMemo(
     () =>
       [...wildcardCollection].filter(
@@ -32,7 +30,7 @@ const App = () => {
   );
 
   const handleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement> | null,
+    _: React.MouseEvent<HTMLButtonElement> | null,
     newPage: number,
   ) => {
     setPage(newPage);
@@ -49,6 +47,10 @@ const App = () => {
     setDrawerOpen(!drawerOpen);
   };
 
+  const searchUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <>
       <CssBaseline />
@@ -56,18 +58,25 @@ const App = () => {
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
         className="header text-center"
         position="relative">
-        <Toolbar className="flex justify-between">
+        <Toolbar className="flex justify-between gap-4">
           <IconButton aria-label="" onClick={toggleTree}>
             <Forest />
           </IconButton>
-          <h1 className="text-4xl font-extrabold">Wildcard Browser</h1>
+          <Typography
+            variant="h4"
+            className="select-none text-4xl font-extrabold whitespace-nowrap flex-shrink-0">
+            Wildcard Browser
+          </Typography>
+          <SearchBox onChange={searchUpdate} />
           <TablePagination
+            className="flex-grow flex-shrink-0"
             component={'div'}
             count={wildcardCollection.length}
             page={page}
             onPageChange={handleChangePage}
             rowsPerPage={rowsPerPage}
-            onRowsPerPageChange={handleChangeRowsPerPage}></TablePagination>
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -91,15 +100,32 @@ const App = () => {
       <main className="overflow-y-auto">
         {wildcardsLocal.map((wildcards) => (
           <WildcardList
+            search={search}
             key={wildcards.filepath}
             filename={wildcards.filename}
             entries={wildcards.wildcardEntries}
-            wildcards={wildcards}></WildcardList>
+            wildcards={wildcards}
+          />
         ))}
       </main>
     </>
   );
 };
+
+interface SearchProps {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+function SearchBox({ onChange }: SearchProps) {
+  return (
+    <OutlinedInput
+      size="small"
+      fullWidth
+      onChange={onChange}
+      endAdornment={<Search />}
+    />
+  );
+}
 
 function FolderTree() {
   const [expanded, setExpanded] = useState<string[]>([
@@ -111,7 +137,7 @@ function FolderTree() {
     nodeIds.add(nodeId);
   };
 
-  const handleToggle = (event: React.SyntheticEvent, nodeIds: string[]) => {
+  const handleToggle = (_: React.SyntheticEvent, nodeIds: string[]) => {
     setExpanded(nodeIds);
   };
 
@@ -162,14 +188,13 @@ function renderWildcardFolder(
                 <TreeItem
                   key={file.filepath}
                   nodeId={file.filepath}
-                  label={file.filename}></TreeItem>
+                  label={file.filename}
+                />
               ))
           : renderWildcardFolder(folderContents, registerNode, fullPath)}
       </TreeItem>
     );
   });
 }
-
-
 
 export default App;
