@@ -102,13 +102,18 @@ const App = () => {
 function FolderTree() {
   const [expanded, setExpanded] = useState<string[]>([]);
 
+  const nodeIds = new Set<string>();
+  const registerNode = (nodeId: string) => {
+    nodeIds.add(nodeId);
+  };
+
   const handleToggle = (event: React.SyntheticEvent, nodeIds: string[]) => {
     setExpanded(nodeIds);
   };
 
   const handleExpandClick = () => {
     setExpanded((oldExpanded) =>
-      oldExpanded.length === 0 ? ['1', '5', '6', '7'] : [],
+      oldExpanded.length === 0 ? [...nodeIds] : [],
     );
   };
 
@@ -124,13 +129,17 @@ function FolderTree() {
         defaultExpandIcon={<ChevronRight />}
         expanded={expanded}
         onNodeToggle={handleToggle}>
-        {renderWildcardFolder(fileTree)}
+        {renderWildcardFolder(fileTree, registerNode)}
       </TreeView>
     </>
   );
 }
 
-function renderWildcardFolder(folder: FolderTree, path: string[] = []) {
+function renderWildcardFolder(
+  folder: FolderTree,
+  registerNode: (id: string) => void,
+  path: string[] = [],
+) {
   if (path.length > 100) {
     throw new Error('Too Deep');
   }
@@ -138,6 +147,7 @@ function renderWildcardFolder(folder: FolderTree, path: string[] = []) {
   return Object.entries(folder).map(([folderName, folderContents]) => {
     const fullPath = [...path, folderName];
     const fullPathName = fullPath.join('/');
+    registerNode(fullPathName);
 
     return (
       <TreeItem key={fullPathName} nodeId={fullPathName} label={folderName}>
@@ -150,7 +160,7 @@ function renderWildcardFolder(folder: FolderTree, path: string[] = []) {
                   nodeId={file.filepath}
                   label={file.filename}></TreeItem>
               ))
-          : renderWildcardFolder(folderContents, fullPath)}
+          : renderWildcardFolder(folderContents, registerNode, fullPath)}
       </TreeItem>
     );
   });
