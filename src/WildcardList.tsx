@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@emotion/react';
+import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import {
   Collapse,
   ListItem,
@@ -7,12 +8,11 @@ import {
   IconButton,
   createTheme,
 } from '@mui/material';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import { blue, red } from '@mui/material/colors';
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, useState, memo } from 'react';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 
 const theme = createTheme({
@@ -27,47 +27,38 @@ const theme = createTheme({
   },
 });
 
-export function WildcardList({
-  filename,
-  entries,
-}: {
-  filename: string;
-  entries: readonly string[];
-}) {
-  const [open, setOpen] = useState(false);
+export const WildcardList = memo(
+  ({ filename, entries }: { filename: string; entries: readonly string[] }) => {
+    const [open, setOpen] = useState(false);
 
-  const toggleOpen: MouseEventHandler = () => {
-    setOpen(!open);
-  };
+    const toggleOpen: MouseEventHandler = () => {
+      setOpen(!open);
+    };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Card variant="outlined" className="wildcard-file" key={filename}>
-        <CardHeader
-          title={WildcardHeaderTitle(filename, toggleOpen)}
-          className="wildcards-filename">
-          <Button variant="contained" onClick={toggleOpen}>
-            Toggle
-          </Button>
-          <IconButton aria-label="" onClick={toggleOpen}></IconButton>
-        </CardHeader>
-        <CardContent>
-          <Collapse in={open}>
-            <FixedSizeList
-              height={400}
-              width={'100%'}
-              itemSize={50}
-              itemCount={entries.length}
-              overscanCount={5}
-              itemData={entries}>
-              {renderWildcard}
-            </FixedSizeList>
-          </Collapse>
-        </CardContent>
-      </Card>
-    </ThemeProvider>
-  );
-}
+    return (
+      <ThemeProvider theme={theme}>
+        <Card variant="outlined" className="wildcard-file" key={filename}>
+          <CardHeader
+            title={WildcardHeaderTitle(filename, toggleOpen, open)}
+            className="wildcards-filename"></CardHeader>
+          <CardContent>
+            <Collapse in={open} mountOnEnter={true}>
+              <FixedSizeList
+                height={400}
+                width={'100%'}
+                itemSize={50}
+                itemCount={entries.length}
+                overscanCount={5}
+                itemData={entries}>
+                {renderWildcard}
+              </FixedSizeList>
+            </Collapse>
+          </CardContent>
+        </Card>
+      </ThemeProvider>
+    );
+  },
+);
 
 function renderWildcard(props: ListChildComponentProps) {
   const { data, index, style } = props;
@@ -81,13 +72,19 @@ function renderWildcard(props: ListChildComponentProps) {
   );
 }
 
-function WildcardHeaderTitle(filename: string, onClick: MouseEventHandler) {
+function WildcardHeaderTitle(
+  filename: string,
+  onClick: MouseEventHandler,
+  isOpen: boolean,
+) {
   return (
-    <h3>
-      <Button variant="contained" onClick={onClick} color="secondary">
-        Toggle
-      </Button>
-      <span>{filename}</span>
+    <h3 className="flex flex-row justify-start cursor-pointer">
+      <span className="flex-grow cursor-pointer" onClick={onClick}>
+        {filename}
+      </span>
+      <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
+        {isOpen ? <ExpandLess></ExpandLess> : <ExpandMore></ExpandMore>}
+      </IconButton>
     </h3>
   );
 }
