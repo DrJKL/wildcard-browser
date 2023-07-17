@@ -41,8 +41,8 @@ export const WildcardList = memo(
           <CardHeader
             title={WildcardHeaderTitle(filename, toggleOpen, open)}
             className="wildcards-filename"></CardHeader>
-          <CardContent>
-            <Collapse in={open} mountOnEnter={true}>
+          <Collapse in={open} mountOnEnter={true}>
+            <CardContent>
               <FixedSizeList
                 height={400}
                 width={'100%'}
@@ -52,8 +52,8 @@ export const WildcardList = memo(
                 itemData={entries}>
                 {renderWildcard}
               </FixedSizeList>
-            </Collapse>
-          </CardContent>
+            </CardContent>
+          </Collapse>
         </Card>
       </ThemeProvider>
     );
