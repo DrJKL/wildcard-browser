@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
+const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
   eager: true,
   as: 'raw',
 });
@@ -82,4 +82,3 @@ function buildWildcardFileTree() {
 }
 
 export const fileTree = buildWildcardFileTree();
-console.log('!!!', fileTree);
