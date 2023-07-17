@@ -1,11 +1,9 @@
 import { useMemo, useState } from 'react';
 import { WildcardList } from './WildcardList';
 import { wildcardCollection } from './lib/wildcards';
-import { Button, Pagination, TablePagination } from '@mui/material';
+import { AppBar, TablePagination, Toolbar } from '@mui/material';
 
 const App = () => {
-  const maxPage = Math.floor(wildcardCollection.length / 50);
-
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const wildcardsLocal = useMemo(
@@ -32,17 +30,18 @@ const App = () => {
 
   return (
     <>
-      <header className="header text-center">
-        <h1 className="text-4xl font-extrabold">Wildcard Browser</h1>
-        <TablePagination
-          className="w-full"
-          component={'div'}
-          count={wildcardCollection.length}
-          page={page}
-          onPageChange={handleChangePage}
-          rowsPerPage={rowsPerPage}
-          onRowsPerPageChange={handleChangeRowsPerPage}></TablePagination>
-      </header>
+      <AppBar className="header text-center" position="relative">
+        <Toolbar className="flex justify-between">
+          <h1 className="text-4xl font-extrabold">Wildcard Browser</h1>
+          <TablePagination
+            component={'div'}
+            count={wildcardCollection.length}
+            page={page}
+            onPageChange={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onRowsPerPageChange={handleChangeRowsPerPage}></TablePagination>
+        </Toolbar>
+      </AppBar>
 
       <main className="overflow-y-auto">
         {wildcardsLocal.map((wildcards) => (
