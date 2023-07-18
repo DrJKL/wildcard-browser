@@ -29,26 +29,20 @@ const theme = createTheme({
 });
 
 export interface WildcardListProps {
-  filename: string;
-  entries: readonly string[];
   wildcards: WildcardFile;
   search: string;
 }
 
-export function WildcardList({
-  filename,
-  entries,
-  wildcards,
-  search,
-}: WildcardListProps) {
+export function WildcardList({ wildcards, search }: WildcardListProps) {
+  const { filename } = wildcards;
+  const entries = wildcards.wildcardEntries;
   const [open, setOpen] = useState(false);
+  const [, updateState] = useState({});
+  const forceUpdate = useCallback(() => updateState({}), []);
 
   const toggleOpen: MouseEventHandler = () => {
     setOpen(!open);
   };
-
-  const [, updateState] = useState({});
-  const forceUpdate = useCallback(() => updateState({}), []);
 
   const matchesSearch =
     !!search && wildcards.filepath.toLowerCase().includes(search.toLowerCase());
@@ -112,7 +106,8 @@ function WildcardHeaderTitle({
         className={`flex-grow cursor-pointer ${
           matchesSearch ? 'text-blue-500' : ''
         }`}
-        onClick={onClick}>
+        onClick={onClick}
+        title={wildcards.filepath}>
         {wildcards.filename}
       </span>
       <span>{wildcards.getSelectedEntry()}</span>

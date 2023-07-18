@@ -100,8 +100,6 @@ const App = () => {
           <WildcardList
             search={search}
             key={wildcards.filepath}
-            filename={wildcards.filename}
-            entries={wildcards.wildcardEntries}
             wildcards={wildcards}
           />
         ))}
