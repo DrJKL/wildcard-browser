@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { DEFAULT_SETTINGS } from './Settings';
 
 const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
   eager: true,
@@ -22,6 +23,13 @@ export class WildcardFile {
 
   pathSegments() {
     return this.filepath.split(/[/\\]/).filter(Boolean);
+  }
+
+  toPlaceholder(settings = DEFAULT_SETTINGS) {
+    const { basePath, wildcardWrap } = settings;
+    return `${wildcardWrap}${this.filepath
+      .replace(new RegExp(`^${basePath}/`), '')
+      .replace(/\.[^.]+$/, '')}${wildcardWrap}`;
   }
 
   setRandomEntry() {

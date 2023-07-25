@@ -1,4 +1,3 @@
-import { ThemeProvider } from '@emotion/react';
 import { ExpandMore, ExpandLess, Shuffle } from '@mui/icons-material';
 import {
   Collapse,
@@ -6,27 +5,14 @@ import {
   ListItemButton,
   ListItemText,
   IconButton,
-  createTheme,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import { blue, red } from '@mui/material/colors';
-import { MouseEventHandler, useState, useCallback } from 'react';
+import { MouseEventHandler, useState, useCallback, useContext } from 'react';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 import { WildcardFile } from './lib/wildcards';
-
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: red[500],
-    },
-    secondary: {
-      main: blue[500],
-    },
-  },
-});
+import { WildcardSettingsContext } from './lib/Settings';
 
 export interface WildcardListProps {
   wildcards: WildcardFile;
@@ -39,6 +25,7 @@ export function WildcardList({ wildcards, search }: WildcardListProps) {
   const [open, setOpen] = useState(false);
   const [, updateState] = useState({});
   const forceUpdate = useCallback(() => updateState({}), []);
+  const settings = useContext(WildcardSettingsContext);
 
   const toggleOpen: MouseEventHandler = () => {
     setOpen(!open);
@@ -48,33 +35,34 @@ export function WildcardList({ wildcards, search }: WildcardListProps) {
     !!search && wildcards.filepath.toLowerCase().includes(search.toLowerCase());
 
   return (
-    <ThemeProvider theme={theme}>
-      <Card variant="outlined" className="wildcard-file" key={filename}>
-        <CardHeader
-          title={WildcardHeaderTitle({
-            wildcards,
-            matchesSearch,
-            onClick: toggleOpen,
-            isOpen: open,
-            forceUpdate,
-          })}
-          className={`wildcards-filename`}
-        />
-        <Collapse in={open} mountOnEnter={true}>
-          <CardContent>
-            <FixedSizeList
-              height={400}
-              width={'100%'}
-              itemSize={50}
-              itemCount={entries.length}
-              overscanCount={5}
-              itemData={{ entries, wildcards, forceUpdate }}>
-              {WildcardEntry}
-            </FixedSizeList>
-          </CardContent>
-        </Collapse>
-      </Card>
-    </ThemeProvider>
+    <Card variant="outlined" className="wildcard-file" key={filename}>
+      <CardHeader
+        title={WildcardHeaderTitle({
+          wildcards,
+          matchesSearch,
+          onClick: toggleOpen,
+          isOpen: open,
+          forceUpdate,
+        })}
+        className={`wildcards-filename`}
+      />
+      <Collapse in={open} mountOnEnter={true}>
+        <CardContent>
+          <div className="card-details">
+            <h3>{wildcards.toPlaceholder(settings)}</h3>
+          </div>
+          <FixedSizeList
+            height={400}
+            width={'100%'}
+            itemSize={50}
+            itemCount={entries.length}
+            overscanCount={5}
+            itemData={{ entries, wildcards, forceUpdate }}>
+            {WildcardEntry}
+          </FixedSizeList>
+        </CardContent>
+      </Collapse>
+    </Card>
   );
 }
 

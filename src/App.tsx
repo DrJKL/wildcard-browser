@@ -1,9 +1,10 @@
-import { Forest } from '@mui/icons-material';
+import { Forest, Settings } from '@mui/icons-material';
 import {
   AppBar,
   CssBaseline,
   Drawer,
   IconButton,
+  Input,
   TablePagination,
   Toolbar,
   Typography,
@@ -13,12 +14,21 @@ import { WildcardList } from './WildcardList';
 import { wildcardCollection } from './lib/wildcards';
 import { FolderTree } from './components/FolderTree';
 import { SearchBox } from './components/SearchBox';
+import {
+  DEFAULT_SETTINGS,
+  WildcardSettings,
+  WildcardSettingsContext,
+} from './lib/Settings';
+import { SettingsDialog } from './SettingsDialog';
 
 const App = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [search, setSearch] = useState('');
+  const [settings, updateSettings] =
+    useState<WildcardSettings>(DEFAULT_SETTINGS);
+  const [settingsOpen, openSettings] = useState(false);
   const wildcardsLocal = useMemo(
     () =>
       [...wildcardCollection].filter(
@@ -49,61 +59,81 @@ const App = () => {
     setSearch(event.target.value);
   };
 
+  const handleSettingsClick = () => {
+    openSettings(true);
+  };
+
+  const closeSettings = () => {
+    openSettings(false);
+  };
+
   return (
     <>
       <CssBaseline />
-      <AppBar
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        className="header text-center"
-        position="relative">
-        <Toolbar className="flex justify-between gap-4">
-          <IconButton aria-label="" onClick={toggleTree}>
-            <Forest />
-          </IconButton>
-          <Typography
-            variant="h4"
-            className="select-none text-4xl font-extrabold whitespace-nowrap flex-shrink-0">
-            Wildcard Browser
-          </Typography>
-          <SearchBox onChange={searchUpdate} />
-          <TablePagination
-            className="flex-grow flex-shrink-0"
-            component={'div'}
-            count={wildcardCollection.length}
-            page={page}
-            onPageChange={handleChangePage}
-            rowsPerPage={rowsPerPage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
+      <WildcardSettingsContext.Provider value={settings}>
+        <AppBar
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          className="header text-center"
+          position="relative">
+          <Toolbar className="flex justify-between gap-4">
+            <IconButton aria-label="" onClick={toggleTree}>
+              <Forest />
+            </IconButton>
+            <Typography
+              variant="h4"
+              className="select-none text-4xl font-extrabold whitespace-nowrap flex-shrink-0">
+              Wildcard Browser
+            </Typography>
+            <SearchBox onChange={searchUpdate} />
+
+            <TablePagination
+              className="flex-grow flex-shrink-0"
+              component={'div'}
+              count={wildcardCollection.length}
+              page={page}
+              onPageChange={handleChangePage}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+            <IconButton onClick={handleSettingsClick}>
+              <Settings />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
             width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        anchor="left"
-        variant="temporary"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        ModalProps={{ keepMounted: true }}>
-        <Toolbar />
-        <h2 className="w-full text-center">🌳</h2>
-        <FolderTree />
-      </Drawer>
-      <main className="overflow-y-auto">
-        {wildcardsLocal.map((wildcards) => (
-          <WildcardList
-            search={search}
-            key={wildcards.filepath}
-            wildcards={wildcards}
-          />
-        ))}
-      </main>
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+            },
+          }}
+          anchor="left"
+          variant="temporary"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          ModalProps={{ keepMounted: true }}>
+          <Toolbar />
+          <h2 className="w-full text-center">🌳</h2>
+          <FolderTree />
+        </Drawer>
+        <main className="overflow-y-auto">
+          {wildcardsLocal.map((wildcards) => (
+            <WildcardList
+              search={search}
+              key={wildcards.filepath}
+              wildcards={wildcards}
+            />
+          ))}
+        </main>
+        <SettingsDialog
+          open={settingsOpen}
+          onClose={closeSettings}
+          settings={settings}
+          updateSettings={updateSettings}
+        />
+      </WildcardSettingsContext.Provider>
     </>
   );
 };
