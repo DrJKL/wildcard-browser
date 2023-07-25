@@ -87,8 +87,8 @@ function WildcardHeaderTitle({
   };
   return (
     <h3 className="flex flex-row justify-start cursor-pointer">
-      <IconButton onClick={shuffleClick}>
-        <Shuffle />
+      <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
+        {isOpen ? <ExpandLess /> : <ExpandMore />}
       </IconButton>
       <span
         className={`flex-grow cursor-pointer ${
@@ -99,8 +99,8 @@ function WildcardHeaderTitle({
         {wildcards.filename}
       </span>
       <span>{wildcards.getSelectedEntry()}</span>
-      <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
-        {isOpen ? <ExpandLess /> : <ExpandMore />}
+      <IconButton onClick={shuffleClick}>
+        <Shuffle />
       </IconButton>
     </h3>
   );
