@@ -1,10 +1,16 @@
-import { ExpandMore, ExpandLess, Shuffle } from '@mui/icons-material';
+import {
+  ExpandMore,
+  ExpandLess,
+  Shuffle,
+  ContentCopy,
+} from '@mui/icons-material';
 import {
   Collapse,
   ListItem,
   ListItemButton,
   ListItemText,
   IconButton,
+  Tooltip,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -14,6 +20,12 @@ import { FixedSizeList, ListChildComponentProps } from 'react-window';
 import { WildcardFile } from './lib/wildcards';
 import { WildcardSettingsContext } from './lib/Settings';
 
+async function copyToClipboard(text: string) {
+  if ('clipboard' in navigator) {
+    return await navigator.clipboard.writeText(text);
+  }
+}
+
 export interface WildcardListProps {
   wildcards: WildcardFile;
   search: string;
@@ -22,35 +34,35 @@ export interface WildcardListProps {
 export function WildcardList({ wildcards, search }: WildcardListProps) {
   const { filename } = wildcards;
   const entries = wildcards.wildcardEntries;
-  const [open, setOpen] = useState(false);
+  const [listOpen, setListOpen] = useState(false);
   const [, updateState] = useState({});
-  const forceUpdate = useCallback(() => updateState({}), []);
-  const settings = useContext(WildcardSettingsContext);
 
-  const toggleOpen: MouseEventHandler = () => {
-    setOpen(!open);
+  const forceUpdate = useCallback(() => updateState({}), []);
+  const toggleListOpen: MouseEventHandler = () => {
+    setListOpen(!listOpen);
   };
 
   const matchesSearch =
     !!search && wildcards.filepath.toLowerCase().includes(search.toLowerCase());
 
   return (
-    <Card variant="outlined" className="wildcard-file" key={filename}>
+    <Card
+      classes="mt-0.5"
+      variant="outlined"
+      className="wildcard-file"
+      key={filename}>
       <CardHeader
         title={WildcardHeaderTitle({
           wildcards,
           matchesSearch,
-          onClick: toggleOpen,
-          isOpen: open,
+          onClick: toggleListOpen,
+          isOpen: listOpen,
           forceUpdate,
         })}
         className={`wildcards-filename`}
       />
-      <Collapse in={open} mountOnEnter={true}>
+      <Collapse in={listOpen} mountOnEnter={true}>
         <CardContent>
-          <div className="card-details">
-            <h3>{wildcards.toPlaceholder(settings)}</h3>
-          </div>
           <FixedSizeList
             height={400}
             width={'100%'}
@@ -81,10 +93,31 @@ function WildcardHeaderTitle({
   forceUpdate,
   matchesSearch,
 }: WildcardHeaderTitleProps) {
+  const [showCopied, setShowCopied] = useState(false);
+  const settings = useContext(WildcardSettingsContext);
+
+  const handlePlaceholderClick: MouseEventHandler = async (
+    event: React.MouseEvent<HTMLHeadingElement>,
+  ) => {
+    const node = event.target;
+    if (window.getSelection && node && node instanceof Node) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range?.selectNodeContents(node);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+    await copyToClipboard(wildcards.toPlaceholder());
+    setShowCopied(true);
+  };
+  const handleCopiedClose = () => {
+    setShowCopied(false);
+  };
   const shuffleClick = () => {
     wildcards.setRandomEntry();
     forceUpdate();
   };
+
   return (
     <h3 className="flex flex-row justify-start cursor-pointer">
       <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
@@ -102,6 +135,17 @@ function WildcardHeaderTitle({
       <IconButton onClick={shuffleClick}>
         <Shuffle />
       </IconButton>
+      <Tooltip
+        leaveDelay={200}
+        title={`${wildcards.toPlaceholder(settings)}`}
+        open={showCopied}
+        onClose={handleCopiedClose}
+        placement="left"
+        arrow>
+        <IconButton onClick={handlePlaceholderClick}>
+          <ContentCopy />
+        </IconButton>
+      </Tooltip>
     </h3>
   );
 }
