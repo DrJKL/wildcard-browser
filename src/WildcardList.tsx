@@ -45,13 +45,49 @@ export function WildcardList({ wildcards, search }: WildcardListProps) {
   const matchesSearch =
     !!search && wildcards.filepath.toLowerCase().includes(search.toLowerCase());
 
+  const [showCopied, setShowCopied] = useState(false);
+  const settings = useContext(WildcardSettingsContext);
+
+  const handlePlaceholderClick: MouseEventHandler = async (
+    event: React.MouseEvent<HTMLHeadingElement>,
+  ) => {
+    const node = event.target;
+    if (window.getSelection && node && node instanceof Node) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range?.selectNodeContents(node);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+    await copyToClipboard(wildcards.toPlaceholder());
+    setShowCopied(true);
+  };
+  const handleCopiedClose = () => {
+    setShowCopied(false);
+  };
+  const shuffleClick = () => {
+    wildcards.setRandomEntry();
+    forceUpdate();
+  };
   return (
-    <Card
-      classes="mt-0.5"
-      variant="outlined"
-      className="wildcard-file"
-      key={filename}>
+    <Card variant="outlined" className="mt-1 mx-1" key={filename}>
       <CardHeader
+        sx={{
+          '& .MuiCardHeader-content': {
+            minWidth: '0',
+          },
+          '& .MuiCardHeader-action': {
+            alignSelf: 'center',
+          },
+        }}
+        avatar={
+          <IconButton
+            aria-label=""
+            className="flex-shrink"
+            onClick={toggleListOpen}>
+            {listOpen ? <ExpandLess /> : <ExpandMore />}
+          </IconButton>
+        }
         title={WildcardHeaderTitle({
           wildcards,
           matchesSearch,
@@ -59,6 +95,31 @@ export function WildcardList({ wildcards, search }: WildcardListProps) {
           isOpen: listOpen,
           forceUpdate,
         })}
+        subheader={
+          <span className="truncate">
+            {wildcards.getSelectedEntry() || '\u00A0'}
+          </span>
+        }
+        action={
+          <>
+            <IconButton className="flex-auto" onClick={shuffleClick}>
+              <Shuffle />
+            </IconButton>
+            <Tooltip
+              leaveDelay={200}
+              title={`${wildcards.toPlaceholder(settings)}`}
+              open={showCopied}
+              onClose={handleCopiedClose}
+              placement="left"
+              arrow>
+              <IconButton
+                className="flex-auto"
+                onClick={handlePlaceholderClick}>
+                <ContentCopy />
+              </IconButton>
+            </Tooltip>
+          </>
+        }
         className={`wildcards-filename`}
       />
       <Collapse in={listOpen} mountOnEnter={true}>
@@ -89,64 +150,19 @@ interface WildcardHeaderTitleProps {
 function WildcardHeaderTitle({
   wildcards,
   onClick,
-  isOpen,
-  forceUpdate,
+  // isOpen,
+  // forceUpdate,
   matchesSearch,
 }: WildcardHeaderTitleProps) {
-  const [showCopied, setShowCopied] = useState(false);
-  const settings = useContext(WildcardSettingsContext);
-
-  const handlePlaceholderClick: MouseEventHandler = async (
-    event: React.MouseEvent<HTMLHeadingElement>,
-  ) => {
-    const node = event.target;
-    if (window.getSelection && node && node instanceof Node) {
-      const selection = window.getSelection();
-      const range = document.createRange();
-      range?.selectNodeContents(node);
-      selection?.removeAllRanges();
-      selection?.addRange(range);
-    }
-    await copyToClipboard(wildcards.toPlaceholder());
-    setShowCopied(true);
-  };
-  const handleCopiedClose = () => {
-    setShowCopied(false);
-  };
-  const shuffleClick = () => {
-    wildcards.setRandomEntry();
-    forceUpdate();
-  };
-
   return (
-    <h3 className="flex flex-row justify-start cursor-pointer">
-      <IconButton aria-label="" className="flex-shrink" onClick={onClick}>
-        {isOpen ? <ExpandLess /> : <ExpandMore />}
-      </IconButton>
-      <span
-        className={`flex-grow cursor-pointer ${
-          matchesSearch ? 'text-blue-500' : ''
-        }`}
-        onClick={onClick}
-        title={wildcards.filepath}>
-        {wildcards.filename}
-      </span>
-      <span>{wildcards.getSelectedEntry()}</span>
-      <IconButton onClick={shuffleClick}>
-        <Shuffle />
-      </IconButton>
-      <Tooltip
-        leaveDelay={200}
-        title={`${wildcards.toPlaceholder(settings)}`}
-        open={showCopied}
-        onClose={handleCopiedClose}
-        placement="left"
-        arrow>
-        <IconButton onClick={handlePlaceholderClick}>
-          <ContentCopy />
-        </IconButton>
-      </Tooltip>
-    </h3>
+    <span
+      className={`flex-auto cursor-pointer text-3xl  ${
+        matchesSearch ? 'text-blue-500' : ''
+      }`}
+      onClick={onClick}
+      title={wildcards.filepath}>
+      {wildcards.filename}
+    </span>
   );
 }
 

@@ -4,12 +4,11 @@ import {
   CssBaseline,
   Drawer,
   IconButton,
-  Input,
   TablePagination,
   Toolbar,
   Typography,
 } from '@mui/material';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { WildcardList } from './WildcardList';
 import { wildcardCollection } from './lib/wildcards';
 import { FolderTree } from './components/FolderTree';
@@ -20,15 +19,27 @@ import {
   WildcardSettingsContext,
 } from './lib/Settings';
 import { SettingsDialog } from './SettingsDialog';
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 
 const App = () => {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(50);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const initialPage = Number(searchParams.get('page') ?? 0);
+  const initialPageSize = Number(searchParams.get('pageSize') ?? 50);
+
+  const [page, setPage] = useState(initialPage);
+  const [rowsPerPage, setRowsPerPage] = useState(initialPageSize);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [search, setSearch] = useState('');
   const [settings, updateSettings] =
     useState<WildcardSettings>(DEFAULT_SETTINGS);
   const [settingsOpen, openSettings] = useState(false);
+
   const wildcardsLocal = useMemo(
     () =>
       [...wildcardCollection].filter(
@@ -36,6 +47,14 @@ const App = () => {
       ),
     [page, rowsPerPage],
   );
+  useEffect(() => {
+    navigate({
+      search: `?${createSearchParams({
+        page: `${page}`,
+        pageSize: `${rowsPerPage}`,
+      })}`,
+    });
+  }, [page, rowsPerPage]);
 
   const handleChangePage = (
     _: React.MouseEvent<HTMLButtonElement> | null,
