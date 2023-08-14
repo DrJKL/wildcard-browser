@@ -80,7 +80,7 @@ function buildWildcardFileTree() {
     segments.splice(segments.length - 2, 2);
     const subtree = segments.reduceRight((acc, cur) => ({ [cur]: acc }), temp);
 
-    folderTree = _.mergeWith(subtree, folderTree, joiningArrays);
+    folderTree = _.mergeWith(folderTree, subtree, joiningArrays);
   }
   return folderTree;
 }
