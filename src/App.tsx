@@ -54,7 +54,7 @@ const App = () => {
         pageSize: `${rowsPerPage}`,
       })}`,
     });
-  }, [page, rowsPerPage]);
+  }, [page, rowsPerPage, navigate]);
 
   const handleChangePage = (
     _: React.MouseEvent<HTMLButtonElement> | null,
@@ -134,7 +134,6 @@ const App = () => {
           onClose={() => setDrawerOpen(false)}
           ModalProps={{ keepMounted: true }}>
           <Toolbar />
-          <h2 className="w-full text-center">🌳</h2>
           <FolderTree />
         </Drawer>
         <main className="overflow-y-auto">

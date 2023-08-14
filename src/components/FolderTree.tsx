@@ -26,7 +26,7 @@ export function FolderTree() {
 
   return (
     <>
-      <Box sx={{ mb: 1 }}>
+      <Box sx={{ mb: 1, justifyContent: 'space-around', display: 'flex' }}>
         <Button onClick={handleExpandClick}>
           {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
         </Button>
@@ -58,15 +58,13 @@ function renderWildcardFolder(
     return (
       <TreeItem key={fullPathName} nodeId={fullPathName} label={folderName}>
         {Array.isArray(folderContents)
-          ? folderContents
-              .filter((_, i) => i < 50)
-              .map((file) => (
-                <TreeItem
-                  key={file.filepath}
-                  nodeId={file.filepath}
-                  label={file.filename}
-                />
-              ))
+          ? folderContents.map(([file, index]) => (
+              <TreeItem
+                key={`${index}: ${file.filepath}`}
+                nodeId={file.filepath}
+                label={`${index}: ${file.filename}`}
+              />
+            ))
           : renderWildcardFolder(folderContents, registerNode, fullPath)}
       </TreeItem>
     );
