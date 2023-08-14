@@ -4,7 +4,7 @@ import { Box, Button } from '@mui/material';
 import { useState } from 'react';
 import { FolderTree, fileTree } from '../lib/wildcards';
 
-export function FolderTree() {
+export function FolderTreeDisplay() {
   const [expanded, setExpanded] = useState<string[]>([
     ...Object.keys(fileTree),
   ]);

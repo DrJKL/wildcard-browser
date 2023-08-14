@@ -8,10 +8,10 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { WildcardList } from './WildcardList';
 import { wildcardCollection } from './lib/wildcards';
-import { FolderTree } from './components/FolderTree';
+import { FolderTreeDisplay } from './components/FolderTree';
 import { SearchBox } from './components/SearchBox';
 import {
   DEFAULT_SETTINGS,
@@ -25,7 +25,7 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 
-const App = () => {
+function App() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -40,12 +40,14 @@ const App = () => {
     useState<WildcardSettings>(DEFAULT_SETTINGS);
   const [settingsOpen, openSettings] = useState(false);
 
-  const wildcardsLocal = useMemo(
-    () =>
-      [...wildcardCollection].filter(
-        (_, idx) => idx >= page * rowsPerPage && idx < (page + 1) * rowsPerPage,
-      ),
-    [page, rowsPerPage],
+  const filteredWildcards = [...wildcardCollection].filter(
+    (wildcards) =>
+      !search ||
+      wildcards.filepath.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  const wildcardsLocal = filteredWildcards.filter(
+    (_, idx) => idx >= page * rowsPerPage && idx < (page + 1) * rowsPerPage,
   );
   useEffect(() => {
     navigate({
@@ -108,7 +110,7 @@ const App = () => {
             <TablePagination
               className="flex-grow flex-shrink-0"
               component={'div'}
-              count={wildcardCollection.length}
+              count={filteredWildcards.length}
               page={page}
               onPageChange={handleChangePage}
               rowsPerPage={rowsPerPage}
@@ -134,7 +136,7 @@ const App = () => {
           onClose={() => setDrawerOpen(false)}
           ModalProps={{ keepMounted: true }}>
           <Toolbar />
-          <FolderTree />
+          <FolderTreeDisplay />
         </Drawer>
         <main className="overflow-y-auto">
           {wildcardsLocal.map((wildcards) => (
@@ -154,6 +156,6 @@ const App = () => {
       </WildcardSettingsContext.Provider>
     </>
   );
-};
+}
 
 export default App;
