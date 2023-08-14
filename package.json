@@ -33,7 +33,7 @@
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
-    "million": "^2.5.0",
+    "million": "^2.5.13",
     "postcss-load-config": "^4.0.1",
     "react": "^18.2.0",
     "react-arborist": "^3.1.0",
@@ -79,7 +79,7 @@
     "tailwindcss": "^3.3.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
-    "vite": "^4.4.4",
+    "vite": "^4.4.9",
     "vitest": "^0.33.0"
   }
 }
