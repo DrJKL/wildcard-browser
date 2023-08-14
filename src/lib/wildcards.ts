@@ -7,19 +7,15 @@ const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
 });
 
 export class WildcardFile {
-  readonly wildcardEntries: readonly string[] = this.filecontents
-    .split('\n')
-    .filter(Boolean);
-  readonly filename: string = this.filepath
-    .replace(/^.*\//, '')
-    .replace(/\.txt$/, '');
+  readonly wildcardEntries: readonly string[];
+  readonly filename: string;
 
   private selectedEntry = -1;
 
-  constructor(
-    readonly filepath: string,
-    private readonly filecontents: string,
-  ) {}
+  constructor(readonly filepath: string, filecontents: string) {
+    this.filename = this.filepath.replace(/^.*\//, '').replace(/\.txt$/, '');
+    this.wildcardEntries = filecontents.split('\n').filter(Boolean);
+  }
 
   pathSegments() {
     return this.filepath.split(/[/\\]/).filter(Boolean);

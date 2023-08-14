@@ -58,7 +58,7 @@ function renderWildcardFolder(
     return (
       <TreeItem key={fullPathName} nodeId={fullPathName} label={folderName}>
         {Array.isArray(folderContents)
-          ? folderContents.map(([file, index]) => (
+          ? folderContents.map((file, index) => (
               <TreeItem
                 key={`${index}: ${file.filepath}`}
                 nodeId={file.filepath}
