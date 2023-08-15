@@ -35,11 +35,13 @@ function App() {
 
   const [page, setPage] = useState(initialPage);
   const [rowsPerPage, setRowsPerPage] = useState(initialPageSize);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [search, setSearch] = useState(initialSearch);
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [settingsOpen, openSettings] = useState(false);
+
   const [settings, updateSettings] =
     useState<WildcardSettings>(DEFAULT_SETTINGS);
-  const [settingsOpen, openSettings] = useState(false);
 
   const filteredWildcards = [...wildcardCollection].filter(
     (wildcards) =>
