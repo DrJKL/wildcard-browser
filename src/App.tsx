@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { WildcardList } from './WildcardList';
-import { WildcardFile, wildcardCollection } from './lib/wildcards';
+import { WildcardFile, wildcardCollection$ } from './lib/wildcards';
 import { FolderTreeDisplay } from './components/FolderTree';
 import { SearchBox } from './components/SearchBox';
 import {
@@ -43,7 +43,19 @@ function App() {
   const [settings, updateSettings] =
     useState<WildcardSettings>(DEFAULT_SETTINGS);
 
-  const filteredWildcards = [...wildcardCollection].filter(
+  const [wildcardCollection, setWildcardCollection] = useState<WildcardFile[]>(
+    [],
+  );
+  useEffect(() => {
+    const sub = wildcardCollection$.subscribe({
+      next: (wildcardFiles) => {
+        setWildcardCollection(wildcardFiles);
+      },
+    });
+    return () => sub.unsubscribe();
+  }, []);
+
+  const filteredWildcards = wildcardCollection.filter(
     (wildcards) =>
       !search ||
       wildcards.filepath.toLowerCase().includes(search.toLowerCase()),

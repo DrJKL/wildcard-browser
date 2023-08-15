@@ -1,4 +1,5 @@
 import { DEFAULT_SETTINGS } from './Settings';
+import { from, map, scan } from 'rxjs';
 
 export interface FolderTree {
   childFolders: { [key: string]: FolderTree };
@@ -53,18 +54,19 @@ export class WildcardFile {
   }
 }
 
-function buildWildcardFileTree() {
-  const folderTree: FolderTree = {
+function emptyFolderTree(): FolderTree {
+  return {
     childFolders: {},
     childFiles: [],
   };
+}
+
+function buildWildcardFileTree(wildcardCollection: WildcardFile[]): FolderTree {
+  const folderTree: FolderTree = emptyFolderTree();
   for (const file of wildcardCollection) {
     let cur = folderTree;
     for (const [idx, segment] of file.pathSegments.entries()) {
-      const nextTree = cur.childFolders[segment] ?? {
-        childFolders: {},
-        childFiles: [],
-      };
+      const nextTree = cur.childFolders[segment] ?? emptyFolderTree();
       cur.childFolders[segment] = nextTree;
       cur = nextTree;
       if (idx === file.pathSegments.length - 1) {
@@ -80,8 +82,9 @@ const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
   as: 'raw',
 });
 
-export const wildcardCollection = Object.entries(wildcardFiles).map(
-  ([filepath, filecontents]) => new WildcardFile(filepath, filecontents),
+export const wildcardCollection$ = from(Object.entries(wildcardFiles)).pipe(
+  map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents)),
+  scan<WildcardFile, WildcardFile[]>((acc, cur) => [...acc, cur], []),
 );
 
-export const fileTree = buildWildcardFileTree();
+export const fileTree$ = wildcardCollection$.pipe(map(buildWildcardFileTree));

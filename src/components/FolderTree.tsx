@@ -1,17 +1,27 @@
 import { Article, ChevronRight, ExpandMore } from '@mui/icons-material';
 import { TreeItem, TreeView } from '@mui/lab';
 import { Box, Button, Tooltip } from '@mui/material';
-import { useState } from 'react';
-import { FolderTree, WildcardFile, fileTree } from '../lib/wildcards';
+import { useEffect, useState } from 'react';
+import { FolderTree, WildcardFile, fileTree$ } from '../lib/wildcards';
 
 interface FolderTreeDisplayProps {
   onLeafClick: (entry: WildcardFile) => void;
 }
 
 export function FolderTreeDisplay({ onLeafClick }: FolderTreeDisplayProps) {
+  const [fileTree, setFileTree] = useState<FolderTree | null>(null);
   const [expanded, setExpanded] = useState<string[]>(() => [
-    ...Object.keys(fileTree.childFolders),
+    ...Object.keys(fileTree?.childFolders ?? {}),
   ]);
+
+  useEffect(() => {
+    const sub = fileTree$.subscribe({
+      next: (fileTree) => {
+        setFileTree(fileTree);
+      },
+    });
+    return () => sub.unsubscribe();
+  }, []);
 
   const nodeIds = new Set<string>();
   const registerNode = (nodeId: string) => {
@@ -40,7 +50,7 @@ export function FolderTreeDisplay({ onLeafClick }: FolderTreeDisplayProps) {
         defaultExpandIcon={<ChevronRight />}
         expanded={expanded}
         onNodeToggle={handleToggle}>
-        {renderWildcardFolder(fileTree, registerNode, onLeafClick)}
+        {fileTree && renderWildcardFolder(fileTree, registerNode, onLeafClick)}
       </TreeView>
     </>
   );
