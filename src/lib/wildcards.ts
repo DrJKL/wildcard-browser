@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { DEFAULT_SETTINGS } from './Settings';
 
 const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
@@ -7,18 +6,16 @@ const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
 });
 
 export class WildcardFile {
+  readonly pathSegments: readonly string[];
   readonly wildcardEntries: readonly string[];
   readonly filename: string;
 
   private selectedEntry = -1;
 
   constructor(readonly filepath: string, filecontents: string) {
-    this.filename = this.filepath.replace(/^.*\//, '').replace(/\.txt$/, '');
+    this.filename = this.filepath.replace(/^.*\//, '');
     this.wildcardEntries = filecontents.split('\n').filter(Boolean);
-  }
-
-  pathSegments() {
-    return this.filepath.split(/[/\\]/).filter(Boolean);
+    this.pathSegments = this.filepath.split(/[/\\]/).filter(Boolean);
   }
 
   toPlaceholder(settings = DEFAULT_SETTINGS) {
@@ -60,27 +57,30 @@ export const wildcardCollection: readonly WildcardFile[] = Object.entries(
   wildcardFiles,
 ).map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents));
 
-function joiningArrays(objValue: unknown, srcValue: unknown) {
-  if (_.isArray(objValue)) {
-    return objValue.concat(srcValue);
-  }
-}
-
 export interface FolderTree {
-  [key: string]: FolderTree | WildcardFile[];
+  childFolders: { [key: string]: FolderTree };
+  childFiles: WildcardFile[];
 }
 
 function buildWildcardFileTree() {
-  let folderTree: FolderTree = {};
+  const folderTree: FolderTree = {
+    childFolders: {},
+    childFiles: [],
+  };
   for (const file of wildcardCollection) {
-    const segments = file.pathSegments();
-    const temp: FolderTree = {
-      [segments[segments.length - 2]]: [file],
-    };
-    segments.splice(segments.length - 2, 2);
-    const subtree = segments.reduceRight((acc, cur) => ({ [cur]: acc }), temp);
-
-    folderTree = _.mergeWith(folderTree, subtree, joiningArrays);
+    let cur = folderTree;
+    for (const [idx, segment] of file.pathSegments.entries()) {
+      const nextTree = cur.childFolders[segment] ?? {
+        childFolders: {},
+        childFiles: [],
+      };
+      cur.childFolders[segment] = nextTree;
+      cur = nextTree;
+      if (idx === file.pathSegments.length - 1) {
+        console.log('!!!', idx, segment);
+        nextTree.childFiles.push(file);
+      }
+    }
   }
   return folderTree;
 }

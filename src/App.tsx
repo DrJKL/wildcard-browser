@@ -8,9 +8,9 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { WildcardList } from './WildcardList';
-import { wildcardCollection } from './lib/wildcards';
+import { WildcardFile, wildcardCollection } from './lib/wildcards';
 import { FolderTreeDisplay } from './components/FolderTree';
 import { SearchBox } from './components/SearchBox';
 import {
@@ -24,13 +24,14 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
+import { debounce } from 'lodash';
 
 function App() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  const initialPage = Number(searchParams.get('page') ?? 0);
-  const initialPageSize = Number(searchParams.get('pageSize') ?? 50);
+  const initialPage = () => Number(searchParams.get('page') ?? 0);
+  const initialPageSize = () => Number(searchParams.get('pageSize') ?? 50);
 
   const [page, setPage] = useState(initialPage);
   const [rowsPerPage, setRowsPerPage] = useState(initialPageSize);
@@ -46,9 +47,18 @@ function App() {
       wildcards.filepath.toLowerCase().includes(search.toLowerCase()),
   );
 
+  const maxPages = Math.floor(filteredWildcards.length / rowsPerPage);
+
   const wildcardsLocal = filteredWildcards.filter(
     (_, idx) => idx >= page * rowsPerPage && idx < (page + 1) * rowsPerPage,
   );
+
+  useEffect(() => {
+    if (page > maxPages) {
+      setPage(maxPages);
+    }
+  }, [page, maxPages, search]);
+
   useEffect(() => {
     navigate({
       search: `?${createSearchParams({
@@ -56,7 +66,7 @@ function App() {
         pageSize: `${rowsPerPage}`,
       })}`,
     });
-  }, [page, rowsPerPage, navigate]);
+  }, [page, rowsPerPage, navigate, maxPages]);
 
   const handleChangePage = (
     _: React.MouseEvent<HTMLButtonElement> | null,
@@ -76,9 +86,13 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const searchUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
+  const searchUpdate = useMemo(
+    () =>
+      debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value);
+      }, 300),
+    [],
+  );
 
   const handleSettingsClick = () => {
     openSettings(true);
@@ -136,7 +150,11 @@ function App() {
           onClose={() => setDrawerOpen(false)}
           ModalProps={{ keepMounted: true }}>
           <Toolbar />
-          <FolderTreeDisplay />
+          <FolderTreeDisplay
+            onLeafClick={(entry: WildcardFile) => {
+              // console.log(entry);
+            }}
+          />
         </Drawer>
         <main className="overflow-y-auto">
           {wildcardsLocal.map((wildcards) => (

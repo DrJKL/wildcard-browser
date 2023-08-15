@@ -1,12 +1,16 @@
-import { ChevronRight, ExpandMore } from '@mui/icons-material';
+import { Article, ChevronRight, ExpandMore } from '@mui/icons-material';
 import { TreeItem, TreeView } from '@mui/lab';
-import { Box, Button } from '@mui/material';
+import { Box, Button, Tooltip } from '@mui/material';
 import { useState } from 'react';
-import { FolderTree, fileTree } from '../lib/wildcards';
+import { FolderTree, WildcardFile, fileTree } from '../lib/wildcards';
 
-export function FolderTreeDisplay() {
-  const [expanded, setExpanded] = useState<string[]>([
-    ...Object.keys(fileTree),
+interface FolderTreeDisplayProps {
+  onLeafClick: (entry: WildcardFile) => void;
+}
+
+export function FolderTreeDisplay({ onLeafClick }: FolderTreeDisplayProps) {
+  const [expanded, setExpanded] = useState<string[]>(() => [
+    ...Object.keys(fileTree.childFolders),
   ]);
 
   const nodeIds = new Set<string>();
@@ -36,7 +40,7 @@ export function FolderTreeDisplay() {
         defaultExpandIcon={<ChevronRight />}
         expanded={expanded}
         onNodeToggle={handleToggle}>
-        {renderWildcardFolder(fileTree, registerNode)}
+        {renderWildcardFolder(fileTree, registerNode, onLeafClick)}
       </TreeView>
     </>
   );
@@ -44,29 +48,56 @@ export function FolderTreeDisplay() {
 function renderWildcardFolder(
   folder: FolderTree,
   registerNode: (id: string) => void,
+  onLeafClick: (entry: WildcardFile) => void,
   path: string[] = [],
 ) {
   if (path.length > 100) {
     throw new Error('Too Deep');
   }
 
-  return Object.entries(folder).map(([folderName, folderContents]) => {
+  return Object.entries(folder.childFolders).map(([folderName, subTree]) => {
     const fullPath = [...path, folderName];
     const fullPathName = fullPath.join('/');
     registerNode(fullPathName);
 
+    const prunedTxt = folderName.replace(/\.txt$/, '');
+
+    const entry = subTree.childFiles[0];
+
+    const tooltipTitle = entry && (
+      <span className="whitespace-pre-line">
+        {subTree.childFiles[0]?.wildcardEntries.join('\n')}
+      </span>
+    );
+
+    const endIcon = entry && (
+      <Tooltip
+        title={tooltipTitle}
+        PopperProps={{
+          sx: {
+            '& .MuiTooltip-tooltip': {
+              maxHeight: '10rem',
+              maxWidth: 'none',
+              minWidth: '6rem',
+              overflowY: 'auto',
+            },
+          },
+        }}>
+        <Article />
+      </Tooltip>
+    );
+
     return (
-      <TreeItem key={fullPathName} nodeId={fullPathName} label={folderName}>
-        {Array.isArray(folderContents)
-          ? folderContents.map((file, index) => (
-              <TreeItem
-                key={`${index}: ${file.filepath}`}
-                nodeId={file.filepath}
-                label={`${index}: ${file.filename}`}
-              />
-            ))
-          : renderWildcardFolder(folderContents, registerNode, fullPath)}
-      </TreeItem>
+      subTree && (
+        <TreeItem
+          key={fullPathName}
+          nodeId={fullPathName}
+          label={prunedTxt}
+          icon={endIcon}
+          onDoubleClick={() => entry && onLeafClick(entry)}>
+          {renderWildcardFolder(subTree, registerNode, onLeafClick, fullPath)}
+        </TreeItem>
+      )
     );
   });
 }
