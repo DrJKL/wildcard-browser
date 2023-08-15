@@ -38,9 +38,6 @@ dependencies:
   '@types/react-window':
     specifier: ^1.8.5
     version: 1.8.5
-  '@types/sort-by':
-    specifier: ^1.2.0
-    version: 1.2.0
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -95,9 +92,6 @@ dependencies:
   simple-update-notifier:
     specifier: ^2.0.0
     version: 2.0.0
-  sort-by:
-    specifier: ^1.2.0
-    version: 1.2.0
   use-immer:
     specifier: ^0.9.0
     version: 0.9.0(immer@10.0.2)(react@18.2.0)
@@ -4312,10 +4306,6 @@ packages:
       '@types/node': 20.5.0
     dev: true
 
-  /@types/sort-by@1.2.0:
-    resolution: {integrity: sha512-apuh0Itbhv/JUIHVYkeUGPiAwUen0gAFyMHBYaCqpthcq20tsLT8Qs9yMntk9jMG85CoZp3ze2Sv+BhuKhP1gw==}
-    dev: false
-
   /@types/unist@2.0.7:
     resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
     dev: true
@@ -7545,11 +7535,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /object-path@0.6.0:
-    resolution: {integrity: sha512-fxrwsCFi3/p+LeLOAwo/wyRMODZxdGBtUlWRzsEpsUVrisZbEfZ21arxLGfaWfcnqb8oHPNihIb4XPE8CQPN5A==}
-    engines: {node: '>=0.8.0'}
-    dev: false
-
   /object.assign@4.1.4:
     resolution: {integrity: sha512-1mxKf0e58bvyjSCtKYY4sRe9itRk3PJpquJOjeIkz885CczcI4IvJJDLPS72oowuSh+pBxUFROpX+TU++hxhZQ==}
     engines: {node: '>= 0.4'}
@@ -8699,12 +8684,6 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
     dev: true
-
-  /sort-by@1.2.0:
-    resolution: {integrity: sha512-aRyW65r3xMnf4nxJRluCg0H/woJpksU1dQxRtXYzau30sNBOmf5HACpDd9MZDhKh7ALQ5FgSOfMPwZEtUmMqcg==}
-    dependencies:
-      object-path: 0.6.0
-    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
