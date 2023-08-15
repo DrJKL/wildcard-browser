@@ -112,7 +112,7 @@ function App() {
           sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
           className="header text-center"
           position="relative">
-          <Toolbar className="flex justify-between gap-4">
+          <Toolbar className="flex justify-between gap-4 flex-wrap md:flex-nowrap">
             <IconButton aria-label="" onClick={toggleTree}>
               <Forest />
             </IconButton>
@@ -131,6 +131,9 @@ function App() {
               onPageChange={handleChangePage}
               rowsPerPage={rowsPerPage}
               onRowsPerPageChange={handleChangeRowsPerPage}
+              labelRowsPerPage={
+                <span className="hidden md:inline">Rows per page</span>
+              }
             />
             <IconButton onClick={handleSettingsClick}>
               <Settings />
