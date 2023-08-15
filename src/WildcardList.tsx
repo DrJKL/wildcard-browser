@@ -29,12 +29,17 @@ async function copyToClipboard(text: string) {
 export interface WildcardListProps {
   wildcards: WildcardFile;
   search: string;
+  open?: boolean;
 }
 
-export function WildcardList({ wildcards, search }: WildcardListProps) {
+export function WildcardList({
+  wildcards,
+  search,
+  open = false,
+}: WildcardListProps) {
   const { filename } = wildcards;
   const entries = wildcards.wildcardEntries;
-  const [listOpen, setListOpen] = useState(false);
+  const [listOpen, setListOpen] = useState(open);
   const [, updateState] = useState({});
 
   const forceUpdate = useCallback(() => updateState({}), []);
@@ -161,7 +166,7 @@ function WildcardHeaderTitle({
       }`}
       onClick={onClick}
       title={wildcards.filepath}>
-      {wildcards.filename}
+      {wildcards.filename.replace(/\.txt$/, '')}
     </span>
   );
 }

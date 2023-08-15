@@ -8,7 +8,7 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { WildcardList } from './WildcardList';
 import { WildcardFile, wildcardCollection } from './lib/wildcards';
 import { FolderTreeDisplay } from './components/FolderTree';
@@ -24,7 +24,6 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
-import { debounce } from 'lodash';
 
 function App() {
   const navigate = useNavigate();
@@ -32,11 +31,12 @@ function App() {
 
   const initialPage = () => Number(searchParams.get('page') ?? 0);
   const initialPageSize = () => Number(searchParams.get('pageSize') ?? 50);
+  const initialSearch = (): string => searchParams.get('search') ?? '';
 
   const [page, setPage] = useState(initialPage);
   const [rowsPerPage, setRowsPerPage] = useState(initialPageSize);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(initialSearch);
   const [settings, updateSettings] =
     useState<WildcardSettings>(DEFAULT_SETTINGS);
   const [settingsOpen, openSettings] = useState(false);
@@ -60,13 +60,17 @@ function App() {
   }, [page, maxPages, search]);
 
   useEffect(() => {
+    const params: Record<string, string> = {
+      page: `${page}`,
+      pageSize: `${rowsPerPage}`,
+    };
+    if (search) {
+      params['search'] = search;
+    }
     navigate({
-      search: `?${createSearchParams({
-        page: `${page}`,
-        pageSize: `${rowsPerPage}`,
-      })}`,
+      search: `?${createSearchParams(params)}`,
     });
-  }, [page, rowsPerPage, navigate, maxPages]);
+  }, [page, rowsPerPage, navigate, maxPages, search]);
 
   const handleChangePage = (
     _: React.MouseEvent<HTMLButtonElement> | null,
@@ -86,13 +90,9 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const searchUpdate = useMemo(
-    () =>
-      debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value);
-      }, 300),
-    [],
-  );
+  const searchUpdate = (value: string) => {
+    setSearch(value);
+  };
 
   const handleSettingsClick = () => {
     openSettings(true);
@@ -119,7 +119,7 @@ function App() {
               className="select-none text-4xl font-extrabold whitespace-nowrap flex-shrink-0">
               Wildcard Browser
             </Typography>
-            <SearchBox onChange={searchUpdate} />
+            <SearchBox searchQuery={search} setSearchQuery={searchUpdate} />
 
             <TablePagination
               className="flex-grow flex-shrink-0"
@@ -152,7 +152,8 @@ function App() {
           <Toolbar />
           <FolderTreeDisplay
             onLeafClick={(entry: WildcardFile) => {
-              // console.log(entry);
+              setSearch(entry.filepath);
+              setDrawerOpen(false);
             }}
           />
         </Drawer>
@@ -162,6 +163,7 @@ function App() {
               search={search}
               key={wildcards.filepath}
               wildcards={wildcards}
+              open={wildcardsLocal.length === 1}
             />
           ))}
         </main>
