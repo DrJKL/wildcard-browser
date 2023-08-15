@@ -44,6 +44,7 @@
     "react-virtualized": "^9.22.5",
     "react-virtualized-auto-sizer": "^1.0.20",
     "react-window": "^1.8.9",
+    "rxjs": "^7.8.0",
     "sass": "^1.63.6",
     "simple-update-notifier": "^2.0.0",
     "sort-by": "^1.2.0",
