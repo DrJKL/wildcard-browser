@@ -80,8 +80,8 @@ const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
   as: 'raw',
 });
 
-export const wildcardCollection: readonly WildcardFile[] = Object.entries(
-  wildcardFiles,
-).map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents));
+export const wildcardCollection = Object.entries(wildcardFiles).map(
+  ([filepath, filecontents]) => new WildcardFile(filepath, filecontents),
+);
 
 export const fileTree = buildWildcardFileTree();
