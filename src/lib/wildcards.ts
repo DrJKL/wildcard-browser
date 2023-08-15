@@ -1,9 +1,9 @@
 import { DEFAULT_SETTINGS } from './Settings';
 
-const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
-  eager: true,
-  as: 'raw',
-});
+export interface FolderTree {
+  childFolders: { [key: string]: FolderTree };
+  childFiles: WildcardFile[];
+}
 
 export class WildcardFile {
   readonly pathSegments: readonly string[];
@@ -53,15 +53,6 @@ export class WildcardFile {
   }
 }
 
-export const wildcardCollection: readonly WildcardFile[] = Object.entries(
-  wildcardFiles,
-).map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents));
-
-export interface FolderTree {
-  childFolders: { [key: string]: FolderTree };
-  childFiles: WildcardFile[];
-}
-
 function buildWildcardFileTree() {
   const folderTree: FolderTree = {
     childFolders: {},
@@ -77,12 +68,20 @@ function buildWildcardFileTree() {
       cur.childFolders[segment] = nextTree;
       cur = nextTree;
       if (idx === file.pathSegments.length - 1) {
-        console.log('!!!', idx, segment);
         nextTree.childFiles.push(file);
       }
     }
   }
   return folderTree;
 }
+
+const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
+  eager: true,
+  as: 'raw',
+});
+
+export const wildcardCollection: readonly WildcardFile[] = Object.entries(
+  wildcardFiles,
+).map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents));
 
 export const fileTree = buildWildcardFileTree();
