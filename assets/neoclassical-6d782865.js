@@ -1,0 +1,12 @@
+const a=`__artists/European Art/neoclassical/neoclassical/american_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/belgian_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/british_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/french_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/german_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/italian_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/neoclassical__\r
+__artists/European Art/neoclassical/neoclassical/portuguese_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/return_to_order__\r
+__artists/European Art/neoclassical/neoclassical/romanian_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/russian_neoclassical_painters__\r
+__artists/European Art/neoclassical/neoclassical/spanish_neoclassical_painters__`;export{a as default};

@@ -1,0 +1,29 @@
+const n=`Ferdynand Ruszczyc\r
+Jacek Malczewski\r
+Jan Bukowski\r
+Jan Raszka\r
+Jan Stanisławski\r
+Jan Talaga\r
+Józef Mehoffer\r
+Józef Pankiewicz\r
+Julian Fałat\r
+Karol Frycz\r
+Kazimierz Sichulski\r
+Konstanty Brandel\r
+Konstanty Laszczka\r
+Leon Wyczółkowski\r
+Ludwik Konarzewski\r
+Maurycy Lilien\r
+Olga Boznańska\r
+Stanisław Wyspiański\r
+Teodor Axentowicz\r
+Teofil Terlecki\r
+Wacław Szymanowski\r
+Witold Wojtkiewicz\r
+Władysław Ślewiński\r
+Włodzimierz Przerwa-Tetmajer\r
+Wojciech Gerson\r
+Wojciech Kossak\r
+Wojciech Weiss\r
+Xawery Dunikowski\r
+`;export{n as default};

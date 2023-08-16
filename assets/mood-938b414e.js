@@ -1,0 +1,30 @@
+const n=`pensive\r
+indignant\r
+proud\r
+resentful\r
+confused\r
+bored\r
+annoyed\r
+dismayed\r
+disappointed\r
+disbelief\r
+exasperated\r
+embarrassed\r
+fearing\r
+jealous\r
+joyous\r
+sad\r
+angry\r
+anxious\r
+disgusted\r
+amused\r
+interested\r
+astonished\r
+loving\r
+hating\r
+grieving\r
+horrified\r
+shocked\r
+betrayed\r
+surprised\r
+`;export{n as default};

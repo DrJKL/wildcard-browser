@@ -1,0 +1,14 @@
+const n=`ISO 100\r
+ISO 102400\r
+ISO 12500\r
+ISO 1600\r
+ISO 200\r
+ISO 204800\r
+ISO 25600\r
+ISO 3200\r
+ISO 400\r
+ISO 409600\r
+ISO 51200\r
+ISO 6400\r
+ISO 800\r
+`;export{n as default};

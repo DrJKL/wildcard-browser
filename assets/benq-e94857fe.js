@@ -1,0 +1,108 @@
+const n=`BenQ AC100\r
+BenQ AE100\r
+BenQ C1420\r
+BenQ DC 2300\r
+BenQ DC 2410\r
+BenQ DC 3400\r
+BenQ DC 3410\r
+BenQ DC 4330\r
+BenQ DC 4500\r
+BenQ DC 5330\r
+BenQ DC C1000\r
+BenQ DC C1020\r
+BenQ DC C1030 Eco\r
+BenQ DC C1035\r
+BenQ DC C1050\r
+BenQ DC C1060\r
+BenQ DC C1220\r
+BenQ DC C1230\r
+BenQ DC C1250\r
+BenQ DC C1255\r
+BenQ DC C1430\r
+BenQ DC C1450\r
+BenQ DC C1460\r
+BenQ DC C1480\r
+BenQ DC C30\r
+BenQ DC C35\r
+BenQ DC C40\r
+BenQ DC C420\r
+BenQ DC C50\r
+BenQ DC C500\r
+BenQ DC C51\r
+BenQ DC C510\r
+BenQ DC C520\r
+BenQ DC C530\r
+BenQ DC C540\r
+BenQ DC C60\r
+BenQ DC C610\r
+BenQ DC C62\r
+BenQ DC C630\r
+BenQ DC C640\r
+BenQ DC C740\r
+BenQ DC C740i\r
+BenQ DC C750\r
+BenQ DC C800\r
+BenQ DC C840\r
+BenQ DC C850\r
+BenQ DC E1000\r
+BenQ DC E1020\r
+BenQ DC E1030\r
+BenQ DC E1035\r
+BenQ DC E1050\r
+BenQ DC E1050t\r
+BenQ DC E1220\r
+BenQ DC E1230\r
+BenQ DC E1240\r
+BenQ DC E1250\r
+BenQ DC E1260\r
+BenQ DC E1280\r
+BenQ DC E1420\r
+BenQ DC E1430\r
+BenQ DC E1460\r
+BenQ DC E1465\r
+BenQ DC E30\r
+BenQ DC E300\r
+BenQ DC E310\r
+BenQ DC E40\r
+BenQ DC E41\r
+BenQ DC E43\r
+BenQ DC E510\r
+BenQ DC E520\r
+BenQ DC E520 plus\r
+BenQ DC E53\r
+BenQ DC E600\r
+BenQ DC E605\r
+BenQ DC E610\r
+BenQ DC E63 Plus\r
+BenQ DC E720\r
+BenQ DC E800\r
+BenQ DC E820\r
+BenQ DC L1020\r
+BenQ DC P1410\r
+BenQ DC P500\r
+BenQ DC P860\r
+BenQ DC S1430\r
+BenQ DC S30\r
+BenQ DC S40\r
+BenQ DC T1260\r
+BenQ DC T700\r
+BenQ DC T800\r
+BenQ DC T850\r
+BenQ DC W1220\r
+BenQ DC X600\r
+BenQ DC X710\r
+BenQ DC X720\r
+BenQ DC X725\r
+BenQ DC X735\r
+BenQ DC X800\r
+BenQ DC X835\r
+BenQ E1480\r
+BenQ G1\r
+BenQ GH200\r
+BenQ GH600\r
+BenQ GH700\r
+BenQ LM100\r
+BenQ S1410\r
+BenQ S1420\r
+BenQ T1460\r
+`;export{n as default};

@@ -1,0 +1,164 @@
+const E=`Casio EX-FR10\r
+Casio EX-N1\r
+Casio EX-N10\r
+Casio EX-N20\r
+Casio EX-N5\r
+Casio EX-N50\r
+Casio EX-TR10\r
+Casio EX-TR15\r
+Casio EX-ZR400\r
+Casio EX-ZR700\r
+Casio EX-ZR800\r
+Casio EX-ZS30\r
+Casio EXILIM  EX-JE10\r
+Casio Exilim EX-10\r
+Casio Exilim EX-100\r
+Casio EXILIM EX-FC100\r
+Casio EXILIM EX-FC150\r
+Casio EXILIM EX-FC160s\r
+Casio EXILIM EX-FH100\r
+Casio EXILIM EX-FH150\r
+Casio EXILIM EX-FH20\r
+Casio EXILIM EX-FH25\r
+Casio EXILIM EX-FS10\r
+Casio EXILIM EX-G1\r
+Casio EXILIM EX-H10\r
+Casio EXILIM EX-H15\r
+Casio EXILIM EX-H20G\r
+Casio EXILIM EX-H30\r
+Casio EXILIM EX-H5\r
+Casio EXILIM EX-H50\r
+Casio EXILIM EX-JE10\r
+Casio EXILIM EX-M1\r
+Casio EXILIM EX-M2\r
+Casio EXILIM EX-M20\r
+Casio Exilim EX-P505\r
+Casio Exilim EX-P600\r
+Casio Exilim EX-P700\r
+Casio EXILIM EX-S1\r
+Casio EXILIM EX-S10\r
+Casio Exilim EX-S100\r
+Casio EXILIM EX-S12\r
+Casio EXILIM EX-S2\r
+Casio EXILIM EX-S20\r
+Casio EXILIM EX-S200\r
+Casio EXILIM EX-S3\r
+Casio EXILIM EX-S5\r
+Casio Exilim EX-S500\r
+Casio Exilim EX-S600\r
+Casio EXILIM EX-S600D\r
+Casio EXILIM EX-S7\r
+Casio EXILIM EX-S770\r
+Casio EXILIM EX-S770D\r
+Casio EXILIM EX-S8\r
+Casio EXILIM EX-S880\r
+Casio EXILIM EX-TR100\r
+Casio EXILIM EX-TR150\r
+Casio EXILIM EX-V7\r
+Casio EXILIM EX-V8\r
+Casio EXILIM EX-Z1\r
+Casio EXILIM EX-Z10\r
+Casio EXILIM EX-Z100\r
+Casio EXILIM EX-Z1000\r
+Casio EXILIM EX-Z1050\r
+Casio EXILIM EX-Z1080\r
+Casio EXILIM EX-Z110\r
+Casio EXILIM EX-Z120\r
+Casio Exilim EX-Z1200 SR\r
+Casio EXILIM EX-Z150\r
+Casio EXILIM EX-Z16\r
+Casio EXILIM EX-Z19\r
+Casio EXILIM EX-Z2\r
+Casio EXILIM EX-Z20\r
+Casio EXILIM EX-Z200\r
+Casio EXILIM EX-Z2000\r
+Casio EXILIM EX-Z2300\r
+Casio EXILIM EX-Z25\r
+Casio EXILIM EX-Z250\r
+Casio EXILIM EX-Z270\r
+Casio EXILIM EX-Z280\r
+Casio EXILIM EX-Z29\r
+Casio EXILIM EX-Z3\r
+Casio EXILIM EX-Z30\r
+Casio EXILIM EX-Z300\r
+Casio EXILIM EX-Z3000\r
+Casio EXILIM EX-Z33\r
+Casio EXILIM EX-Z330\r
+Casio EXILIM EX-Z35\r
+Casio EXILIM EX-Z350\r
+Casio EXILIM EX-Z4\r
+Casio EXILIM EX-Z40\r
+Casio EXILIM EX-Z400\r
+Casio EXILIM EX-Z450\r
+Casio EXILIM EX-Z5\r
+Casio EXILIM EX-Z50\r
+Casio Exilim EX-Z500\r
+Casio EXILIM EX-Z55\r
+Casio EXILIM EX-Z550\r
+Casio Exilim EX-Z57\r
+Casio EXILIM EX-Z6\r
+Casio EXILIM EX-Z60\r
+Casio EXILIM EX-Z600\r
+Casio EXILIM EX-Z65\r
+Casio EXILIM EX-Z7\r
+Casio EXILIM EX-Z70\r
+Casio EXILIM EX-Z700\r
+Casio EXILIM EX-Z75\r
+Casio Exilim EX-Z750\r
+Casio EXILIM EX-Z77\r
+Casio EXILIM EX-Z8\r
+Casio EXILIM EX-Z80\r
+Casio EXILIM EX-Z800\r
+Casio EXILIM EX-Z85\r
+Casio EXILIM EX-Z850\r
+Casio EXILIM EX-Z9\r
+Casio EXILIM EX-Z90\r
+Casio EXILIM EX-ZR10\r
+Casio EXILIM EX-ZR100\r
+Casio Exilim EX-ZR1000\r
+Casio Exilim EX-ZR1100\r
+Casio EXILIM EX-ZR15\r
+Casio EXILIM EX-ZR20\r
+Casio EXILIM EX-ZR200\r
+Casio EXILIM EX-ZR300\r
+Casio EXILIM EX-ZS10\r
+Casio EXILIM EX-ZS100\r
+Casio EXILIM EX-ZS12\r
+Casio EXILIM EX-ZS15\r
+Casio EXILIM EX-ZS150\r
+Casio EXILIM EX-ZS20\r
+Casio Exilim EX-ZS5\r
+Casio EXILIM EX-ZS6\r
+Casio EXILIM Pro EX-F1\r
+Casio EXILIM QV-R100\r
+Casio Exilim TRYX\r
+Casio GV-10\r
+Casio GV-20\r
+Casio QV-2000UX\r
+Casio QV-2100\r
+Casio QV-2300UX\r
+Casio QV-2400UX\r
+Casio QV-2800UX\r
+Casio QV-2900UX\r
+Casio QV-300\r
+Casio QV-3000EX\r
+Casio QV-3500EX\r
+Casio QV-3EX / XV-3\r
+Casio QV-4000\r
+Casio QV-5000SX\r
+Casio QV-5500SX\r
+Casio QV-5700\r
+Casio QV-700\r
+Casio QV-7000SX\r
+Casio QV-770\r
+Casio QV-8000SX\r
+Casio QV-R3\r
+Casio QV-R4\r
+Casio QV-R40\r
+Casio QV-R41\r
+Casio QV-R51\r
+Casio QV-R52\r
+Casio QV-R61\r
+Casio QV-R62\r
+\r
+`;export{E as default};

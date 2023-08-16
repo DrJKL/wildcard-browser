@@ -1,0 +1,15 @@
+const s=`__artists/European Art/modern/expressionism/abstract_impressionism__\r
+__artists/European Art/modern/expressionism/american_expressionist_painters__\r
+__artists/European Art/modern/expressionism/american_figurative_expressionism__\r
+__artists/European Art/modern/expressionism/austrian_expressionist_painters__\r
+__artists/European Art/modern/expressionism/belgian_expressionist_painters__\r
+__artists/European Art/modern/expressionism/british_expressionist_painters__\r
+__artists/European Art/modern/expressionism/diebrucke__\r
+__artists/European Art/modern/expressionism/expressionism__\r
+__artists/European Art/modern/expressionism/finnish_expressionist_painters__\r
+__artists/European Art/modern/expressionism/french_expressionist_painters__\r
+__artists/European Art/modern/expressionism/german_expressionist_painters__\r
+__artists/European Art/modern/expressionism/indian_expressionist_painters__\r
+__artists/European Art/modern/expressionism/russian_expressionist_painters__\r
+__artists/European Art/modern/expressionism/slovakian_expressionist_painters__\r
+__artists/European Art/modern/expressionism/spanish_expressionist_painters__`;export{s as default};

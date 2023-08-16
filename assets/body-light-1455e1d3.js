@@ -1,0 +1,43 @@
+const n=`aerodynamic\r
+angular\r
+beanstalk\r
+bony\r
+delicate\r
+fine-boned\r
+gangly\r
+lank\r
+lanky\r
+lean\r
+lissome\r
+lithe\r
+meager of body\r
+narrow\r
+rawboned\r
+scraggy\r
+scrawny\r
+sinuous\r
+skeletal\r
+skin-and-bone\r
+skinny\r
+sleek\r
+slender\r
+slight\r
+slightly-built\r
+slim\r
+small-boned\r
+spare\r
+spindly\r
+spiny\r
+streamlined\r
+stringy\r
+svelte\r
+sylphlike\r
+thin\r
+trim\r
+underdeveloped\r
+underweight\r
+waif-like\r
+willowy\r
+wiry\r
+wispy\r
+`;export{n as default};

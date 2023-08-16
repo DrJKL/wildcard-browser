@@ -1,0 +1,29 @@
+const n=`Albert Benois\r
+Alexandre Benois\r
+Alexandre Jacovleff\r
+Anna Ostroumova-Lebedeva\r
+Arkady Rylov\r
+Boris Kustodiev\r
+Eugene Lanceray\r
+Heorhiy Narbut\r
+Igor Grabar\r
+Ivan Bilibin\r
+Jury Annenkov\r
+Konstantin Bogaevsky\r
+Konstantin Korovin\r
+Konstantin Somov\r
+Konstantin Yuon\r
+Kuzma Petrov-Vodkin\r
+Leon Bakst\r
+Martiros Sarian\r
+Mikhail Nesterov\r
+Mikhail Vrubel\r
+Mstislav Dobuzhinsky\r
+Nicholas Roerich\r
+Pyotr Konchalovsky\r
+Serge Sudeikin\r
+Sirak Skitnik\r
+Vilhelms Purvitis\r
+Yeghishe Tadevosyan\r
+Zinaida Serebriakova\r
+`;export{n as default};

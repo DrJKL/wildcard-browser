@@ -1,0 +1,66 @@
+const r=`Humpty Dumptyish\r
+ample\r
+baggy\r
+baggy-figured\r
+beer-bellied\r
+big-bellied\r
+big-boned\r
+bloated\r
+blubbery\r
+broad\r
+bulging\r
+bulky\r
+chubby\r
+chunky\r
+corpulent\r
+cumbersome\r
+curvaceous\r
+dimpled\r
+doughy\r
+dumpy\r
+elephantine\r
+fat\r
+fatso\r
+flabby\r
+fleshy\r
+full-figured\r
+generously padded\r
+generously proportioned\r
+gross\r
+heavily built\r
+heavy\r
+heavy-set\r
+hefty\r
+large\r
+large-boned\r
+matronly\r
+obese\r
+overheavy\r
+overweight\r
+paunchy\r
+plump\r
+podgy\r
+ponderous\r
+porky\r
+portly\r
+potbellied\r
+pudgy\r
+puffy\r
+roly-poly\r
+sloppy\r
+squat\r
+stocky\r
+stout\r
+sumoesque\r
+swollen\r
+thick\r
+thickset\r
+tubby\r
+ungainly\r
+unwieldly\r
+weighty\r
+well-fed\r
+well-padded\r
+well-rounded\r
+wide\r
+`;export{r as default};

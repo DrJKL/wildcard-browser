@@ -1,0 +1,33 @@
+const e=`aran legwear\r
+armored legwear\r
+bow legwear\r
+cross-laced legwear\r
+fishnet legwear\r
+fluffy legwear\r
+frilled legwear\r
+knit legwear\r
+lace legwear\r
+lace-up legwear\r
+latex legwear\r
+legwear bell\r
+o-ring legwear\r
+pleated legwear\r
+ribbed legwear\r
+ribbon legwear\r
+seamed legwear\r
+back-seamed legwear\r
+front-seamed legwear\r
+side-seamed legwear\r
+see-through legwear\r
+shiny legwear\r
+side-tie legwear\r
+spiked legwear\r
+studded legwear\r
+toeless legwear\r
+bridal legwear\r
+stirrup legwear\r
+trimmed legwear\r
+fur-trimmed legwear\r
+lace-trimmed legwear\r
+ribbon-trimmed legwear\r
+zipper legwear`;export{e as default};

@@ -1,0 +1,33 @@
+const r=`barrel-chested\r
+barrelesque\r
+blocky\r
+boobylicious\r
+bootylicious\r
+broad-shouldered\r
+bulbous\r
+cylindrical\r
+ectomorphic\r
+endomorphic\r
+flat\r
+hourglass-shaped\r
+inverted-triangular\r
+limp\r
+mesomorphic\r
+pear-shaped\r
+pumpkinesque\r
+pyramidal\r
+rectangular\r
+rotund\r
+round\r
+serpentine\r
+shapeless\r
+shapely\r
+small-waisted\r
+spherical\r
+spidery\r
+square\r
+thick-waisted\r
+top-heavy\r
+triangular\r
+wasp-waisted\r
+`;export{r as default};
