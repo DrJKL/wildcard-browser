@@ -1,5 +1,5 @@
 import { DEFAULT_SETTINGS } from './Settings';
-import { from, map, scan, shareReplay } from 'rxjs';
+import { from, map, mergeMap, scan, shareReplay } from 'rxjs';
 
 export interface FolderTree {
   childFolders: { [key: string]: FolderTree };
@@ -78,14 +78,20 @@ function incrementalWildcardFileTree(
 }
 
 const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
-  eager: true,
+  // eager: true,
   as: 'raw',
 });
 
 export const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
+  mergeMap(([filepath, fileContentsEventually]) =>
+    fileContentsEventually().then(
+      (filecontents) => [filepath, filecontents] as const,
+    ),
+  ),
   map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents)),
   shareReplay(), // Heavy buffer
 );
+
 export const wildcardCollection$ = wildcardFiles$.pipe(
   scan<WildcardFile, WildcardFile[]>((acc, cur) => [...acc, cur], []),
 );
