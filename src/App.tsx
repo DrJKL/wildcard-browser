@@ -184,6 +184,7 @@ function App() {
             />
           ))}
         </main>
+        <footer className="flex-[1em]">...</footer>
         <SettingsDialog
           open={settingsOpen}
           onClose={closeSettings}
