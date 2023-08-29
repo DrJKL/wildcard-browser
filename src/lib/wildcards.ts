@@ -15,7 +15,7 @@ export class WildcardFile {
 
   constructor(readonly filepath: string, filecontents: string) {
     this.filename = this.filepath.replace(/^.*\//, '');
-    this.wildcardEntries = filecontents.split('\n').filter(Boolean);
+    this.wildcardEntries = filecontents.split(/\r?\n/).filter(Boolean);
     this.pathSegments = this.filepath.split(/[/\\]/).filter(Boolean);
   }
 
@@ -24,6 +24,10 @@ export class WildcardFile {
     return `${wildcardWrap}${this.filepath
       .replace(new RegExp(`^${basePath}/`), '')
       .replace(/\.[^.]+$/, '')}${wildcardWrap}`;
+  }
+
+  toDynamicPromptSnippet() {
+    return `{${this.wildcardEntries.join('|')}}`;
   }
 
   setRandomEntry() {

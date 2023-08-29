@@ -3,6 +3,7 @@ import {
   ExpandLess,
   Shuffle,
   ContentCopy,
+  DataObject,
 } from '@mui/icons-material';
 import {
   Collapse,
@@ -67,6 +68,22 @@ export function WildcardList({
     await copyToClipboard(wildcards.toPlaceholder());
     setShowCopied(true);
   };
+
+  const handleDynamicPromptClick: MouseEventHandler = async (
+    event: React.MouseEvent<HTMLHeadingElement>,
+  ) => {
+    const node = event.target;
+    if (window.getSelection && node && node instanceof Node) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range?.selectNodeContents(node);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+    await copyToClipboard(wildcards.toDynamicPromptSnippet());
+    setShowCopied(true);
+  };
+
   const handleCopiedClose = () => {
     setShowCopied(false);
   };
@@ -111,7 +128,6 @@ export function WildcardList({
               <Shuffle />
             </IconButton>
             <Tooltip
-              leaveDelay={200}
               title={`${wildcards.toPlaceholder(settings)}`}
               open={showCopied}
               onClose={handleCopiedClose}
@@ -121,6 +137,18 @@ export function WildcardList({
                 className="flex-auto"
                 onClick={handlePlaceholderClick}>
                 <ContentCopy />
+              </IconButton>
+            </Tooltip>
+            <Tooltip
+              title={`${wildcards.toDynamicPromptSnippet()}`}
+              open={showCopied}
+              onClose={handleCopiedClose}
+              placement="left"
+              arrow>
+              <IconButton
+                className="flex-auto"
+                onClick={handleDynamicPromptClick}>
+                <DataObject />
               </IconButton>
             </Tooltip>
           </>
