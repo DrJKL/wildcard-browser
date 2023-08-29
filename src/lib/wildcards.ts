@@ -81,7 +81,7 @@ function incrementalWildcardFileTree(
   return folderTree;
 }
 
-const wildcardFiles = import.meta.glob('/wildcards/**/*.txt', {
+const wildcardFiles = import.meta.glob('@wildcard-browser/wildcards/**/*.txt', {
   // eager: true,
   as: 'raw',
 });
@@ -92,7 +92,10 @@ export const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
       (filecontents) => [filepath, filecontents] as const,
     ),
   ),
-  map(([filepath, filecontents]) => new WildcardFile(filepath, filecontents)),
+  map(
+    ([filepath, filecontents]) =>
+      new WildcardFile(filepath.replace(/^.*?\/wildcards\//, ''), filecontents),
+  ),
   shareReplay(), // Heavy buffer
 );
 
