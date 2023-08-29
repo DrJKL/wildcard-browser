@@ -187,7 +187,8 @@ export function WildcardList({
               onClick={handleCopiedClose}>
               <Close fontSize="small" />
             </IconButton>
-          }>
+          }
+          className="max-h-96 overflow-y-auto">
           {showCopied}
         </Alert>
       </Snackbar>
