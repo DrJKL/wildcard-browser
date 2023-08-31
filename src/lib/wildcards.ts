@@ -1,5 +1,6 @@
+import { from } from 'rxjs';
+import { map, mergeMap, scan, shareReplay } from 'rxjs/operators';
 import { DEFAULT_SETTINGS } from './Settings';
-import { from, map, mergeMap, scan, shareReplay } from 'rxjs';
 
 export interface FolderTree {
   childFolders: { [key: string]: FolderTree };
