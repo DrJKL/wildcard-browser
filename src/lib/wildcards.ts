@@ -182,11 +182,11 @@ export const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
     ([filepath, filecontents]) =>
       new WildcardFile(filepath.replace(/^.*?\/wildcards\//, ''), filecontents),
   ),
+  mergeWith(wildcardYamls$.pipe(concatMap((filesList) => filesList))),
   shareReplay(), // Heavy buffer
 );
 
 export const wildcardCollection$ = wildcardFiles$.pipe(
-  mergeWith(wildcardYamls$.pipe(concatMap((filesList) => filesList))),
   scan<WildcardFile, readonly WildcardFile[]>((acc, cur) => [...acc, cur], []),
 );
 
