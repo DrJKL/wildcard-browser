@@ -43,9 +43,9 @@ function App() {
   const [settings, updateSettings] =
     useState<WildcardSettings>(DEFAULT_SETTINGS);
 
-  const [wildcardCollection, setWildcardCollection] = useState<WildcardFile[]>(
-    [],
-  );
+  const [wildcardCollection, setWildcardCollection] = useState<
+    readonly WildcardFile[]
+  >([]);
   useEffect(() => {
     const sub = wildcardCollection$.subscribe({
       next: (wildcardFiles) => {

@@ -3,6 +3,7 @@ import { TreeItem, TreeView } from '@mui/lab';
 import { Box, Button, Tooltip } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { FolderTree, WildcardFile, fileTree$ } from '../lib/wildcards';
+import { sortBy } from 'lodash';
 
 interface FolderTreeDisplayProps {
   onLeafClick: (entry: WildcardFile) => void;
@@ -65,7 +66,9 @@ function renderWildcardFolder(
     throw new Error('Too Deep');
   }
 
-  return Object.entries(folder.childFolders).map(([folderName, subTree]) => {
+  const childFoldersSorted = sortBy(Object.entries(folder.childFolders), [0]);
+
+  return childFoldersSorted.map(([folderName, subTree]) => {
     const fullPath = [...path, folderName];
     const fullPathName = fullPath.join('/');
     registerNode(fullPathName);

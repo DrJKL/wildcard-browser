@@ -1,6 +1,15 @@
 import { from } from 'rxjs';
-import { map, mergeMap, scan, shareReplay } from 'rxjs/operators';
+import {
+  concatMap,
+  map,
+  mergeMap,
+  mergeWith,
+  scan,
+  shareReplay,
+} from 'rxjs/operators';
 import { DEFAULT_SETTINGS } from './Settings';
+import { load } from 'js-yaml';
+import { isArray, merge, sortedIndexBy } from 'lodash';
 
 export interface FolderTree {
   childFolders: { [key: string]: FolderTree };
@@ -76,18 +85,94 @@ function incrementalWildcardFileTree(
     cur.childFolders[segment] = nextTree;
     cur = nextTree;
     if (idx === file.pathSegments.length - 1) {
-      nextTree.childFiles.push(file);
+      const insertionIndex = sortedIndexBy(
+        nextTree.childFiles,
+        file,
+        'filepath',
+      );
+      nextTree.childFiles.splice(insertionIndex, 0, file);
     }
   }
   return folderTree;
 }
 
 const wildcardFiles = import.meta.glob('@wildcard-browser/wildcards/**/*.txt', {
-  // eager: true,
   as: 'raw',
 });
 
-export const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
+const wildcardYamls = import.meta.glob(
+  '@wildcard-browser/wildcards/**/*.yaml',
+  {
+    as: 'raw',
+  },
+);
+
+type YamlStructure = { [key: string]: YamlStructure | string[] };
+
+async function processYamls() {
+  let folderTree: YamlStructure = {};
+  await Promise.all(
+    Object.entries(wildcardYamls).map(async ([filename, yamlContents]) => {
+      const realContents = await yamlContents();
+      try {
+        const yamlTree = load(realContents, { filename, json: true });
+        merge(folderTree, yamlTree);
+        return yamlTree;
+      } catch (err: unknown) {
+        console.error(err);
+      }
+    }),
+  );
+  const yamlsAsWildcardFiles = transformYamlToFileStructure([[], folderTree]);
+  return yamlsAsWildcardFiles;
+}
+
+function transformYamlToFileStructure(
+  root: [string[], YamlStructure],
+): readonly WildcardFile[] {
+  const stack: [string[], YamlStructure][] = [root];
+  const traversed: WildcardFile[] = [];
+  let curr;
+
+  while (stack.length) {
+    curr = stack.pop();
+    if (!curr) {
+      break;
+    }
+
+    const [path, contents] = curr;
+
+    const currEntries = Object.entries(contents);
+
+    currEntries
+      .filter(([_key, val]) => isArray(val))
+      .map(([key, val]) => {
+        if (!isArray(val)) {
+          throw new Error(`This should be an array: ${val}`);
+        }
+        return new WildcardFile([...path, key].join('/'), val.join('\n'));
+      })
+      .forEach((asFile) => {
+        traversed.push(asFile);
+      });
+    currEntries
+      .filter(([_key, val]) => !isArray(val))
+      .map(([key, val]): [string[], YamlStructure] => {
+        if (isArray(val)) {
+          throw new Error(`This shouldn't be an array: ${val}`);
+        }
+        return [[...path, key], val];
+      })
+      .forEach((toSearch) => stack.push(toSearch));
+  }
+
+  return traversed;
+}
+
+const allYamls = processYamls();
+const wildcardYamls$ = from(allYamls);
+
+const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
   mergeMap(([filepath, fileContentsEventually]) =>
     fileContentsEventually().then(
       (filecontents) => [filepath, filecontents] as const,
@@ -101,9 +186,11 @@ export const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
 );
 
 export const wildcardCollection$ = wildcardFiles$.pipe(
-  scan<WildcardFile, WildcardFile[]>((acc, cur) => [...acc, cur], []),
+  mergeWith(wildcardYamls$.pipe(concatMap((filesList) => filesList))),
+  scan<WildcardFile, readonly WildcardFile[]>((acc, cur) => [...acc, cur], []),
 );
 
 export const fileTree$ = wildcardFiles$.pipe(
+  mergeWith(wildcardYamls$.pipe(concatMap((filesList) => filesList))),
   scan(incrementalWildcardFileTree, emptyFolderTree()),
 );
