@@ -1,0 +1,952 @@
+const n=`# BoMachines\r
+BoMachines:\r
+    random:\r
+        - "__machines/types/*__,\r
+        {2-6$$__styles/*/*__}        \r
+        "\r
+    random-machine:\r
+        - "__properties/size/*__ __machines/types-synonyms__,\r
+        {2-6$$__styles/*/*__}        \r
+        "\r
+machines:\r
+    types:\r
+        Small-Machines:\r
+            - Watch\r
+            - Clock\r
+            - Compass\r
+            - Abacus\r
+            - Typewriter\r
+            - Calculator\r
+            - Cash Register\r
+            - Sewing Machine\r
+            - Music Box\r
+            - Thermostat\r
+        Medium-Machines:\r
+            - Printer\r
+            - Telephone\r
+            - Fax Machine\r
+            - Photocopier\r
+            - Vending Machine\r
+            - ATM (Automated Teller Machine)\r
+            - Projector\r
+            - Camera\r
+            - Scanner\r
+            - Plotter\r
+        Large-Machines:\r
+            - Crane\r
+            - Excavator\r
+            - Bulldozer\r
+            - Printing Press\r
+            - Conveyor System\r
+            - Wind Turbine\r
+            - Water Pumping Station\r
+            - Oil Rig\r
+        Industrial-Machines:\r
+            - Factory Robot\r
+            - CNC Machine (Computer Numerical Control)\r
+            - Printing Press\r
+            - Steam Engine\r
+            - Generator\r
+            - Pump\r
+            - Packaging Machine\r
+            - Textile Machine\r
+            - Assembly Line Robot\r
+            - Welding Robot\r
+        Complex-Machines:\r
+            - Computer\r
+            - MRI (Magnetic Resonance Imaging)\r
+            - Particle Accelerator\r
+            - Telescope\r
+            - Satellite\r
+            - 3D Printer\r
+            - Supercomputer\r
+            - Quantum Computer\r
+        Mechanical-Machines:\r
+            - Gear Mechanism\r
+            - Clockwork Mechanism\r
+            - Escalator\r
+            - Conveyor Belt\r
+            - Windmill\r
+            - Watermill\r
+            - Antikythera Mechanism (ancient analog computer)\r
+            - Hand-cranked Drill\r
+            - Rube Goldberg Machine\r
+        Musical-Machines:\r
+            - Piano\r
+            - Organ\r
+            - Gramophone\r
+            - Synthesizer\r
+            - Music Synthesizer\r
+            - Drum Machine\r
+            - Electric Guitar\r
+            - Sound Mixing Console\r
+        Office-Machines:\r
+            - Shredder\r
+            - Projector\r
+            - Scanner\r
+            - Plotter\r
+            - Fax Machine\r
+            - Photocopier\r
+            - Paper Shredder\r
+            - Office Printer\r
+        Household-Machines:\r
+            - Dishwasher\r
+            - Washing Machine\r
+            - Dryer\r
+            - Microwave\r
+            - Blender\r
+            - Coffee Maker\r
+            - Vacuum Cleaner\r
+            - Toaster\r
+        Communication-Machines:\r
+            - Radio\r
+            - Television\r
+            - Telephone Exchange\r
+            - Satellite Dish\r
+            - Walkie-Talkie\r
+            - Ham Radio\r
+            - CB Radio\r
+            - Fiber Optic Cable System\r
+        Entertainment-Machines:\r
+            - Arcade Machine\r
+            - Slot Machine\r
+            - Pinball Machine\r
+            - Karaoke Machine\r
+            - Photo Booth\r
+            - Jukebox\r
+            - Video Game Console\r
+            - Virtual Reality Headset\r
+        Medical-Machines:\r
+            - X-ray Machine\r
+            - EKG (Electrocardiogram) Machine\r
+            - Dialysis Machine\r
+            - MRI (Magnetic Resonance Imaging)\r
+            - Ultrasound Machine\r
+            - CT Scanner\r
+            - Blood Pressure Monitor\r
+            - Surgical Robot\r
+        Agricultural-Machines:\r
+            - Combine Harvester\r
+            - Tractor\r
+            - Irrigation System\r
+            - Seeder\r
+            - Fertilizer Spreader\r
+            - Milking Machine\r
+            - Hay Baler\r
+            - Grain Elevator\r
+        Manufacturing-Machines:\r
+            - Injection Molding Machine\r
+            - Lathe\r
+            - Press Machine\r
+            - 3D Printer\r
+            - CNC Milling Machine\r
+            - Laser Cutter\r
+            - Welding Machine\r
+            - Wire EDM Machine\r
+        Construction-Machines:\r
+            - Cement Mixer\r
+            - Pile Driver\r
+            - Crane\r
+            - Bulldozer\r
+            - Backhoe Loader\r
+            - Concrete Pump\r
+            - Road Roller\r
+            - Trencher\r
+        Science-Laboratory-Machines:\r
+            - Centrifuge\r
+            - Microscope\r
+            - Spectrometer\r
+            - Incubator\r
+            - DNA Sequencer\r
+            - Gas Chromatograph\r
+            - NMR Spectrometer\r
+            - Fume Hood\r
+        fictional-machines:\r
+            - Steam-powered Automaton\r
+            - Tesla Coil Cannon\r
+            - Clockwork Contraption\r
+            - Dirigible Airship\r
+            - Brass Golem\r
+            - Ether-powered Generator\r
+            - Etheric Communicator\r
+            - Aetheric Resonator\r
+            - Biomechanical Augmentation\r
+            - Cybernetic Implant\r
+            - Neural Interface\r
+            - Datajack\r
+            - Holographic Projection Device\r
+            - Antigravity Vehicle\r
+            - Warp Drive Engine\r
+            - Quantum Entanglement Transmitter\r
+            - Nanobot Swarm\r
+            - Time Machine\r
+            - Dimensional Portal\r
+            - Energy Sword\r
+            - Plasma Blaster\r
+            - Ion Disruptor\r
+            - Neural Disruptor\r
+            - Mind Control Device\r
+            - Cloaking Device\r
+            - Teleportation Device\r
+            - Replicator\r
+            - Holodeck\r
+            - AI Companion\r
+            - Android Companion\r
+            - Cybernetic Pet\r
+            - Virtual Reality Pod\r
+            - Exosuit\r
+            - Mech Suit\r
+            - Hoverboard\r
+            - Laser Weapon\r
+            - Plasma Rifle\r
+            - Neural Enhancer\r
+            - Neural Recorder\r
+            - Memory Implant\r
+            - Anti-Gravity Boots\r
+            - Time Manipulation Device\r
+            - Thought Amplifier\r
+            - Bioengineered Organism\r
+            - Genetic Manipulation Chamber\r
+            - Cloning Facility\r
+            - Hyperspace Drive\r
+            - Interdimensional Engine\r
+            - Quantum Computing System\r
+            - Mind Uploading Device\r
+            - Psionic Amplifier\r
+            - Reality Distortion Field Generator\r
+    types-synonyms:\r
+        - Apparatus\r
+        - Device\r
+        - Appliance\r
+        - Contraption\r
+        - Engine\r
+        - Mechanism\r
+        - Gadget\r
+        - Tool\r
+        - Instrument\r
+        - Implement\r
+        - Equipment\r
+        - System\r
+        - Instrumentality\r
+        - Apparatus\r
+        - Contrivance\r
+        - Rig\r
+        - Mechanism\r
+        - Contraption\r
+        - Setup\r
+        - Contrivance\r
+        - Gimmick\r
+        - Invention\r
+        - Creation\r
+        - Innovation\r
+        - Widget\r
+        - Automaton\r
+        - Robot\r
+        - Android\r
+        - Cyborg\r
+        - Contrivance\r
+        - Rube Goldberg\r
+        - Rube Goldberg Device\r
+\r
+styles:\r
+    textures:\r
+        machines:\r
+            - Smooth\r
+            - Rough\r
+            - Textured\r
+            - Grainy\r
+            - Wavy\r
+            - Bumpy\r
+            - Prickly\r
+            - Slick\r
+            - Soft\r
+            - Hard\r
+            - Metallic\r
+            - Glassy\r
+            - Porous\r
+            - Cracked\r
+            - Fuzzy\r
+            - Velvety\r
+            - Silky\r
+            - Coarse\r
+            - Gritty\r
+            - Embossed\r
+            - Ribbed\r
+            - Knitted\r
+            - Rugged\r
+            - Sandy\r
+            - Lustrous\r
+            - Iridescent\r
+            - Frosted\r
+            - Matte\r
+            - Satin\r
+            - Leather\r
+            - Woolen\r
+            - Chiseled\r
+            - Polished\r
+            - Pitted\r
+            - Corrugated\r
+            - Pebbled\r
+            - Plush\r
+            - Tiled\r
+            - Grooved\r
+            - Spongy\r
+            - Wrinkled\r
+            - Pockmarked\r
+            - Tacky\r
+            - Slimy\r
+            - Crystalline\r
+            - Serrated\r
+            - Pebbly\r
+            - Spiky\r
+            - Pliable\r
+            - Papery\r
+            - Studded\r
+            - Hairy\r
+            - Meshed\r
+            - Fluffy\r
+            - Honeycombed\r
+            - Gauzy\r
+            - Sandy\r
+            - Webbed\r
+    patterns:\r
+        machines:\r
+            - Striped\r
+            - Checked\r
+            - Polka Dot\r
+            - Herringbone\r
+            - Chevron\r
+            - Plaid\r
+            - Paisley\r
+            - Geometric\r
+            - Floral\r
+            - Abstract\r
+            - Camouflage\r
+            - Houndstooth\r
+            - Mottled\r
+            - Marbled\r
+            - Speckled\r
+            - Zigzag\r
+            - Tartan\r
+            - Lattice\r
+            - Quilted\r
+            - Basketweave\r
+            - Honeycomb\r
+            - Moiré\r
+            - Ripple\r
+            - Crosshatch\r
+            - Stippled\r
+            - Lined\r
+            - Spiral\r
+            - Interlocking\r
+            - Patchwork\r
+            - Scales\r
+            - Swirl\r
+            - Maze\r
+            - Barcode\r
+            - Morse Code\r
+            - Binary Code\r
+            - QR Code\r
+            - Circuit Pattern\r
+            - Wave\r
+            - Grid\r
+            - Web\r
+            - Lace\r
+            - Gingham\r
+            - Plisse\r
+            - Tiled\r
+            - Woven\r
+            - Embroidered\r
+            - Stitched\r
+            - Braided\r
+            - Crisscross\r
+            - Latticework\r
+    machines:\r
+        embellishments:\r
+            - Engravings\r
+            - Decorative Trim\r
+            - Etched Patterns\r
+            - Intricate Carvings\r
+            - Embossed Designs\r
+            - Filigree\r
+            - Inlays\r
+            - Ornate Borders\r
+            - Scrollwork\r
+            - Gold Leaf Accents\r
+            - Silver Inlay\r
+            - Gemstone Embellishments\r
+            - Beading\r
+            - Mosaic Patterns\r
+            - Hand-Painted Artwork\r
+            - Laser Engraved Patterns\r
+            - Decorative Rivets\r
+            - Faux Finishes\r
+            - Metallic Accents\r
+            - Floral Motifs\r
+            - Geometric Patterns\r
+            - Art Deco Elements\r
+            - Art Nouveau Elements\r
+            - Tribal Designs\r
+            - Celtic Knotwork\r
+            - Abstract Patterns\r
+            - Inlaid Woodwork\r
+            - Leather Accents\r
+            - Enameled Details\r
+            - Raised Reliefs\r
+            - Vine Patterns\r
+            - Winged Embellishments\r
+            - Studded Details\r
+            - Chiseled Patterns\r
+            - Sgraffito Designs\r
+\r
+        components:\r
+            - Buttons\r
+            - Switches\r
+            - Knobs\r
+            - Screens\r
+            - Panels\r
+            - Vents\r
+            - Indicators\r
+            - LEDs\r
+            - Displays\r
+            - Keyboards\r
+            - Touchpads\r
+            - Trackpads\r
+            - Joysticks\r
+            - Dials\r
+            - Sliders\r
+            - Microphones\r
+            - Cameras\r
+            - Speakers\r
+            - Antennas\r
+            - Ports\r
+            - Jacks\r
+            - Connectors\r
+            - USB Ports\r
+            - HDMI Ports\r
+            - Power Inputs\r
+            - Batteries\r
+            - Motors\r
+            - Gears\r
+            - Belts\r
+            - Pulleys\r
+            - Cables\r
+            - Wires\r
+            - Circuit Boards\r
+            - Sensors\r
+            - Actuators\r
+            - Solenoids\r
+            - Relays\r
+            - Transformers\r
+            - Diodes\r
+            - Resistors\r
+            - Capacitors\r
+            - Transistors\r
+            - Integrated Circuits\r
+            - Microprocessors\r
+            - Memory Chips\r
+            - Inverters\r
+            - Amplifiers\r
+            - Oscillators\r
+            - Receivers\r
+            - Transmitters\r
+            - Coils\r
+            - Magnets\r
+            - Filters\r
+            - Fans\r
+            - Heatsinks\r
+            - Radiators\r
+            - Coolants\r
+            - Valves\r
+            - Nozzles\r
+            - Pumps\r
+            - Rotors\r
+            - Stators\r
+            - Housings\r
+            - Casings\r
+            - Enclosures\r
+            - Covers\r
+            - Shells\r
+            - Frames\r
+            - Brackets\r
+        lables-markings:\r
+            - Brand Logos\r
+            - Model Numbers\r
+            - Serial Numbers\r
+            - QR Codes\r
+            - Barcodes\r
+            - Safety Symbols\r
+            - Warning Labels\r
+            - Instruction Labels\r
+            - Regulatory Compliance Marks\r
+            - Certification Labels\r
+            - Date of Manufacture\r
+            - Voltage Ratings\r
+            - Power Consumption Labels\r
+            - CE Marking (European Conformity)\r
+            - FCC ID (Federal Communications Commission)\r
+            - Recycling Symbols\r
+            - Energy Star Labels\r
+            - Made in Labels\r
+            - Trademarks\r
+            - Patent Numbers\r
+            - Product Labels\r
+            - Maintenance Instructions\r
+            - Operating Instructions\r
+            - Calibration Information\r
+            - Warranty Information\r
+            - Service Contact Information\r
+            - Assembly Instructions\r
+            - Diagrams\r
+            - Icons\r
+            - User Interface Labels\r
+            - Control Labels (Start, Stop, Reset, etc.)\r
+            - Touchscreen Buttons\r
+            - Function Labels\r
+            - LED Status Indicators\r
+            - Input and Output Labels\r
+            - Connector Labels (USB, HDMI, etc.)\r
+            - Language Selection Labels\r
+            - Unit Measurements (Metric/Imperial)\r
+            - Volume Settings (High/Low)\r
+            - Temperature Settings\r
+            - Mode Selection Labels (Auto, Manual, etc.)\r
+        lighting-elements:\r
+            - LEDs (Light Emitting Diodes)\r
+            - Indicator Lights\r
+            - Display Backlight\r
+            - Ambient Lighting\r
+            - Illuminated Buttons\r
+            - Status LEDs\r
+            - LCD Screen Backlight\r
+            - Touchscreen Backlight\r
+            - RGB Lighting\r
+            - Notification Lights\r
+            - Light Bars\r
+            - Emergency Lights\r
+            - Laser Pointers\r
+            - Flashing Lights\r
+            - Strobe Lights\r
+            - Spotlight\r
+            - Fiber Optic Lights\r
+            - Neon Lights\r
+            - Fluorescent Lights\r
+            - Incandescent Bulbs\r
+            - Halogen Lamps\r
+            - UV Lights (Ultraviolet)\r
+            - Infrared Lights\r
+            - Ring Lights\r
+            - Edge Lighting\r
+            - Panel Lighting\r
+            - Backlit Labels\r
+            - Dashboard Lights\r
+            - Illuminated Signage\r
+            - Emergency Exit Lights\r
+            - Light Pipes\r
+            - Light Rings\r
+            - Light Strips\r
+            - Lighted Keyboards\r
+        details-embellishments:\r
+            - Engravings\r
+            - Decorative Trim\r
+            - Etched Patterns\r
+            - Intricate Carvings\r
+            - Embossed Designs\r
+            - Filigree\r
+            - Inlays\r
+            - Ornate Borders\r
+            - Scrollwork\r
+            - Gold Leaf Accents\r
+            - Silver Inlay\r
+            - Gemstone Embellishments\r
+            - Beading\r
+            - Mosaic Patterns\r
+            - Hand-Painted Artwork\r
+            - Laser Engraved Patterns\r
+            - Decorative Rivets\r
+            - Faux Finishes\r
+            - Metallic Accents\r
+            - Floral Motifs\r
+            - Geometric Patterns\r
+            - Art Deco Elements\r
+            - Art Nouveau Elements\r
+            - Tribal Designs\r
+            - Celtic Knotwork\r
+            - Abstract Patterns\r
+            - Inlaid Woodwork\r
+            - Leather Accents\r
+            - Enameled Details\r
+            - Raised Reliefs\r
+            - Vine Patterns\r
+            - Winged Embellishments\r
+            - Studded Details\r
+            - Chiseled Patterns\r
+            - Sgraffito Designs\r
+        modularitity:\r
+            - Modular Components\r
+            - Interchangeable Parts\r
+            - Plug-and-Play\r
+            - Snap-fit Joints\r
+            - Quick-release Mechanisms\r
+            - Swappable Modules\r
+            - Detachable Units\r
+            - Assembly Blocks\r
+            - Connectable Segments\r
+            - Stackable Design\r
+            - Integrated Mounting Points\r
+            - Interface Modules\r
+            - Expansion Slots\r
+            - Interlocking Units\r
+            - Adaptable Configuration\r
+            - Clip-on Attachments\r
+            - Standardized Connectors\r
+            - Configurable Modules\r
+            - Nested Assemblies\r
+            - User-customizable Parts\r
+            - Reconfigurable Layout\r
+            - Multi-purpose Modules\r
+            - Multi-use Attachments\r
+            - Tool-free Assembly\r
+            - Component Compatibility\r
+            - Hybrid Assemblies\r
+            - Nested Sections\r
+            - Slide-out Units\r
+            - Nested Shelves\r
+            - Versatile Mounts\r
+            - Quick-change Adapters\r
+        wheels-legs:\r
+            - Wheels\r
+            - Casters\r
+            - Rollers\r
+            - Tires\r
+            - Tracks\r
+            - Skis\r
+            - Legs\r
+            - Paws\r
+            - Feet\r
+            - Treads\r
+            - Rotating Wheels\r
+            - Swivel Casters\r
+            - Fixed Wheels\r
+            - Retractable Wheels\r
+            - Ball Casters\r
+            - Omni Wheels\r
+            - Crawler Tracks\r
+            - Continuous Tracks\r
+            - Sled Runners\r
+            - Articulated Legs\r
+            - Hydraulic Legs\r
+            - Extendable Legs\r
+            - Folding Legs\r
+            - Stabilizing Legs\r
+            - Telescopic Legs\r
+            - Spring-loaded Legs\r
+            - Shock-absorbing Legs\r
+            - Adjustable Legs\r
+            - Caster Wheels\r
+            - Air-filled Tires\r
+            - Solid Tires\r
+            - Spoked Wheels\r
+            - Ribbed Treads\r
+            - All-terrain Tires\r
+            - Rubber Wheels\r
+            - Metal Wheels\r
+            - Pneumatic Tires\r
+            - Caterpillar Tracks\r
+            - Linear Actuator Legs\r
+            - Climbing Legs\r
+            - Caster Cups\r
+        ports:\r
+            - Openings\r
+            - Ports\r
+            - Access Points\r
+            - Entrances\r
+            - Interfaces\r
+            - Connectors\r
+            - Sockets\r
+            - Jacks\r
+            - Plugs\r
+            - Holes\r
+            - Apertures\r
+            - Inlets\r
+            - Outlets\r
+            - USB Ports\r
+            - HDMI Ports\r
+            - Ethernet Ports\r
+            - Audio Jacks\r
+            - Microphone Ports\r
+            - Speaker Ports\r
+            - Power Ports\r
+            - Charging Ports\r
+            - Data Ports\r
+            - Expansion Ports\r
+            - Card Slots\r
+            - SIM Card Slots\r
+            - SD Card Slots\r
+            - Ventilation Holes\r
+            - Cooling Ports\r
+            - Exhaust Ports\r
+            - Display Ports\r
+            - Docking Ports\r
+            - Connector Panels\r
+            - I/O Ports (Input/Output)\r
+            - USB-C Ports\r
+            - Mini Jacks\r
+            - Component Inputs\r
+            - HDMI Inputs\r
+            - AUX Ports\r
+            - Serial Ports\r
+            - Parallel Ports\r
+            - Optical Ports\r
+            - Network Ports\r
+            - RJ45 Ports\r
+            - Thunderbolt Ports\r
+        cables-wires:\r
+            - Cabling\r
+            - Wiring\r
+            - Electrical Wires\r
+            - Cables\r
+            - Conductors\r
+            - Connectors\r
+            - Bundles\r
+            - Harnesses\r
+            - Cable Management\r
+            - Ribbon Cables\r
+            - Power Cords\r
+            - Extension Cords\r
+            - Ethernet Cables\r
+            - USB Cables\r
+            - HDMI Cables\r
+            - Audio Cables\r
+            - Video Cables\r
+            - Data Cables\r
+            - Fiber Optic Cables\r
+            - Coaxial Cables\r
+            - Patch Cables\r
+            - Network Cables\r
+            - Twisted Pair Cables\r
+            - Shielded Cables\r
+            - Unshielded Cables\r
+            - Wiring Looms\r
+            - Cable Ties\r
+            - Cable Clips\r
+            - Cable Routing\r
+            - Cable Channels\r
+            - Wiring Harnesses\r
+            - Cable Connectors\r
+            - Cable Ports\r
+            - Cable Management Brackets\r
+            - Cable Grommets\r
+            - Cable Sleeves\r
+            - Cable Ducts\r
+            - Cable Labels\r
+            - Cable Organizers\r
+            - Cable Clips\r
+            - Cable Adapters\r
+            - Jumper Wires\r
+            - Wiring Diagrams\r
+            - Cable Trays\r
+            - Wire Strippers\r
+            - Crimping Tools\r
+        mechanic-parts:\r
+            - Gears\r
+            - Pistons\r
+            - Belts\r
+            - Pulleys\r
+            - Chains\r
+            - Shafts\r
+            - Springs\r
+            - Levers\r
+            - Cranks\r
+            - Rods\r
+            - Cams\r
+            - Bearings\r
+            - Rollers\r
+            - Bushings\r
+            - Sprockets\r
+            - Flywheels\r
+            - Worm Gears\r
+            - Rack and Pinion\r
+            - Eccentrics\r
+            - Couplings\r
+            - Clutches\r
+            - Brakes\r
+            - Clamps\r
+            - Ratchets\r
+            - Tensioners\r
+            - Actuators\r
+            - Sliders\r
+            - Hinges\r
+            - Joints\r
+            - Linkages\r
+            - Ropes\r
+            - Cables\r
+            - Latches\r
+            - Locks\r
+            - Escapements\r
+            - Regulators\r
+            - Pendulums\r
+            - Balance Wheels\r
+            - Crown Wheels\r
+            - Escapement Wheels\r
+            - Balance Springs\r
+            - Tourbillons\r
+            - Escapement Mechanisms\r
+            - Escapement Levers\r
+            - Pallet Forks\r
+            - Escape Wheels\r
+        safety:\r
+            - Guards\r
+            - Covers\r
+            - Shields\r
+            - Safety Interlocks\r
+            - Emergency Stops\r
+            - E-Stop Buttons\r
+            - Safety Labels\r
+            - Warning Signs\r
+            - Lockout/Tagout\r
+            - Safety Barriers\r
+            - Light Curtains\r
+            - Safety Switches\r
+            - Override Controls\r
+            - Safety Relays\r
+            - Motion Sensors\r
+            - Emergency Alarms\r
+            - Fire Suppression Systems\r
+            - Automatic Shutdowns\r
+            - Safety Valves\r
+            - Pressure Relief Valves\r
+            - Safety Chains\r
+            - Anti-tip Features\r
+            - Non-slip Surfaces\r
+            - Fall Protection\r
+            - Safety Harnesses\r
+            - Eye Wash Stations\r
+            - First Aid Kits\r
+            - Safety Gloves\r
+            - Safety Glasses\r
+            - Hearing Protection\r
+            - Respirators\r
+            - Hard Hats\r
+            - Protective Clothing\r
+            - Insulated Handles\r
+            - Voltage Regulation\r
+            - Ground Fault Protection\r
+            - Leakage Current Protection\r
+            - Overload Protection\r
+            - Thermal Protection\r
+            - Circuit Breakers\r
+            - Fuse Protection\r
+            - Flame Arrestors\r
+            - Explosion-proof Enclosures\r
+            - Safety Cabinets\r
+            - Locking Mechanisms\r
+            - Lockout Tags\r
+        user-interface:\r
+            - Buttons\r
+            - Switches\r
+            - Knobs\r
+            - Touchscreens\r
+            - Displays\r
+            - LEDs (Light Emitting Diodes)\r
+            - LCDs (Liquid Crystal Displays)\r
+            - Monitors\r
+            - Gauges\r
+            - Dials\r
+            - Sliders\r
+            - Trackpads\r
+            - Joysticks\r
+            - Keyboards\r
+            - Keypads\r
+            - Touchpads\r
+            - Mice\r
+            - Remote Controls\r
+            - Touch-sensitive Panels\r
+            - Input Devices\r
+            - Output Devices\r
+            - Control Panels\r
+            - Graphical User Interface (GUI)\r
+            - Haptic Feedback\r
+            - Tactile Buttons\r
+            - Virtual Buttons\r
+            - Icons\r
+            - Menus\r
+            - Dropdown Lists\r
+            - Scrollbars\r
+            - Checkboxes\r
+            - Radio Buttons\r
+            - Toggle Buttons\r
+            - Sliders\r
+            - Progress Bars\r
+            - Notification Banners\r
+            - Alerts\r
+            - Pop-up Windows\r
+            - Dialog Boxes\r
+            - Status Indicators\r
+            - Error Messages\r
+            - Help Messages\r
+            - Tooltips\r
+            - Voice Commands\r
+            - Gesture Controls\r
+            - Motion Sensors\r
+            - Biometric Sensors\r
+            - Fingerprint Readers\r
+            - Facial Recognition\r
+            - Eye Tracking\r
+            - Speech Recognition\r
+            - Handwriting Recognition\r
+        ergonomics:\r
+            - Comfort\r
+            - User-friendly Design\r
+            - Human-Centered Design\r
+            - Usability\r
+            - Accessibility\r
+            - Posture Support\r
+            - Adjustable Features\r
+            - Hand Placement\r
+            - Wrist Rests\r
+            - Lumbar Support\r
+            - Armrests\r
+            - Height-adjustable\r
+            - Tilt-adjustable\r
+            - Swivel\r
+            - Sufficient Legroom\r
+            - Footrests\r
+            - Neutral Body Alignment\r
+            - Ease of Reach\r
+            - Minimal Strain\r
+            - Reduced Repetitive Movements\r
+            - Anti-fatigue Design\r
+            - Soft Edges\r
+            - Rounded Corners\r
+            - Contoured Surfaces\r
+            - Proper Lighting\r
+            - Glare Reduction\r
+            - Noise Control\r
+            - Vibration Dampening\r
+            - Ventilation\r
+            - Proper Display Height\r
+            - Cable Management\r
+            - Cable Organizers\r
+            - Cable Clips\r
+            - Cable Channels\r
+            - Intuitive Controls\r
+            - Clear Labels\r
+            - Readable Fonts\r
+            - Appropriate Iconography\r
+            - Logical Button Placement\r
+            - Simple Interfaces\r
+            - User Feedback\r
+            - Visual Feedback\r
+            - Auditory Feedback\r
+            - Ergonomic Furniture\r
+            - Natural Movements\r
+            - Supportive Seating\r
+            - Ergonomic Accessories\r
+            - Adaptable Design\r
+            - Safety Features\r
+            - Reduce Eye Strain\r
+            - Reduce Neck Strain\r
+            - Optimal Viewing Angles\r
+            - Neutral Typing Position\r
+`;export{n as default};

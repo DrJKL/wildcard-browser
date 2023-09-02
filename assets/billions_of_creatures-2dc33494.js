@@ -1,0 +1,606 @@
+const r=`# BoCreatures\r
+BoCreatures:\r
+    random:\r
+        - "__creatures/size__ __creatures/traits__ __creatures/descriptors__ __creatures/Look-Feel__ __creatures/Body-Shapes__, \r
+        {__creatures/nmbrlegs__ __creatures/nmbrarms__,|}\r
+        __creatures/Appendages__, \r
+        {__creatures/nmbrtails__|} __creatures/tails__, \r
+        __creatures/Skin-Fur-Types__,\r
+        {__creatures/ear-Types__,|}\r
+        {__creatures/wings__,|}\r
+        {__creatures/horns__|}\r
+        {__creatures/Mouth-Jaw__|}\r
+        __properties/colors/*__"\r
+creatures:\r
+    size:\r
+        - Tiny\r
+        - Small\r
+        - Compact\r
+        - Medium\r
+        - Average\r
+        - Large\r
+        - Big\r
+        - Huge\r
+        - Gigantic\r
+        - Enormous\r
+        - Massive\r
+        - Colossal\r
+    horns:\r
+        - Curled Horns\r
+        - Straight Horns\r
+        - Spiral Horns\r
+        - Forked Horns\r
+        - Twisted Horns\r
+        - Pointed Horns\r
+        - Branched Horns\r
+        - Short Horns\r
+        - Long Horns\r
+        - Curved Horns\r
+        - Antler-like Horns\r
+        - Horns with Tips\r
+    Mouth-Jaw:\r
+        - Normal Mouth\r
+        - Fang-Filled Mouth\r
+        - Sharp-Toothed Mouth\r
+        - Beaked Mouth\r
+        - Snouted Mouth\r
+        - Wide Jaw\r
+        - Narrow Jaw\r
+        - Double-Jointed Jaw\r
+        - Hinged Jaw\r
+        - Mandibulate Jaw\r
+        - Toothless Mouth\r
+        - Tentacled Mouth\r
+        - Circular Mouth\r
+        - Split Jaw\r
+        - Mandible Claws\r
+        - Serrated Jaw\r
+        - Extensible Jaw\r
+        - Proboscis\r
+        - Parrot-Like Beak\r
+\r
+    traits:\r
+        - Agile\r
+        - Alien\r
+        - Anthropomorphic\r
+        - Aquatic\r
+        - Avian\r
+        - Bioluminescent\r
+        - glowing markings\r
+        - Camouflaged\r
+        - Carnivorous\r
+        - Cunning\r
+        - Elongated\r
+        - Elusive\r
+        - Enchanted\r
+        - Enigmatic\r
+        - Ethereal\r
+        - Exotic\r
+        - Fierce\r
+        - Ferocious\r
+        - Gentle\r
+        - Gargantuan\r
+        - Graceful\r
+        - Haunting\r
+        - Luminous\r
+        - Majestic\r
+        - Monstrous\r
+        - Mysterious\r
+        - Mythical\r
+        - Nocturnal\r
+        - Otherworldly\r
+        - Playful\r
+        - Prowling\r
+        - Roaming\r
+        - Scaled\r
+        - Serpentine\r
+        - Stealthy\r
+        - Swift\r
+        - Terrifying\r
+        - Vibrant\r
+        - Vicious\r
+        - Winged\r
+        - Whimsical\r
+    descriptors:\r
+        - Alien\r
+        - Alienesque\r
+        - Amorphous\r
+        - Anomalous\r
+        - Augmented\r
+        - Biomimetic\r
+        - Bioluminescent\r
+        - Chitinous\r
+        - Creeping\r
+        - Crystalline\r
+        - Cyborg\r
+        - Ephemeral\r
+        - Ethereal\r
+        - Extraterrestrial\r
+        - fantasy\r
+        - Fluidic\r
+        - Geodesic\r
+        - Harmonious\r
+        - Hive-like\r
+        - Iridescent\r
+        - Irregular\r
+        - Mutated\r
+        - Mycelium\r
+        - Mythical\r
+        - Networked\r
+        - Nestled\r
+        - Organic\r
+        - Organic-Mechanical\r
+        - Otherworldly\r
+        - Phosphorescent\r
+        - Plasmic\r
+        - Pulsating\r
+        - Root-like\r
+        - Rhythmic\r
+        - Scaled\r
+        - Scifi\r
+        - Sinuous\r
+        - Subterranean\r
+        - Symbiotic\r
+        - Tendrilous\r
+        - Translucent\r
+        - Undulating\r
+        - Unearthly\r
+        - Vascular\r
+        - Visceral\r
+        - Webbed\r
+        - Woven\r
+    Look-Feel:\r
+        - Abstract\r
+        - Alien\r
+        - Amorphous\r
+        - Biomimetic\r
+        - Bohemian\r
+        - Classic\r
+        - Contemporary\r
+        - Crisp\r
+        - Distressed\r
+        - Eclectic\r
+        - Edgy\r
+        - Elegant\r
+        - Ethereal\r
+        - Exo\r
+        - Futuristic\r
+        - Geometric\r
+        - Gritty\r
+        - High-Tech\r
+        - Industrial\r
+        - Luxurious\r
+        - Minimalist\r
+        - Moody\r
+        - Natural\r
+        - Nostalgic\r
+        - Organic\r
+        - Otherworldly\r
+        - Playful\r
+        - Polished\r
+        - Raw\r
+        - Retro\r
+        - Rustic\r
+        - Serene\r
+        - Sleek\r
+        - Spacious\r
+        - Subdued\r
+        - Sublime\r
+        - Terrifying\r
+        - Textured\r
+        - Urban\r
+        - Vintage\r
+        - Whimsical\r
+    nmbrlegs:\r
+        - Legless\r
+        - 1 Leg\r
+        - Bipedal\r
+        - Tripedal\r
+        - Quadrupedal\r
+        - Hexapod\r
+        - Octopod\r
+        - Decapod\r
+        - Multipedal\r
+    nmbrarms:\r
+        - Armless\r
+        - Single-Armed\r
+        - Bimanual\r
+        - Trimanual\r
+        - Quadrumanual\r
+        - Hexamanual\r
+        - Octomanual\r
+        - Decamanual\r
+        - Multipedal\r
+    nmbrtails:\r
+        - Tailless\r
+        - Single-Tailed\r
+        - Bifurcated-Tailed\r
+        - Trifurcated-Tailed\r
+        - Quadrifurcated-Tailed\r
+        - nine-Tailed\r
+        - Multi-Tailed\r
+    tails:\r
+        - Short-Tailed\r
+        - Long-Tailed\r
+        - Curved-Tailed\r
+        - Bushy-Tailed\r
+        - Prehensile-Tailed\r
+        - Forked-Tailed\r
+        - Spiked-Tailed\r
+        - Tufted-Tailed\r
+    Appendages:\r
+        - Clawed Appendages\r
+        - Webbed Appendages\r
+        - Four-Fingered Hands\r
+        - Five-Fingered Hands\r
+        - Six-Fingered Hands\r
+        - Multi-Jointed Appendages\r
+        - Hoofed\r
+        - Padded Appendages\r
+        - Digitigrade Appendages\r
+        - Plantigrade Appendages\r
+        - Unguligrade Appendages\r
+        - Scaled Appendages\r
+        - Feathered Appendages\r
+        - Furry Appendages\r
+        - Flippers\r
+        - Tentacle\r
+    Body-Shapes:\r
+        - Feline\r
+        - Canine\r
+        - Avian\r
+        - Serpentine\r
+        - Aquatic\r
+        - Rodent\r
+        - Equine\r
+        - Insectoid\r
+        - Arachnid\r
+        - Amphibian\r
+        - Reptilian\r
+        - Cephalopod\r
+        - Wormlike\r
+        - Hominid\r
+        - Anthropomorphic\r
+        - Robotic\r
+        - Crustacean\r
+        - Mollusk\r
+        - Fungoid\r
+        - Blob-like\r
+        - Geometric\r
+        - Crystalline\r
+        - Amorphous\r
+        - Angular\r
+        - Ethereal\r
+        - Spherical\r
+        - Irregular\r
+        - Elongated\r
+        - Tendril-laden\r
+        - Appendage-rich\r
+        - Segmented\r
+        - Symmetrical\r
+        - Asymmetrical\r
+        - Fractal\r
+        - draconian\r
+        - Dragon\r
+    Skin-Fur-Types:\r
+        - Scales\r
+        - Feathers\r
+        - Fur\r
+        - Smooth Skin\r
+        - Exoskeleton\r
+        - Slimy Skin\r
+        - Slick Skin\r
+        - Iridescent Skin\r
+        - Spiky Scales\r
+        - Leathery Skin\r
+        - Hairy Fur\r
+        - Fuzzy Fur\r
+        - Wooly Fur\r
+        - Shaggy Fur\r
+        - Icy Scales\r
+        - Crystalized Skin\r
+        - Bark-like Skin\r
+        - Metallic Skin\r
+        - Transparent Skin\r
+        - Luminescent Skin\r
+    Ear-Types:\r
+        - Pointed Ears\r
+        - Rounded Ears\r
+        - Floppy Ears\r
+        - Bat-Like Ears\r
+        - Cat Ears\r
+        - Dog Ears\r
+        - Elongated Ears\r
+        - Webbed Ears\r
+        - Tufted Ears\r
+        - Horned Ears\r
+        - Furry Ears\r
+        - Slit Ears\r
+    wings:\r
+        - Celestial Wings (__magical/magic__ wings attached to the back)\r
+        - Angelic Wings\r
+        - Demonic Wings\r
+        - Fairy Wings\r
+        - Dragon Wings\r
+        - Phoenix Wings\r
+        - Butterfly Wings\r
+        - Seraph Wings\r
+        - Bat Wings\r
+        - Pegasus Wings\r
+        - Griffin Wings\r
+        - Wyvern Wings\r
+        - __magical/elemental__ Wings\r
+        - Crystal Wings\r
+        - Celestial Wings\r
+        - Dark Wings\r
+        - Feathered Wings\r
+        - Icarus Wings (enchanted wings made from wax and feathers)\r
+        - Gargoyle Wings\r
+        - Mechanical Wings made of gears and cogs and clockwork\r
+properties:\r
+    colors:\r
+        common:\r
+            - Aqua\r
+            - Beige\r
+            - Black\r
+            - Blue\r
+            - Bronze\r
+            - Brown\r
+            - Caramel\r
+            - Cherry\r
+            - Coral\r
+            - Cyan\r
+            - Dark blue\r
+            - Dark brown\r
+            - Dark gray\r
+            - Dark green\r
+            - Dark orange\r
+            - Dark pink\r
+            - Dark purple\r
+            - Dark yellow\r
+            - Emerald\r
+            - Gold\r
+            - Gray\r
+            - Green\r
+            - Indigo\r
+            - Lavender\r
+            - Lemon\r
+            - Light blue\r
+            - Light brown\r
+            - Light gray\r
+            - Light green\r
+            - Light orange\r
+            - Light pink\r
+            - Light purple\r
+            - Light yellow\r
+            - Lilac\r
+            - Magenta\r
+            - Maroon\r
+            - Olive\r
+            - Orange\r
+            - Pink\r
+            - Plum\r
+            - Purple\r
+            - Red\r
+            - Ruby\r
+            - Ruby\r
+            - Sapphire\r
+            - Silver\r
+            - Teal\r
+            - Turquoise\r
+            - White\r
+            - Yellow\r
+        animal-print:\r
+            - Leopard Print\r
+            - Zebra Print\r
+            - Tiger Stripes\r
+            - Cheetah Print\r
+            - Snake Skin Texture\r
+            - Alligator Texture\r
+            - Giraffe Print\r
+            - Cow Print\r
+            - Dalmatian Print\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Print\r
+            - Leopard Spots\r
+            - Ocelot Print\r
+            - Python Pattern\r
+            - Tiger Print\r
+            - Zebra Stripes\r
+            - Caiman Texture\r
+            - Zebra Striped Pattern\r
+            - Leopard Texture\r
+            - Cheetah Spot Design\r
+            - Snake Scale Pattern\r
+            - Alligator Skin Pattern\r
+            - Giraffe Spot Design\r
+            - Cowhide Pattern\r
+            - Dalmatian Spot Pattern\r
+            - Tiger Stripe Design\r
+            - Leopard Spotted Pattern\r
+            - Cheetah Spot Texture\r
+            - Jaguar Spot Pattern\r
+            - Ocelot Spot Design\r
+            - Python Texture\r
+            - Tiger Striped Design\r
+            - Zebra Striped Texture\r
+            - Leopard Skin Pattern\r
+            - Cheetah Print Texture\r
+            - Snake Skin Pattern\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture\r
+            - Alligator Skin Design\r
+            - Giraffe Spot Texture\r
+            - Cowhide Design\r
+            - Dalmatian Spot Texture\r
+            - Tiger Stripe Texture\r
+            - Leopard Spotted Design\r
+            - Cheetah Spot Pattern\r
+            - Jaguar Spot Texture\r
+            - Ocelot Spot Pattern\r
+            - Python Spot Texture\r
+            - Tiger Striped Pattern\r
+            - Zebra Striped Design\r
+            - Leopard Skin Texture\r
+            - Cheetah Print Pattern\r
+            - Snake Skin Texture\r
+            - Alligator Texture Pattern\r
+            - Giraffe Print Texture\r
+            - Cow Print Pattern\r
+            - Dalmatian Print Texture\r
+            - Tiger Print Pattern\r
+            - Zebra Spot Design\r
+            - Leopard Spot Texture\r
+            - Cheetah Spot Pattern\r
+            - Snake Scale Texture`;export{r as default};

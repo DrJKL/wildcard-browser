@@ -1,0 +1,2049 @@
+const r=`# BoChars\r
+BoChars:\r
+    female:\r
+        modern:\r
+            - female __person/female__ wearing __clothings/female-attire__, __person/poses__\r
+        BoConstructions:\r
+            - __BoChars/female/modern__, __BoConstructions/random-standard__\r
+    male:\r
+        modern:\r
+            - male __person/male__ wearing __clothings/male-attire__, __person/poses__\r
+        BoConstructions:\r
+            - __BoChars/male/modern__, __BoConstructions/random-standard__\r
+    div:\r
+        - male __BoChars/female/modern__\r
+        - female __BoChars/male/modern__ \r
+    random:\r
+        - "{0.45::__BoChars/female/modern__|0.45::__BoChars/male/modern__|0.1::__BoChars/div__}"\r
+clothings:\r
+    female-attire:\r
+        - "{0.8::__random/dress-properties__|} __clothings/female/lower-body__,\r
+        {0.8::__random/dress-properties__|} __clothings/female/upper-body__,\r
+        {0.8::__clothings/female/footwear__|},\r
+        {0.5::__clothings/female/headwear__|},\r
+        __random/accesoires__"\r
+    male-attire:\r
+        - "{0.8::__random/dress-properties__|} __clothings/male/lower-body__,\r
+        {0.8::__random/dress-properties__|} __clothings/male/upper-body__,\r
+        {0.8::__clothings/male/footwear__|},\r
+        {0.5::__clothings/male/headwear__|},\r
+        __random/accesoires__"\r
+    female:\r
+        upper-body:\r
+            - Asymmetric hem top\r
+            - Asymmetric top\r
+            - Balloon sleeve blouse\r
+            - Bell sleeve top\r
+            - Blazer\r
+            - Blouse\r
+            - Bodysuit\r
+            - Bow back blouse\r
+            - Bow tie blouse\r
+            - Bustier\r
+            - Button-down shirt\r
+            - Camisole\r
+            - Cape sleeve top\r
+            - Cape top\r
+            - Cardigan\r
+            - Chiffon blouse\r
+            - Choker neck top\r
+            - Cold shoulder top\r
+            - Collared shirt\r
+            - Collarless blouse\r
+            - Corset top\r
+            - Cowl neck top\r
+            - Crochet sweater\r
+            - Crochet top\r
+            - Crop top\r
+            - Cropped sweater\r
+            - Cropped tank top\r
+            - Crossover top\r
+            - Embellished blouse\r
+            - Embroidered top\r
+            - Flared sleeve top\r
+            - Flounce sleeve top\r
+            - Fringe top\r
+            - Graphic print t-shirt\r
+            - Halter top\r
+            - Halterneck blouse\r
+            - Henley top\r
+            - High neck top\r
+            - High-low hem top\r
+            - Hoodie\r
+            - Keyhole blouse\r
+            - Kimono top\r
+            - Lace top\r
+            - Lace-trimmed camisole\r
+            - Lace-up bodysuit\r
+            - Lace-up top\r
+            - Mesh overlay top\r
+            - Mesh top\r
+            - Mock neck top\r
+            - Off-the-shoulder top\r
+            - One-shoulder top\r
+            - Oversized button-down shirt\r
+            - Oversized hoodie\r
+            - Oversized sweater\r
+            - Peasant blouse\r
+            - Peplum top\r
+            - Peter Pan collar top\r
+            - Plaid shirt\r
+            - Pleated blouse\r
+            - Pleated sleeve blouse\r
+            - Pleated tunic\r
+            - Printed blouse\r
+            - Puff shoulder sweater\r
+            - Puff sleeve blouse\r
+            - Puffed shoulder blouse\r
+            - Pullover\r
+            - Ribbed sweater\r
+            - Ribbed turtleneck\r
+            - Ruched top\r
+            - Ruffle blouse\r
+            - Ruffle sleeve blouse\r
+            - Ruffled turtleneck\r
+            - Satin blouse\r
+            - Satin camisole\r
+            - Sequin top\r
+            - Sheer blouse\r
+            - Silk blouse\r
+            - Sleeveless blouse\r
+            - Smocked top\r
+            - Strappy camisole\r
+            - Striped blouse\r
+            - Sweater\r
+            - Sweatshirt\r
+            - Tank top\r
+            - Tie-back top\r
+            - Tied sleeve blouse\r
+            - Tie-dye t-shirt\r
+            - Tie-front top\r
+            - Tiered top\r
+            - T-shirt\r
+            - Tube top\r
+            - Tunic\r
+            - Tunic sweater\r
+            - Turtleneck\r
+            - Velvet blouse\r
+            - V-neck top\r
+            - Wrap blouse\r
+            - Wrap cardigan\r
+            - Wrap front blouse\r
+            - Wrap top\r
+        lower-body:\r
+            - A-line culottes\r
+            - A-line shorts\r
+            - A-line skirt\r
+            - Bell-bottom jumpsuit\r
+            - Bell-bottom pants\r
+            - Bermuda shorts\r
+            - Bootcut pants\r
+            - Boyfriend jeans\r
+            - Capri leggings\r
+            - Capri pants\r
+            - Cargo jogger pants\r
+            - Cargo pants\r
+            - Cropped cargo pants\r
+            - Cropped jogger pants\r
+            - Cropped leggings\r
+            - Cropped pants\r
+            - Cropped wide-leg jumpsuit\r
+            - Cuffed shorts\r
+            - Culotte jumpsuit\r
+            - Culotte pantsuit\r
+            - Culotte skirt\r
+            - Culottes\r
+            - Denim culottes\r
+            - Denim paperbag shorts\r
+            - Denim shorts\r
+            - Denim skirt\r
+            - Flare pants\r
+            - Flare skirt\r
+            - Flare skort\r
+            - Flared culottes\r
+            - Flared jumpsuit\r
+            - Flared midi skirt\r
+            - Fringed shorts\r
+            - Harem pants\r
+            - High-low hem skirt\r
+            - High-low skirt\r
+            - High-waisted denim skirt\r
+            - High-waisted pants\r
+            - High-waisted pleated shorts\r
+            - High-waisted shorts\r
+            - High-waisted skirt\r
+            - Jeans\r
+            - Jogger pants\r
+            - Jogger shorts\r
+            - Jumpsuit\r
+            - Leggings\r
+            - Leggings with mesh inserts\r
+            - Maxi skirt\r
+            - Maxi skirt with side slit\r
+            - Midi skirt\r
+            - Midi skirt with asymmetrical hem\r
+            - Mini skirt\r
+            - Palazzo jumpsuit\r
+            - Palazzo pants\r
+            - Paperbag shorts\r
+            - Paperbag waist cropped pants\r
+            - Paperbag waist pants\r
+            - Paperbag waist shorts\r
+            - Paperbag waist skirt\r
+            - Pencil pants\r
+            - Pencil skirt\r
+            - Pleated culottes\r
+            - Pleated palazzo jumpsuit\r
+            - Pleated palazzo pants\r
+            - Pleated shorts\r
+            - Pleated skirt\r
+            - Pleated skort\r
+            - Pleated wide-leg trousers\r
+            - Pleather leggings\r
+            - Pleather leggings\r
+            - Ruffle detail shorts\r
+            - Ruffle hem skirt\r
+            - Ruffle trim skor\r
+            - Ruffled hem pants\r
+            - Ruffled hem trousers\r
+            - Ruffled skirt\r
+            - Shorts\r
+            - Skinny jeans\r
+            - Skinny trousers\r
+            - Skirt\r
+            - Skort (skirt with built-in shorts)\r
+            - Straight-leg cropped jeans\r
+            - Straight-leg pants\r
+            - Tailored trousers\r
+            - Tiered maxi skirt\r
+            - Trousers\r
+            - Wide-leg cropped pants\r
+            - Wide-leg culottes\r
+            - Wide-leg jumpsuit\r
+            - Wide-leg jumpsuit with belt\r
+            - Wide-leg linen pants\r
+            - Wide-leg pants\r
+            - Wrap skirt\r
+            - Wrap-around skirt\r
+            - Wrap-front culottes\r
+            - Wrap-front skirt\r
+            - Wrap-style pants\r
+        footwear:\r
+            - Ankle boots\r
+            - Ballet flats\r
+            - Block heel sandals\r
+            - Boat shoes\r
+            - Boots\r
+            - Chelsea boots\r
+            - Espadrilles\r
+            - Flats\r
+            - Flip-flops\r
+            - Gladiator sandals\r
+            - Heels\r
+            - High-top sneakers\r
+            - Hiking boots\r
+            - Kitten heels\r
+            - Lace-up boots\r
+            - Loafers\r
+            - Mary Jane shoes\r
+            - Mules\r
+            - Oxford shoes\r
+            - Peep-toe heels\r
+            - Platform sandals\r
+            - Pointed-toe flats\r
+            - Pumps\r
+            - Sandals\r
+            - Slides\r
+            - Slingback pumps\r
+            - Slip-on sneakers\r
+            - Sneakers\r
+            - Stilettos\r
+            - Wedges\r
+        headwear:\r
+            - Bandana\r
+            - Beanie\r
+            - Beret\r
+            - Bonnet\r
+            - Bow headband\r
+            - Bowler hat\r
+            - Bucket hat\r
+            - Cap\r
+            - Cloche hat\r
+            - Cloche with a veil\r
+            - Cowboy hat\r
+            - Crown\r
+            - Crown braid\r
+            - Fascinator\r
+            - Fascinator hat\r
+            - Fascinator hat with feathers\r
+            - Fascinator with birdcage veil\r
+            - Feather fascinator with netting\r
+            - Feathered headband\r
+            - Feathers headdress\r
+            - Fedora\r
+            - Floppy hat\r
+            - Floral crown with ribbon ties\r
+            - Flower crown\r
+            - Flower headband\r
+            - Hair bow\r
+            - Hair clip\r
+            - Hairband\r
+            - Hairpins with decorative jewels\r
+            - Halo headband\r
+            - Hatpin\r
+            - Headband\r
+            - Headscarf\r
+            - Headwrap\r
+            - Hijab\r
+            - Peacock feather headpiece\r
+            - Pillbox hat\r
+            - Pillbox hat with a veil\r
+            - Sailor hat\r
+            - Sinamay hat\r
+            - Straw hat\r
+            - Sun hat\r
+            - Sun visor\r
+            - Tiara\r
+            - Tiaras with crystal accents\r
+            - Turban\r
+            - Turban headband\r
+            - Veil\r
+            - Wide-brimmed hat\r
+    male:\r
+        upper-body:\r
+            - Baseball henley\r
+            - Baseball jersey\r
+            - Baseball shirt\r
+            - Blazer\r
+            - Bomber jacket\r
+            - Button-down shirt\r
+            - Camouflage shirt\r
+            - Cardigan\r
+            - Cardigan sweater\r
+            - Cargo shirt\r
+            - Chambray shirt\r
+            - Color-block sweater\r
+            - Corduroy jacket\r
+            - Crew neck sweater\r
+            - Crew neck sweatshirt\r
+            - Denim jacket\r
+            - Denim shirt\r
+            - Dress shirt\r
+            - Dress vest\r
+            - Faux leather jacket\r
+            - Field jacket\r
+            - Flannel hoodie\r
+            - Flannel shirt\r
+            - Fleece pullover\r
+            - Gingham shirt\r
+            - Golf polo\r
+            - Graphic long-sleeve shirt\r
+            - Graphic T-shirt\r
+            - Half-zip sweater\r
+            - Harrington jacket\r
+            - Hawaiian shirt\r
+            - Henley cardigan\r
+            - Henley hoodie\r
+            - Henley long-sleeve shirt\r
+            - Henley pocket T-shirt\r
+            - Henley shirt\r
+            - Henley thermal shirt\r
+            - Hoodie\r
+            - Leather jacket\r
+            - Linen blazer\r
+            - Linen Henley shirt\r
+            - Linen shirt\r
+            - Long-sleeve shirt\r
+            - Mesh jersey\r
+            - Mock neck pullover\r
+            - Mock neck sweater\r
+            - Mock neck T-shirt\r
+            - Muscle tank\r
+            - Muscle T-shirt\r
+            - Parka\r
+            - Performance polo\r
+            - Performance T-shirt\r
+            - Pinstripe shirt\r
+            - Pique polo shirt\r
+            - Plaid blazer\r
+            - Plaid flannel hoodie\r
+            - Plaid shirt\r
+            - Pocket T-shirt\r
+            - Polo hoodie\r
+            - Polo jacket\r
+            - Polo shirt\r
+            - Polo sweater\r
+            - Polo sweater vest\r
+            - Puffer jacket\r
+            - Quarter-zip pullover\r
+            - Quilted jacket\r
+            - Raglan shirt\r
+            - Rugby hoodie\r
+            - Rugby polo\r
+            - Rugby quarter-zip shirt\r
+            - Rugby shirt\r
+            - Sleeveless basketball jersey\r
+            - Sleeveless hoodie\r
+            - Sleeveless muscle hoodie\r
+            - Sleeveless tank top\r
+            - Sports jersey\r
+            - Striped crew neck sweater\r
+            - Striped Henley shirt\r
+            - Striped shirt\r
+            - Suit jacket\r
+            - Sweater\r
+            - Sweatshirt\r
+            - Tank top\r
+            - Thermal Henley shirt\r
+            - Thermal shirt\r
+            - Track jacket\r
+            - Track sweatshirt\r
+            - T-shirt\r
+            - Turtleneck sweater\r
+            - Turtleneck T-shirt\r
+            - Varsity jacket\r
+            - Varsity sweatshirt\r
+            - V-neck sweater\r
+            - Western denim shirt\r
+            - Western shirt\r
+            - Windbreaker\r
+            - Wool sweater\r
+            - Zip-up cardigan\r
+            - Zip-up hoodie\r
+            - Zip-up track jacket\r
+        lower-body:\r
+            - Athletic leggings\r
+            - Athletic shorts\r
+            - Athletic sweatpants\r
+            - Bermuda shorts\r
+            - Board pants\r
+            - Board shorts with print\r
+            - Boardshorts\r
+            - Camo cargo pants\r
+            - Camo joggers\r
+            - Capri pants\r
+            - Cargo boardshorts\r
+            - Cargo jogger pants\r
+            - Cargo jogger shorts\r
+            - Cargo joggers\r
+            - Cargo pants\r
+            - Cargo pants with zip-off legs\r
+            - Cargo shorts\r
+            - Cargo swim trunks\r
+            - Carpenter jeans\r
+            - Carpenter shorts\r
+            - Chinos\r
+            - Convertible cargo pants\r
+            - Convertible pants\r
+            - Corduroy pants\r
+            - Cropped cargo shorts\r
+            - Cropped chinos\r
+            - Cropped jeans\r
+            - Cropped trousers\r
+            - Cuffed pants\r
+            - Denim bermuda shorts\r
+            - Denim cutoff shorts\r
+            - Denim joggers\r
+            - Denim shorts\r
+            - Dress pants\r
+            - Dress shorts\r
+            - Dressy joggers\r
+            - Fleece joggers\r
+            - Golf pants\r
+            - Golf shorts\r
+            - Harem pants\r
+            - Harem shorts\r
+            - Hiking pants\r
+            - Hiking shorts\r
+            - Jeans\r
+            - Joggers\r
+            - Jumpsuit\r
+            - Khaki pants\r
+            - Linen shorts\r
+            - Linen trousers\r
+            - Linen-cotton shorts\r
+            - Linen-cotton trousers\r
+            - Motorcycle jeans\r
+            - Overalls\r
+            - Performance leggings\r
+            - Plaid golf pants\r
+            - Plaid trousers\r
+            - Pleated corduroy pants\r
+            - Pleated denim shorts\r
+            - Pleated golf pants\r
+            - Pleated khaki shorts\r
+            - Pleated shorts\r
+            - Pleated trousers\r
+            - Quilted joggers\r
+            - Quilted pants\r
+            - Quilted shorts\r
+            - Rugby shorts\r
+            - Running shorts\r
+            - Seersucker pants\r
+            - Seersucker shorts\r
+            - Shorts\r
+            - Ski pants\r
+            - Slim-fit cargo pants\r
+            - Slim-fit jeans\r
+            - Slim-fit track pants\r
+            - Snowboard pants\r
+            - Straight-leg chinos\r
+            - Straight-leg pants\r
+            - Stretch chinos\r
+            - Stretch jeans\r
+            - Sweatpants\r
+            - Sweatshorts\r
+            - Swim trunks\r
+            - Tailored board shorts\r
+            - Tailored shorts\r
+            - Tailored sweatpants\r
+            - Track pants\r
+            - Track pants with side stripes\r
+            - Track shorts\r
+            - Track shorts with mesh panels\r
+            - Trousers\r
+            - Utility joggers\r
+            - Utility pants\r
+            - Utility shorts\r
+            - Wide-leg pants\r
+            - Work pants\r
+            - Woven joggers\r
+        footwear:\r
+            - Athletic shoes\r
+            - Boat shoes\r
+            - Boots\r
+            - Brogues\r
+            - Canvas sneakers\r
+            - Cap-toe shoes\r
+            - Chelsea boots\r
+            - Chelseas\r
+            - Chukka boots\r
+            - Chukka sneakers\r
+            - Derby boots\r
+            - Derby shoes\r
+            - Dress shoes\r
+            - Driving shoes\r
+            - Espadrilles\r
+            - High-top sneakers\r
+            - Hiking boots\r
+            - Loafers\r
+            - Moccasins\r
+            - Monk strap boots\r
+            - Monk strap shoes\r
+            - Oxfords\r
+            - Penny loafers\r
+            - Sandals\r
+            - Slip-on shoes\r
+            - Sneakers\r
+            - Suede loafers\r
+            - Suede sneakers\r
+            - Wingtip shoes\r
+            - Work boots\r
+        headwear:\r
+            - Ascot cap\r
+            - Astronaut helmet\r
+            - Balaclava\r
+            - Bandana\r
+            - Baseball cap\r
+            - Beanie\r
+            - Beret\r
+            - Boater hat\r
+            - Bowler hat\r
+            - Bucket hat\r
+            - Bucket hat with a neck flap\r
+            - Chef's hat\r
+            - Cowboy hat\r
+            - Cricket hat\r
+            - Crown\r
+            - Cycling cap\r
+            - Deerstalker hat\r
+            - Feathers headdress\r
+            - Fedora\r
+            - Fez\r
+            - Flat cap\r
+            - Gatsby cap\r
+            - Greek fisherman's cap\r
+            - Headband\r
+            - Headscarf\r
+            - Jester hat\r
+            - Kufi cap\r
+            - Military beret\r
+            - Mohawk\r
+            - Newsboy cap\r
+            - Newsboy cap with ear flaps\r
+            - Panama hat\r
+            - Peaked cap\r
+            - Pharaoh's headdress\r
+            - Pith helmet\r
+            - Pork pie hat\r
+            - Santa Claus hat\r
+            - Ski mask\r
+            - Skullcap\r
+            - Snapback cap\r
+            - Sombrero\r
+            - Straw hat\r
+            - Sun hat\r
+            - Tam o' Shanter\r
+            - Top hat\r
+            - Tophat with a veil\r
+            - Trilby hat\r
+            - Turban\r
+            - Viking helmet\r
+            - Visor\r
+    unisex:\r
+        backwear:\r
+            - Arrow Holder\r
+            - Backpack\r
+            - Bedroll\r
+            - Camera Backpack\r
+            - Camping Backpack\r
+            - Cape\r
+            - Carrying Case\r
+            - Climbing Backpack\r
+            - Cloak\r
+            - Daypack\r
+            - Drawstring Bag\r
+            - Duffel Bag\r
+            - Fanny Pack\r
+            - Fishing Tackle Bag\r
+            - Frame Pack\r
+            - Haversack\r
+            - Hiking Pack\r
+            - Hunting Backpack\r
+            - Knapsack\r
+            - Laptop Backpack\r
+            - Laptop Sleeve Backpack\r
+            - Messenger Bag\r
+            - Military Backpack\r
+            - Pelican Case (protective case)\r
+            - Picnic Basket Backpack\r
+            - Poncho\r
+            - Quiver (for arrows)\r
+            - Roll-Top Backpack\r
+            - Rucksack\r
+            - Rucksack with Hydration System\r
+            - Satchel\r
+            - School Bag\r
+            - Scroll Case\r
+            - Shoulder Bag\r
+            - Sling Bag\r
+            - Tactical Vest\r
+            - Tote Bag\r
+            - Travel Bag\r
+            - Trolley Bag (with wheels)\r
+            - Ultralight Backpack\r
+        facewear:\r
+            - Balaclava\r
+            - Bandana\r
+            - Blindfold\r
+            - Diving Mask\r
+            - Eye Patch\r
+            - Eye Sleep Patch\r
+            - Face Hugger Mask (from sci-fi)\r
+            - Face Paint\r
+            - Face Scarf (Neck Gaiter)\r
+            - Face Veil\r
+            - Face Visor\r
+            - Facial Jewels or Tattoos\r
+            - Full-Face Gas Mask\r
+            - Glasses\r
+            - Goggles\r
+            - Masquerade Mask\r
+            - Monocle\r
+            - Motorcycle Helmet with Visor\r
+            - Night Vision Goggles\r
+            - Nose Clip (for swimming)\r
+            - Nose Ring\r
+            - Oxygen Mask\r
+            - eyebrow Piercings\r
+            - lip Piercings\r
+            - Prosthetic Mask\r
+            - Protective Face Shield\r
+            - Respirator Mask\r
+            - Safety Glasses\r
+            - Samurai Face Mask\r
+            - Scarecrow Mask\r
+            - Scuba Mask\r
+            - Ski Goggles\r
+            - Sleep Mask\r
+            - Snorkel\r
+            - Snowboarding Goggles\r
+            - Steampunk Goggles\r
+            - Sunglasses\r
+            - Surgical Mask\r
+            - Swimming Goggles\r
+            - VR Headset\r
+            - Welding Mask\r
+        accesoires:\r
+            - Anklet\r
+            - Arm cuff\r
+            - Arm sleeve\r
+            - Arm warmers\r
+            - Armlet\r
+            - Backpack\r
+            - Bandana\r
+            - Belt\r
+            - Belt bag\r
+            - Belt buckle\r
+            - Body chain\r
+            - Boot cuffs\r
+            - Bow tie\r
+            - Bracelet\r
+            - Briefcase\r
+            - Brooch\r
+            - Cardholder\r
+            - Choker\r
+            - Clothes brush\r
+            - Clutch\r
+            - Coin purse\r
+            - Collar extender\r
+            - Collar necklace\r
+            - Collar pins\r
+            - Collar stays\r
+            - Crossbody bag\r
+            - Cufflink case\r
+            - Cufflinks\r
+            - Ear cuff\r
+            - Ear warmers\r
+            - Earring backs\r
+            - Earrings\r
+            - Eyeglasses case\r
+            - Garment bag\r
+            - Garment steamer\r
+            - Gloves\r
+            - Gloves with touchscreen compatibility\r
+            - Hair bun holder\r
+            - Hair clips\r
+            - Hair donut\r
+            - Hairband\r
+            - Handbag organizer\r
+            - Handkerchief\r
+            - Hat\r
+            - Hat box\r
+            - Hat brush\r
+            - Headband\r
+            - Jewelry box\r
+            - Keychain\r
+            - Lapel flower\r
+            - Lapel pin\r
+            - Leg warmers\r
+            - Luggage tag\r
+            - Mask\r
+            - Messenger bag\r
+            - Money belt\r
+            - Money clip\r
+            - Necklace\r
+            - Passport cover\r
+            - Passport holder\r
+            - Patch\r
+            - Pendant\r
+            - Phone case\r
+            - Pocket square\r
+            - Ring\r
+            - Scarf\r
+            - Scarf clip\r
+            - Scarf hanger\r
+            - Scarf ring\r
+            - Shawl\r
+            - Shirt garters\r
+            - Shirt stays\r
+            - Shoe clips\r
+            - Shoe horn\r
+            - Shoe polish\r
+            - Shoe shine kit\r
+            - Shoe storage bags\r
+            - Shoe trees\r
+            - Shoulder strap\r
+            - Sleep mask\r
+            - Sock suspenders\r
+            - Sunglasses\r
+            - Sunglasses pouch\r
+            - Suspenders\r
+            - Tie\r
+            - Tie bar\r
+            - Tie clip\r
+            - Tie organizer\r
+            - Tie pouch\r
+            - Tie rack\r
+            - Toe rings\r
+            - Tote bag\r
+            - Umbrella\r
+            - Waist chain\r
+            - Wallet\r
+            - Wallet chain\r
+            - Watch\r
+            - Watch box\r
+            - Wristband\r
+            - Wristlet\r
+        neckwear:\r
+            - Amulet\r
+            - Ascot\r
+            - Bandana\r
+            - Beads\r
+            - Bib necklace\r
+            - Bolo tie\r
+            - Bowtie\r
+            - Cameo\r
+            - Chain\r
+            - Chiffon neckerchief\r
+            - Chiffon scarf\r
+            - Choker\r
+            - Choker necklace with a gemstone or jewel\r
+            - Collar\r
+            - Collar necklace\r
+            - Collar necklace with a pendant or gemstone drop\r
+            - Collar necklace with intricate beading or embroidery\r
+            - Cowrie shell necklace\r
+            - Cravat\r
+            - Cross\r
+            - Crystal necklace with healing properties\r
+            - Dog tag\r
+            - Feather collar or boa\r
+            - Infinity scarf\r
+            - Lanyard\r
+            - Lock pendant\r
+            - Locket\r
+            - Mala\r
+            - Mandala pendant\r
+            - Medallion\r
+            - Medallion\r
+            - Nameplate necklace\r
+            - Neckerchief\r
+            - Necklace\r
+            - Necklace with a charm or birthstone\r
+            - Necktie\r
+            - Pendant\r
+            - Pendant watch\r
+            - Prayer beads\r
+            - Ribbon\r
+            - Rosary\r
+            - Ruff\r
+            - Satin ribbon choker\r
+            - Scarf\r
+            - Statement necklace\r
+            - Stole\r
+            - Tie\r
+            - Torc\r
+            - Torque\r
+            - Turtleneck\r
+            - Y-necklace\r
+person:\r
+    female:\r
+        - "__person/ages__,\r
+        __person/bodyshapes__,\r
+        __person/ethnics__,\r
+        __person/eyecolor__,\r
+        {__person/ears__,|}\r
+        {__person/noses__,|}\r
+        {__person/chin__,|}\r
+        {__person/jaw__,|}\r
+        {__person/cheek__,|}\r
+        {__person/forehead__,|}\r
+        {__person/face-shape__,|}\r
+        {__person/body-feature__,|}\r
+        {\r
+            {0.7::__person/facial-features__|}|\r
+            {0.5::__person/makeup__|}\r
+        }, \r
+        __random/haircolor__ __person/haircuts-female__ hair, \r
+        __person/expressions__"\r
+    male:\r
+        - "__person/ages__\r
+        __person/bodyshapes__,\r
+        __person/ethnics__,\r
+        __person/eyecolor__,\r
+        {__person/ears__,|}\r
+        {__person/noses__,|}\r
+        {__person/chin__,|}\r
+        {__person/jaw__,|}\r
+        {__person/cheek__,|}\r
+        {__person/forehead__,|}\r
+        {__person/face-shape__,|}\r
+        {__person/body-feature__,|}\r
+        {\r
+            {0.7::__person/facial-features__|}|\r
+            {0.5::__person/beard__|}\r
+        }, \r
+        __random/haircolor__ __person/haircuts-male__ hair, \r
+        __person/expressions__,"\r
+    ages:\r
+        - Adolescence\r
+        - Ageless\r
+        - Aging gracefully\r
+        - Early twenties\r
+        - Eighteen\r
+        - Elderly\r
+        - Fifty-something\r
+        - Geriatric\r
+        - Golden age\r
+        - Hundred years old\r
+        - Late twenties\r
+        - Legal age\r
+        - Middle-aged\r
+        - Midlife\r
+        - Retirement age\r
+        - Senior\r
+        - Teenager\r
+        - Twenty-something\r
+        - Young adult\r
+        - Youth\r
+    bodyshapes:\r
+        - Agile\r
+        - Angular\r
+        - Athletic\r
+        - Balanced\r
+        - Brawny\r
+        - Broad\r
+        - Broad-shouldered\r
+        - Builky\r
+        - Buoyant\r
+        - Chiseled\r
+        - Compact\r
+        - Curvaceous\r
+        - Curvy\r
+        - Dainty\r
+        - Delicate\r
+        - Elegant\r
+        - Firm\r
+        - Fit\r
+        - Full-figured\r
+        - Graceful\r
+        - Hourglass\r
+        - Lanky\r
+        - Lean\r
+        - Lithe\r
+        - Muscular\r
+        - Pear-shaped\r
+        - Petite\r
+        - Plump\r
+        - Refined\r
+        - Ripped\r
+        - Robust\r
+        - Sculpted\r
+        - Shapely\r
+        - Sinewy\r
+        - Sleek\r
+        - Slender\r
+        - Slim\r
+        - Slinky\r
+        - Solid\r
+        - Stacked\r
+        - Statuesque\r
+        - Strong\r
+        - Sturdy\r
+        - Supple\r
+        - Svelte\r
+        - Tall\r
+        - Taut\r
+        - Toned\r
+        - Voluminous\r
+        - Voluptuous\r
+        - Well-defined\r
+        - Well-proportioned\r
+        - Wholesome\r
+    ears:\r
+        - Normal Ears\r
+        - Small Ears\r
+        - Large Ears\r
+        - Round Ears\r
+        - Oval Ears\r
+        - Pointed Ears\r
+        - Attached Ears\r
+        - Protruding Ears\r
+        - Lobed Ears\r
+        - Unlobed Ears\r
+        - Stretched Ears\r
+        - Gauged Ears\r
+        - Asymmetrical Ears\r
+        - Elongated Ears\r
+        - Flared Ears\r
+        - Curled Ears\r
+        - Folded Ears\r
+        - Cupped Ears\r
+        - Torn Ears\r
+        - Split Ears\r
+        - Upswept Ears\r
+        - Downturned Ears\r
+        - Unusual Ears\r
+        - Unique Ears\r
+    noses:\r
+        - Straight Nose\r
+        - Curved Nose\r
+        - Roman Nose\r
+        - Aquiline Nose\r
+        - Snub Nose\r
+        - Upturned Nose\r
+        - Button Nose\r
+        - Hawk-like Nose\r
+        - Bulbous Nose\r
+        - Wide Nose\r
+        - Narrow Nose\r
+        - Crooked Nose\r
+        - Flat Nose\r
+        - Long Nose\r
+        - Short Nose\r
+        - Round Nose\r
+        - Fleshy Nose\r
+        - Angular Nose\r
+        - Deviated Septum Nose\r
+        - Dorsal Hump Nose\r
+        - Nostril Flared Nose\r
+        - Nostril Narrow Nose\r
+        - Unusual Nose\r
+        - Unique Nose\r
+    chin:\r
+        - Square Chin\r
+        - Round Chin\r
+        - Pointed Chin\r
+        - Cleft Chin\r
+        - Receding Chin\r
+        - Protruding Chin\r
+        - Double Chin\r
+        - Narrow Chin\r
+        - Wide Chin\r
+        - V-Shaped Chin\r
+        - U-Shaped Chin\r
+        - Tapered Chin\r
+        - Square Chin with Cleft\r
+        - Round Chin with Cleft\r
+        - Pointed Chin with Cleft\r
+        - Receding Chin with Cleft\r
+        - Protruding Chin with Cleft\r
+        - Double Chin\r
+        - Unusual Chin\r
+        - Unique Chin\r
+    jaw:\r
+        - Square Jaw\r
+        - Round Jaw\r
+        - Angular Jaw\r
+        - Narrow Jaw\r
+        - Wide Jaw\r
+        - Pointed Jaw\r
+        - V-Shaped Jaw\r
+        - U-Shaped Jaw\r
+        - Protruding Jaw\r
+        - Receding Jaw\r
+        - Strong Jaw\r
+        - Soft Jaw\r
+        - Defined Jaw\r
+        - Blunt Jaw\r
+        - High Jawline\r
+        - Low Jawline\r
+        - Chiseled Jaw\r
+        - Underbite Jaw\r
+        - Overbite Jaw\r
+        - Unusual Jaw\r
+        - Unique Jaw\r
+    cheek:\r
+        - High Cheekbones\r
+        - Low Cheekbones\r
+        - Prominent Cheeks\r
+        - Round Cheeks\r
+        - Angular Cheeks\r
+        - Hollow Cheeks\r
+        - Plump Cheeks\r
+        - Sunken Cheeks\r
+        - Full Cheeks\r
+        - Chiseled Cheeks\r
+        - Dimpled Cheeks\r
+        - Smooth Cheeks\r
+        - Defined Cheeks\r
+        - Soft Cheeks\r
+        - Uneven Cheeks\r
+        - Symmetrical Cheeks\r
+        - Asymmetrical Cheeks\r
+        - Unusual Cheeks\r
+        - Unique Cheeks\r
+    forehead:\r
+        - Broad Forehead\r
+        - Narrow Forehead\r
+        - High Forehead\r
+        - Low Forehead\r
+        - Rounded Forehead\r
+        - Sloping Forehead\r
+        - Straight Forehead\r
+        - Angular Forehead\r
+        - Curved Forehead\r
+        - Prominent Forehead\r
+        - Flat Forehead\r
+        - Receding Forehead\r
+        - Uneven Forehead\r
+        - Symmetrical Forehead\r
+        - Asymmetrical Forehead\r
+        - Widows Peak Forehead\r
+        - Unusual Forehead\r
+        - Unique Forehead\r
+    face-shape:\r
+        - Oval face shape\r
+        - Round face shape\r
+        - Square face shape\r
+        - Heart face shape\r
+        - Diamond face shape\r
+        - Oblong face shape\r
+        - Triangle face shape\r
+        - Pear face shape\r
+        - Rectangular face shape\r
+        - Long face shape\r
+        - Square face shape with Round Forehead\r
+        - Square face shape with Angular Jaw\r
+        - Heart face shape with Pointed Chin\r
+        - Diamond face shape with Angular Cheeks\r
+        - Unusual face shape\r
+        - Unique face shape\r
+    body-feature:\r
+        - Cute Navel\r
+        - Well-defined Collar Bone\r
+        - Toned Arms\r
+        - Hourglass Figure\r
+        - Athletic Build\r
+        - Sculpted Abs\r
+        - Long Legs\r
+        - Petite Frame\r
+        - Broad Shoulders\r
+        - Curvaceous Hips\r
+        - Slender Waist\r
+        - Chiseled Chest\r
+        - Lean Torso\r
+        - Sculpted Back\r
+        - Strong Thighs\r
+        - Sculpted Calves\r
+        - Elegantly Arched Feet\r
+        - Artistic Tattoos\r
+        - Graceful Posture\r
+        - Striking Birthmarks\r
+        - Delicate Hands\r
+        - Well-defined Veins\r
+        - Shapely Neck\r
+        - Elegant Wrists\r
+        - Expressive Fingers\r
+        - Defined Knuckles\r
+        - Sculpted Shoulders\r
+        - Graceful Collarbone\r
+        - Toned Back\r
+        - Sculpted Biceps\r
+        - Athletic Triceps\r
+        - Sculpted Quadriceps\r
+        - Shapely Hamstrings\r
+        - Pronounced Glutes\r
+        - Well-toned Calf Muscles\r
+        - Sculpted Ankles\r
+        - Well-defined Achilles Tendons\r
+        - Graceful Arch of the Foot\r
+        - Elongated Toes\r
+        - Well-proportioned Ears\r
+        - Symmetrical Eyes\r
+        - Graceful Eyebrows\r
+        - Defined Jawline\r
+        - Sculpted Cheekbones\r
+        - Elegant Neckline\r
+        - Graceful Clavicle\r
+        - Well-formed Back Muscles\r
+        - Articulate Fingers\r
+        - Delicate Nails\r
+        - Unique Body Art\r
+        - Unconventional Piercings\r
+\r
+    expressions:\r
+        - Admiration\r
+        - Affection\r
+        - Amusement\r
+        - Anger\r
+        - Annoyance\r
+        - Anticipation\r
+        - Astonishment\r
+        - Awe\r
+        - Boredom\r
+        - Confusion\r
+        - Contempt\r
+        - Contentment\r
+        - Cry\r
+        - Curiosity\r
+        - Delight\r
+        - Disappointment\r
+        - Disapproval\r
+        - Disgust\r
+        - Embarrassment\r
+        - Envy\r
+        - Excitement\r
+        - Fear\r
+        - Frown\r
+        - Gratitude\r
+        - Grief\r
+        - Guilt\r
+        - Happiness\r
+        - Hope\r
+        - Insecurity\r
+        - Interest\r
+        - Joy\r
+        - Laugh\r
+        - Loneliness\r
+        - Love\r
+        - Nervousness\r
+        - Pity\r
+        - Pride\r
+        - Puzzlement\r
+        - Rage\r
+        - Regret\r
+        - Relief\r
+        - Sadness\r
+        - Sarcasm\r
+        - Satisfaction\r
+        - Skepticism\r
+        - Smile\r
+        - Surprise\r
+        - Surprise\r
+        - Trust\r
+        - Worry\r
+    ethnics:\r
+        - East Asian\r
+        - South Asian\r
+        - Southeast Asian\r
+        - Middle Easterner\r
+        - European\r
+        - African\r
+        - Indigenous peoples of the America\r
+        - Pacific Islander\r
+        - Native Hawaiian\r
+        - Central Asian\r
+        - Sub-Saharan African\r
+        - Indigenous Australian\r
+        - Inuit\r
+        - Native American\r
+        - Maori\r
+        - Afro-Caribbean\r
+        - Latin American\r
+        - Ashkenazi Jew\r
+        - Gypsies\r
+        - Berber\r
+        - Polynesian\r
+        - Scandinavian\r
+        - Russian\r
+        - Greek\r
+    eyecolor:\r
+        - Amber eyes\r
+        - Black eyes\r
+        - Blue eyes\r
+        - Brown eyes\r
+        - Chestnut eyes\r
+        - Dark brown eyes\r
+        - Dark green eyes\r
+        - Deep blue eyes\r
+        - Emerald eyes\r
+        - Golden eyes\r
+        - Gray eyes\r
+        - Green eyes\r
+        - Hazel eyes\r
+        - Honey eyes\r
+        - Light blue eyes\r
+        - Light brown eyes\r
+        - Ruby red eyes\r
+        - Steel gray eyes\r
+        - Turquoise eyes\r
+        - Violet eyes\r
+    haircolor:\r
+        - Black\r
+        - Brown\r
+        - Blonde\r
+        - Red\r
+        - Auburn\r
+        - Chestnut\r
+        - Brunette\r
+        - Platinum Blonde\r
+        - Sandy Blonde\r
+        - Dirty Blonde\r
+        - Light Brown\r
+        - Dark Brown\r
+        - Light Black (Soft Black)\r
+        - Jet Black\r
+        - Mahogany\r
+        - Burgundy\r
+        - Copper\r
+        - Strawberry Blonde\r
+        - Ginger\r
+        - Light Auburn\r
+        - Dark Auburn\r
+        - Light Chestnut\r
+        - Dark Chestnut\r
+        - Golden Blonde\r
+        - Ash Blonde\r
+        - Honey Blonde\r
+        - Caramel\r
+        - Silver \r
+        - Grey\r
+        - Salt and Pepper\r
+    haircolor-unconv:\r
+        - Blue\r
+        - Green\r
+        - Purple\r
+        - Pink\r
+        - Lavender\r
+        - Teal\r
+        - Pastel Blue\r
+        - Rose Gold\r
+        - Peach\r
+        - Mint Green\r
+        - Lilac\r
+        - Coral\r
+        - Silver Blonde\r
+        - Denim Blue\r
+        - Violet\r
+        - Emerald Green\r
+        - Tangerine\r
+        - Indigo\r
+        - Ruby Red\r
+        - Orchid\r
+        - Aqua\r
+    facial-features:\r
+        - Birthmarks\r
+        - Cheekbones\r
+        - Chin\r
+        - Cleft chin\r
+        - Dimples\r
+        - Freckles\r
+        - High cheekbones\r
+        - Jaw\r
+        - Laugh lines\r
+        - Moles\r
+        - Nasal septum\r
+        - Scars\r
+        - Tear ducts\r
+        - Teeth\r
+        - Thin lips\r
+        - Tongue\r
+        - Wrinkles\r
+    haircuts-female:\r
+        - Asymmetrical haircut\r
+        - Beehive hairstyle\r
+        - Blunt bangs\r
+        - Blunt cut\r
+        - Bob cut\r
+        - Bob with bangs\r
+        - Boho waves\r
+        - Box braids\r
+        - Braided haircut\r
+        - Chignon\r
+        - Choppy haircut\r
+        - Cornrows\r
+        - Crown braid\r
+        - Curly haircut\r
+        - Curtain bangs\r
+        - Dreadlocks\r
+        - Dutch braid\r
+        - Feathered haircut\r
+        - Fishtail braid\r
+        - French braid\r
+        - French twist\r
+        - Fringe haircut\r
+        - Half-up, half-down hairstyle\r
+        - High ponytail\r
+        - Layered haircut\r
+        - Long Bob\r
+        - Long and straight\r
+        - Long layers\r
+        - Low ponytail\r
+        - Mermaid waves\r
+        - Messy bun\r
+        - Milkmaid braid\r
+        - Mohawk\r
+        - Pixie cut\r
+        - Pompadour\r
+        - Retro curls\r
+        - Shag haircut\r
+        - Side-swept bangs\r
+        - Slicked-back hair\r
+        - Space buns\r
+        - Straight haircut\r
+        - Textured haircut\r
+        - Top knot\r
+        - Tousled waves\r
+        - Undercut\r
+        - Updo hairstyle\r
+        - Voluminous curls\r
+        - Waterfall braid\r
+        - Wavy haircut\r
+        - Wispy bangs\r
+    haircuts-male:\r
+        - Angular fringe\r
+        - Bald head\r
+        - Box braids\r
+        - Brush cut\r
+        - Buzz cut\r
+        - Caesar cut\r
+        - Choppy crop\r
+        - Classic side-swept hairstyle\r
+        - Comb-over\r
+        - Cornrows\r
+        - Crew cut\r
+        - Curly hair\r
+        - Curly undercut\r
+        - Disconnected undercut\r
+        - Dreadlocks\r
+        - Drop fade\r
+        - Fade haircut\r
+        - Faux hawk\r
+        - Flat top\r
+        - French crop\r
+        - High and tight\r
+        - High fade\r
+        - Ivy League\r
+        - Long and straight\r
+        - Long textured comb-over\r
+        - Low fade\r
+        - Man bun\r
+        - Messy hair\r
+        - Mid fade\r
+        - Modern slicked-back undercut\r
+        - Mohawk\r
+        - Mullet\r
+        - Pompadour\r
+        - Quiff\r
+        - Short and messy hairstyle\r
+        - Short comb-over\r
+        - Short crop\r
+        - Side part\r
+        - Slicked-back hair\r
+        - Slicked-back undercut\r
+        - Spiky hair\r
+        - Spiky textured hair\r
+        - Taper haircut\r
+        - Textured crop\r
+        - Textured quiff\r
+        - Top knot\r
+        - Tousled waves\r
+        - Undercut\r
+        - Waves haircut\r
+        - Wavy hair\r
+    makeup:\r
+        - Beach or summer makeup\r
+        - Bold and colorful makeup\r
+        - Bridal makeup\r
+        - Casual weekend makeup\r
+        - Festive holiday makeup\r
+        - Fresh and dewy makeup\r
+        - Glamorous evening makeup\r
+        - Gothic makeup\r
+        - edgy makeup\r
+        - Halloween makeup\r
+        - costume makeup\r
+        - Natural "no-makeup" makeup\r
+        - Natural everyday makeup\r
+        - Office/work makeup\r
+        - Prom makeup\r
+        - Red carpet makeup\r
+        - Romantic date night makeup\r
+        - Runway/editorial makeup\r
+        - Smoky eye makeup\r
+        - Soft and ethereal makeup\r
+        - Sophisticated and polished makeup\r
+        - Vintage-inspired makeup\r
+    beard:\r
+        - Anchor Beard\r
+        - Anchor Goatee\r
+        - Balbo Beard\r
+        - Bandholz Beard\r
+        - Beardstache\r
+        - Boxed Beard\r
+        - Broken Goatee\r
+        - Chevron Mustache\r
+        - Chin Curtain\r
+        - Chin Strap\r
+        - Circle Beard\r
+        - Clean-Shaven\r
+        - Dali Mustache\r
+        - Distinguished Goatee\r
+        - Ducktail Beard\r
+        - Extended Chin Strap\r
+        - Extended Goatee\r
+        - Extended Mutton Chops\r
+        - Five O'Clock Shadow\r
+        - Friendly Mutton Chops\r
+        - Friendly Mutton Chops Beard\r
+        - Full Beard\r
+        - Garibaldi Beard\r
+        - Goat Patch\r
+        - Goatee\r
+        - Handlebar Goatee\r
+        - Handlebar Mustache\r
+        - Hipster Beard\r
+        - Horseshoe Beard\r
+        - Horseshoe Mustache\r
+        - Hulihee\r
+        - Imperial Beard\r
+        - Imperial Mustache\r
+        - Jawline Beard\r
+        - Landing Strip\r
+        - Moustache\r
+        - Mutton Chops\r
+        - Pencil Mustache\r
+        - Petite Goatee\r
+        - Petite Goatee with Soul Patch\r
+        - Rap Industry Standard Beard\r
+        - Sideburns\r
+        - Soul Patch\r
+        - Stubble\r
+        - Tailback Beard\r
+        - The Klingon\r
+        - Van Dyke\r
+        - Verdi Beard\r
+        - Zappa Mustache\r
+        - Zorro Mustache\r
+    poses:\r
+        - Arms crossed tightly, suggesting defensiveness or discomfort\r
+        - Arms crossed, displaying assertiveness\r
+        - Arms extended forward, showing a willingness to give or receive\r
+        - Arms extended wide, expressing openness\r
+        - Arms folded across the chest, appearing closed off or guarded\r
+        - Arms folded, conveying defensiveness\r
+        - Arms linked with someone, indicating companionship\r
+        - Arms outstretched, inviting a hug\r
+        - Arms outstretched, inviting an embrace\r
+        - Arms raised in victory or celebration\r
+        - Arms wrapped around knees, showing vulnerability\r
+        - Arms wrapped around oneself, indicating self-comfort\r
+        - Hands behind back, suggesting confidence or restraint\r
+        - Hands clasped in front, showing attentiveness\r
+        - Hands clenching into fists, indicating anger or frustration\r
+        - Hands covering mouth, suggesting surprise or shock\r
+        - Hands holding an object delicately, showing care\r
+        - Hands in pockets, displaying a casual attitude\r
+        - Hands in prayer position, showing reverence\r
+        - Hands on cheeks, displaying surprise\r
+        - Hands on chin, deep in contemplation\r
+        - Hands on head, displaying frustration\r
+        - Hands on heart, showing sincerity\r
+        - Hands on hips, displaying impatience\r
+        - Hands on hips, showing readiness or impatience\r
+        - Hands on the back of the neck, indicating frustration or stress\r
+        - Hands on the cheeks, suggesting awe or astonishment\r
+        - Hands on the forehead, displaying fatigue or exhaustion\r
+        - Hands on the stomach, suggesting nervousness or discomfort\r
+        - Hands on the waist, conveying authority\r
+        - Hands reaching out, indicating a desire for connection\r
+        - Head tilted to the side, indicating thoughtfulness\r
+        - Kneeling with head bowed, displaying humility or prayer\r
+        - Kneeling, showing humility\r
+        - Leaning back with hands behind head, showing relaxation\r
+        - Leaning forward with curiosity\r
+        - One hand covering the mouth, indicating shock or disbelief\r
+        - One hand on hip, displaying attitude\r
+        - One hand pointing, signaling direction\r
+        - One hand raised, seeking attention\r
+        - One hand raised, signaling a question\r
+        - Sitting crossed-legged, relaxed\r
+        - Sitting with arms and legs crossed, appearing closed-off\r
+        - Sitting with legs crossed and hands on lap, appearing composed and attentive\r
+        - Sitting with legs crossed, appearing relaxed and open-minded\r
+        - Sitting with legs spread apart, appearing relaxed and confident\r
+        - Standing tall, hands on hips, looking confident\r
+        - Standing with crossed arms and raised eyebrow, indicating skepticism\r
+        - Standing with hands in front, suggesting submission\r
+        - Standing with weight shifted to one leg, suggesting ease\r
+properties:\r
+    colors:\r
+        common:\r
+            - Aqua\r
+            - Beige\r
+            - Black\r
+            - Blue\r
+            - Bronze\r
+            - Brown\r
+            - Caramel\r
+            - Cherry\r
+            - Coral\r
+            - Cyan\r
+            - Dark blue\r
+            - Dark brown\r
+            - Dark gray\r
+            - Dark green\r
+            - Dark orange\r
+            - Dark pink\r
+            - Dark purple\r
+            - Dark yellow\r
+            - Emerald\r
+            - Gold\r
+            - Gray\r
+            - Green\r
+            - Indigo\r
+            - Lavender\r
+            - Lemon\r
+            - Light blue\r
+            - Light brown\r
+            - Light gray\r
+            - Light green\r
+            - Light orange\r
+            - Light pink\r
+            - Light purple\r
+            - Light yellow\r
+            - Lilac\r
+            - Magenta\r
+            - Maroon\r
+            - Olive\r
+            - Orange\r
+            - Pink\r
+            - Plum\r
+            - Purple\r
+            - Red\r
+            - Ruby\r
+            - Ruby\r
+            - Sapphire\r
+            - Silver\r
+            - Teal\r
+            - Turquoise\r
+            - White\r
+            - Yellow\r
+        fashion:\r
+            - BlazingYellow\r
+            - BlushPink\r
+            - BubblegumPink\r
+            - Burgundy\r
+            - BurntOrange\r
+            - Champagne\r
+            - CherryRed\r
+            - CinnamonBrown\r
+            - CoralOrange\r
+            - CoralReef\r
+            - DeepPlum\r
+            - DeepTurquoise\r
+            - DustyRose\r
+            - ElectricBlue\r
+            - EmeraldGreen\r
+            - GoldenYellow\r
+            - HotPink\r
+            - IceBlue\r
+            - LavenderGray\r
+            - LemonZest\r
+            - MidnightBlack\r
+            - MustardYellow\r
+            - NavyBlue\r
+            - OliveGreen\r
+            - OrchidPurple\r
+            - PaleMint\r
+            - PistachioGreen\r
+            - PlumPurple\r
+            - PoppyRed\r
+            - PowderBlue\r
+            - RoseGold\r
+            - RoyalPurple\r
+            - RustRed\r
+            - SageGreen\r
+            - SilverGray\r
+            - SkyBlue\r
+            - SlateGray\r
+            - SteelBlue\r
+            - TealBlue\r
+            - Terracotta\r
+        special:\r
+            - Amber\r
+            - Amethyst\r
+            - Azure\r
+            - Blush\r
+            - Caramel\r
+            - Chartreuse\r
+            - Citrine\r
+            - Cobalt\r
+            - Coral\r
+            - Coral Pink\r
+            - Crimson\r
+            - Emerald\r
+            - Fuchsia\r
+            - Goldenrod\r
+            - Indigo\r
+            - Lavender\r
+            - Lilac\r
+            - Marigold\r
+            - Mauve\r
+            - Moss Green\r
+            - Olive\r
+            - Periwinkle\r
+            - Rosewood\r
+            - Ruby\r
+            - Sapphire\r
+            - Silver\r
+            - Tangerine\r
+            - Teal\r
+            - Turquoise\r
+            - Vermilion\r
+    patterns:\r
+        2Dshapes:\r
+            - Circle\r
+            - Square\r
+            - Triangle\r
+            - Rectangle\r
+            - Pentagon\r
+            - Hexagon\r
+            - Octagon\r
+            - Rhombus\r
+            - Trapezoid\r
+            - Parallelogram\r
+            - Ellipse\r
+            - Crescent\r
+            - Star\r
+            - Heart\r
+            - Cross\r
+            - Diamond\r
+            - Oval\r
+            - Pentagon\r
+            - Hexagram\r
+        3Dshapes:\r
+            - Sphere\r
+            - Cube\r
+            - Cone\r
+            - Cylinder\r
+            - Pyramid\r
+            - Tetrahedron\r
+            - Octahedron\r
+            - Dodecahedron\r
+            - Icosahedron\r
+            - Cuboid\r
+            - Triangular Prism\r
+            - Pentagonal Prism\r
+            - Hexagonal Prism\r
+            - Ellipsoid\r
+            - Torus\r
+            - Hemisphere\r
+        lines:\r
+            - Straight lines\r
+            - Horizontal lines\r
+            - Vertical lines\r
+            - Diagonal lines\r
+            - Zigzag lines\r
+            - Wavy lines\r
+            - Curved lines\r
+            - Dotted lines\r
+            - Dashed lines\r
+            - Spiral lines\r
+            - Broken lines\r
+            - Parallel liness\r
+            - Intersecting liness\r
+            - Perpendicular liness\r
+        clothing:\r
+            - Abstract\r
+            - Animal print\r
+            - Argyle\r
+            - Aztec\r
+            - Batik\r
+            - Brocade\r
+            - Camouflage\r
+            - Checkered\r
+            - Chevron\r
+            - Damask\r
+            - Digital print\r
+            - Embroidered\r
+            - Fair Isle\r
+            - Fleur-de-lis\r
+            - Floral\r
+            - Geometric\r
+            - Gingham\r
+            - Harlequin\r
+            - Herringbone\r
+            - Honeycomb\r
+            - Houndstooth\r
+            - Ikat\r
+            - Lace\r
+            - Leopard print\r
+            - Marble\r
+            - Moroccan\r
+            - Mosaic\r
+            - Ombre\r
+            - Paisley\r
+            - Paisley\r
+            - Patchwork\r
+            - Pinstripe\r
+            - Plaid\r
+            - Polka dot\r
+            - Quatrefoil\r
+            - Ruffled\r
+            - Scallop\r
+            - Shibori\r
+            - Striated\r
+            - Striped\r
+            - Tartan\r
+            - Tartan\r
+            - Tie-dye\r
+            - Toile\r
+            - Tribal\r
+            - Zigzag\r
+    fabric:\r
+        - Cotton\r
+        - Silk\r
+        - Wool\r
+        - Linen\r
+        - Polyester\r
+        - Rayon\r
+        - Nylon\r
+        - Satin\r
+        - Velvet\r
+        - Denim\r
+        - Chiffon\r
+        - Lace\r
+        - Flannel\r
+        - Cashmere\r
+        - Tweed\r
+        - Suede\r
+        - Organza\r
+        - Taffeta\r
+        - Corduroy\r
+        - Chambray\r
+        - Jersey\r
+        - Brocade\r
+        - Tulle\r
+        - Voile\r
+        - Felt\r
+        - Crepe\r
+        - Georgette\r
+        - Jacquard\r
+        - Herringbone\r
+        - Lycra\r
+        - Muslin\r
+        - Seersucker\r
+        - Gingham\r
+        - Canvas\r
+        - Damask\r
+        - Moire\r
+        - Poplin\r
+        - Terry cloth\r
+        - Batik\r
+        - Twill\r
+        - Mesh\r
+        - Lurex\r
+        - Chenille\r
+        - Sateen\r
+        - Organza\r
+        - Poplin\r
+        - Eyelet\r
+        - Broderie anglaise\r
+        - Piqué\r
+        - Barkcloth\r
+matter:\r
+    state:\r
+        - Solid\r
+        - Liquid\r
+        - Gaseous\r
+        - Plasma\r
+        - Bose-Einstein Condensate\r
+        - Superfluid\r
+        - Ferromagnetic\r
+        - Supersolid\r
+        - Amorphous\r
+        - Colloids\r
+        - Liquid crystal\r
+    movement1:\r
+        - Translation\r
+        - Rotation\r
+        - Vibration\r
+        - Convection\r
+        - Diffusion\r
+        - Brownian motion\r
+        - Wave propagation\r
+        - Electric current\r
+    movement2:\r
+        - Swirling\r
+        - Flowing\r
+        - Turbulence\r
+        - Circulation\r
+        - Convection\r
+        - Whipping\r
+        - Drifting\r
+random:\r
+    color:\r
+        - "{__properties/colors/common__|__properties/colors/fashion__|__properties/colors/special__}"\r
+    dress-properties:\r
+        - "{1-3$$  $$__random/color__|__properties/fabric__|__properties/patterns/clothing__}"\r
+    accesoires:\r
+        - "{1-4$$ and$\${0.1::__clothings/unisex/accesoires__ |}|\r
+        {0.2::__clothings/unisex/backwear__ |}|\r
+        {0.2::__clothings/unisex/facewear__ |}|\r
+        {0.1::__clothings/unisex/neckwear__ |}}"\r
+    haircolor:\r
+        - "{0.7::__person/haircolor__|0.3::__person/haircolor-unconv__}"\r
+scenes:\r
+    dark:\r
+        - A moonlit graveyard, with tombstones casting eerie shadows\r
+        - An abandoned asylum, with broken windows and overgrown vegetation\r
+        - A dimly lit attic, filled with dusty old furniture and cobwebs\r
+        - A haunted forest, where twisted trees and fog create an ominous atmosphere\r
+        - A deserted carnival at night, with faded lights and a sense of eerie silence\r
+        - A decrepit, abandoned mansion with boarded-up windows and overgrown ivy\r
+        - A dimly lit basement, with flickering lights and mysterious sounds\r
+        - A stormy night with thunder and lightning, casting an eerie glow on a desolate landscape\r
+        - A secret underground chamber, illuminated only by candlelight\r
+        - A desolate, fog-covered moor, with an eerie sense of isolation\r
+        - A dilapidated, haunted house with creaking floors and whispers in the wind\r
+        - A creepy, rundown motel in the middle of nowhere, with flickering neon signs\r
+        - A shadowy alleyway, where distant footsteps echo and unknown figures lurk\r
+        - A labyrinthine catacomb, with crumbling walls and ancient tombs\r
+        - A dark, foreboding cave, with stalactites and echoes that seem to whisper\r
+        - A moonlit lake, with fog rolling over the water and mysterious shapes beneath the surface\r
+        - A sinister carnival tent, filled with eerie attractions and mysterious performers\r
+        - A hidden, underground lair, with dim lighting and mysterious artifacts\r
+        - A haunted, abandoned school, with shattered windows and eerie whispers in the halls\r
+        - A creepy, fog-filled swamp, with tangled branches and unseen creatures lurking\r
+    gates_magical:\r
+        - A grand, ornate gate adorned with intricate symbols, glowing with a soft, enchanting light\r
+        - A swirling portal of shimmering energy, transporting travelers to distant realms\r
+        - A hidden gate concealed within the heart of an ancient forest, accessible only by those with pure intentions\r
+        - A gate forged from pure crystal, refracting light and casting mesmerizing patterns on its surroundings\r
+        - A gate carved with mystical runes, humming with arcane energy and guarded by magical beings\r
+        - A floating gate suspended in mid-air, leading to a realm of ethereal beauty and wonder\r
+        - A gate composed of interwoven vines and flowers, representing the connection between nature and magic\r
+        - A gate made of enchanted ice, emanating a chilling yet captivating aura\r
+        - A gate guarded by mythical creatures, such as majestic dragons or graceful unicorns\r
+        - A gate formed from swirling clouds, offering a passage to the celestial realms\r
+        - A gate constructed from ancient stones imbued with ancient spells, granting access to forgotten realms\r
+        - A gate concealed within the heart of a cascading waterfall, accessible only to those who can find its hidden path\r
+        - A gate forged from molten lava, radiating intense heat and leading to realms of elemental fire\r
+        - A gate hewn from living wood, pulsating with the energy of the forest and granting passage to mystical lands\r
+        - A gate crafted from shimmering starlight, opening a pathway to the mysteries of the cosmos\r
+        - A gate guarded by towering statues that come to life, testing the worthiness of those who seek passage\r
+        - A gate carved from ancient obsidian, reflecting glimpses of alternate dimensions and possibilities\r
+        - A gate enveloped in swirling mists, shrouded in mystery and capable of transporting travelers across time and space\r
+        - A gate etched with celestial constellations, aligning only during rare celestial events to reveal hidden gateways\r
+        - A gate pulsating with the essence of pure magic, radiating an aura of power and potential\r
+    heaven:\r
+        - A golden gate leading to a realm of pure light and serenity\r
+        - Expansive gardens filled with vibrant, fragrant flowers and flowing fountains\r
+        - Majestic, pearly white architecture adorned with intricate details and sparkling gemstones\r
+        - A serene lake of crystal-clear water reflecting the colors of the heavenly sky\r
+        - Angelic beings with radiant wings and ethereal garments, emanating a warm glow\r
+        - Floating islands or clouds where souls peacefully reside, enjoying eternal bliss\r
+        - Harmonious music resonating throughout the celestial realms, creating an atmosphere of serenity\r
+        - An endless meadow of soft, green grass where souls gather in joyful unity\r
+        - Celestial beings engaging in activities that bring them joy, such as singing, dancing, or creating art\r
+        - A radiant sun shining with a gentle and comforting light, casting a warm glow on the heavenly landscape\r
+        - A grand celestial library containing boundless knowledge and wisdom\r
+        - Transparent, pearly gates through which souls enter into their eternal reward\r
+        - A place of reunion, where loved ones are reunited and share in eternal happiness\r
+        - A divine throne room, where a benevolent and loving presence radiates warmth and comfort\r
+        - A gentle breeze carrying a sense of peace and whispers of divine guidance\r
+        - Sacred and serene temples dedicated to spiritual enlightenment and worship\r
+        - Celestial waterfalls cascading down from great heights, shimmering with celestial energy\r
+        - Endless expanses of vibrant, radiant stars illuminating the heavenly skies\r
+        - A heavenly banquet, where souls gather to share in a feast of abundance and joy\r
+        - An eternal sunset, casting a warm and serene glow over the heavenly realm\r
+    hell:\r
+        - Fiery pits of molten lava, where souls are engulfed in eternal flames\r
+        - Endless, desolate landscapes of scorched earth and crumbling ruins\r
+        - Sinister creatures lurking in the shadows, embodying darkness and malevolence\r
+        - Torturous chambers filled with eerie sounds and cries of agony\r
+        - Jagged cliffs and bottomless chasms, representing the depths of despair and hopelessness\r
+        - A never-ending storm of thunder, lightning, and torrential rain, perpetuating a sense of chaos\r
+        - Putrid, toxic fumes and foul odors permeating the air, causing physical and mental anguish\r
+        - Twisted, gnarled trees with sharp thorns and rotting foliage, symbolizing decay and corruption\r
+        - An oppressive darkness that engulfs everything, leaving no room for hope or redemption\r
+        - Chains and shackles binding tormented souls, representing their eternal confinement\r
+        - A suffocating atmosphere of despair, where the weight of guilt and remorse is palpable\r
+        - Serpents and demonic creatures slithering and prowling, embodying wickedness and temptation\r
+        - Cavernous dungeons filled with grotesque creatures inflicting unimaginable pain upon lost souls\r
+        - Swirling whirlpools of black, icy water, symbolizing a never-ending cycle of suffering\r
+        - Endless labyrinths and mazes, where lost souls wander aimlessly in eternal confusion\r
+        - Barren wastelands devoid of life, where despair and desolation reign supreme\r
+        - Boiling cauldrons and pits where souls are subjected to various forms of torment and punishment\r
+        - Constant screams and wails of anguish echoing through the dark abyss of hell\r
+        - Demonic figures with twisted, contorted forms and grotesque visages, embodying pure evil\r
+        - A sense of isolation and separation from all that is good and pure, with no hope of escape or redemption\r
+    light:\r
+        - A sunlit park, filled with children playing and families having picnics\r
+        - A cozy living room with a crackling fireplace and comfortable seating\r
+        - A vibrant farmer's market, bustling with people and colorful produce\r
+        - A cheerful café, with the aroma of freshly brewed coffee and friendly conversation\r
+        - A sunny beach, with families building sandcastles and enjoying the ocean\r
+        - A lively street fair, with food stalls, live music, and laughter\r
+        - A peaceful garden, with blooming flowers and butterflies fluttering around\r
+        - A warm kitchen, with the scent of home-cooked meals and laughter of loved ones\r
+        - A community gathering, with people of all ages enjoying games, music, and food\r
+        - A lively bookstore, with cozy reading nooks and book lovers browsing the shelves\r
+        - A charming bakery, with mouth-watering pastries and the sound of friendly chatter\r
+        - A joyful birthday party, with colorful decorations and laughter in the air\r
+        - A picturesque countryside, with rolling hills, green meadows, and grazing animals\r
+        - A lively neighborhood block party, with music, food, and a sense of community\r
+        - A family dinner gathering, with a beautifully set table and heartfelt conversations\r
+        - A sunny garden party, with friends enjoying refreshments and engaging in lively discussions\r
+        - A cheerful school classroom, with students working together and a passionate teacher\r
+        - A vibrant street market, with vendors showcasing their unique crafts and products\r
+        - A peaceful lakeside retreat, with serene waters and people enjoying recreational activities\r
+        - A friendly neighborhood café, with cozy seating, friendly staff, and the aroma of freshly brewed coffee\r
+    nature:\r
+        - A serene waterfall, surrounded by lush greenery and the soothing sound of cascading water\r
+        - A tranquil forest clearing, where sunlight filters through the trees and birdsong fills the air\r
+        - A breathtaking mountain summit, offering panoramic views of majestic peaks and sweeping valleys\r
+        - A pristine beach at sunrise, with gentle waves rolling onto golden sand and seagulls soaring overhead\r
+        - A peaceful meadow, adorned with vibrant wildflowers and buzzing with the sound of bees\r
+        - A secluded hiking trail, winding through a dense forest and leading to a hidden, picturesque lake\r
+        - A starry night sky, free from light pollution, revealing the beauty of countless twinkling stars\r
+        - A colorful autumn landscape, with trees adorned in vibrant shades of red, orange, and gold\r
+        - A tranquil lakeside scene, with calm waters reflecting a clear blue sky and surrounding mountains\r
+        - A blooming cherry blossom grove, with delicate pink petals floating in the breeze\r
+        - A vast, open prairie, with tall grasses swaying gently in the wind and wild horses roaming freely\r
+        - A peaceful riverbank, where wildlife gathers to drink and the gentle current creates a soothing melody\r
+        - A mystical foggy forest, where moss-covered trees create an otherworldly atmosphere\r
+        - A dramatic coastal cliff, with crashing waves below and soaring seabirds above\r
+        - A vibrant coral reef, teeming with a rainbow of colorful fish and intricate marine life\r
+        - A sun-drenched field of sunflowers, stretching as far as the eye can see and radiating warmth\r
+        - A magical bioluminescent bay, where the water glows with ethereal blue light after dark\r
+        - A sprawling vineyard, with neatly arranged rows of grapevines and the scent of ripe fruit in the air\r
+        - A tranquil garden oasis, with blooming flowers, babbling fountains, and the sweet aroma of nature\r
+        - A majestic old-growth forest, with towering ancient trees and a sense of timelessness\r
+    sky-space:\r
+        - A vibrant sunset in the clouds, with hues of orange, pink, and purple painting the sky\r
+        - A floating city in the clouds, where people live amidst the mist and walkways suspended in the air\r
+        - A celestial phenomenon, such as the aurora borealis, dancing across the night sky\r
+        - A cloud castle, with towering spires and ethereal architecture\r
+        - A serene cloud forest, with lush vegetation and floating islands of greenery\r
+        - A skyborne marketplace, where traders sell their wares on floating platforms\r
+        - A skydiving adventure, soaring through the clouds with the wind in your face\r
+        - A cosmic nebula, with swirling colors and mesmerizing patterns in deep space\r
+        - A space station, bustling with astronauts conducting experiments and living in zero gravity\r
+        - A futuristic city on a distant planet, with high-tech buildings and advanced transportation systems\r
+        - A journey through a wormhole, traveling through space and time to unknown realms\r
+        - A moonlit night on a celestial body, with distant stars illuminating the lunar landscape\r
+        - A starship bridge, with crew members operating controls and monitoring interstellar travel\r
+        - A spacewalk outside a spaceship, witnessing the vastness of space and the Earth below\r
+        - A colony on a habitable exoplanet, with settlers building a new society among the stars\r
+        - A meteor shower, with streaks of light and the anticipation of a celestial spectacle\r
+        - A space opera battle, with starships engaging in epic combat amidst a backdrop of distant galaxies\r
+        - A space research facility, where scientists study distant celestial bodies and phenomena\r
+        - A zero-gravity dance performance, defying the laws of physics in a captivating display\r
+        - A floating garden in space, with plant life thriving in controlled environments aboard a space station\r
+    underground:\r
+        - A vast underground cavern, illuminated by softly glowing crystals and stalactites\r
+        - A hidden underground tunnel, with dimly lit lanterns guiding the way\r
+        - An ancient underground city, with intricate stone architecture and mysterious carvings\r
+        - A secret underground laboratory, filled with scientific equipment and bubbling experiments\r
+        - A hidden underground chamber, housing ancient artifacts and long-lost treasures\r
+        - A subterranean river, flowing through a dark cave with bioluminescent organisms lighting the way\r
+        - A network of underground tunnels, used by rebels or clandestine organizations for secret meetings\r
+        - A hidden underground library, filled with dusty books and forgotten knowledge\r
+        - A creepy underground catacomb, with rows of old coffins and eerie whispers in the air\r
+        - An underground bunker, built for protection during times of crisis or war\r
+        - A hidden underground club, where music and dancing create an electrifying atmosphere\r
+        - A mystical underground grotto, filled with glowing mushrooms and magical creatures\r
+        - A subterranean mine, with miners toiling away in search of valuable resources\r
+        - An underground prison, with dimly lit cells and a sense of isolation and despair\r
+        - A secret underground meeting place, where conspirators gather to plot and plan\r
+        - A hidden underground garden, flourishing with unique plants that thrive in the absence of sunlight\r
+        - A labyrinthine underground maze, where adventurers face challenges and puzzles at every turn\r
+        - An underground subway station, bustling with commuters and the rumble of passing trains\r
+        - A hidden underground market, where traders and vendors sell their wares in the shadows\r
+        - An underground concert venue, where music reverberates through the cavernous space\r
+    underwater:\r
+        - A vibrant coral reef, teeming with a kaleidoscope of colorful fish and swaying coral formations\r
+        - A sunken shipwreck, with marine life making it their home and exploring its hidden treasures\r
+        - A deep-sea trench, with bioluminescent organisms illuminating the darkness with a mystical glow\r
+        - An underwater cave system, with crystal-clear water revealing hidden chambers and intricate rock formations\r
+        - A kelp forest, where towering seaweed provides shelter for a variety of marine creatures\r
+        - A bustling underwater city, where merfolk and other mythical beings live in harmony\r
+        - A school of dolphins gracefully swimming through open waters, their playful antics captivating all who witness them\r
+        - A majestic underwater canyon, with steep cliffs and vibrant marine biodiversity\r
+        - A serene seagrass meadow, with gentle waves and curious sea turtles gliding through the underwater foliage\r
+        - An underwater volcano, with streams of hot bubbles and unique geological formations\r
+        - A hidden underwater cave, home to rare and elusive species found nowhere else on Earth\r
+        - A peaceful lagoon, with shallow turquoise waters and schools of colorful tropical fish\r
+        - A remote underwater oasis, where large coral structures provide shelter for a variety of marine life\r
+        - An underwater garden, adorned with delicate anemones and their resident clownfish\r
+        - A vast open ocean, with sunlight filtering through the water and creating mesmerizing patterns\r
+        - An underwater archaeological site, with ancient ruins waiting to be discovered and explored\r
+        - A vibrant underwater carnival, with aquatic creatures showcasing their talents in an enchanting display\r
+        - A deep-sea hydrothermal vent, with strange and alien-like organisms thriving in extreme conditions\r
+        - An underwater paradise, where ethereal jellyfish float gracefully in a mesmerizing ballet\r
+        - A hidden underwater sanctuary, where humans and aquatic creatures coexist and protect the fragile ecosystem\r
+`;export{r as default};

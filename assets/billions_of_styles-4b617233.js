@@ -1,0 +1,2222 @@
+const n=`# Billions of Styles\r
+BoStyles:\r
+    random-anything:\r
+        - "__styles/art-styles__, \r
+        {__styles/punk-styles__|}, \r
+        __styles/atmosphere/*__, \r
+        __styles/rendering-techniques/*__, \r
+        __styles/graphic-engines__, \r
+        __styles/image-styles__, \r
+        __styles/image-techniques/*__, \r
+        __styles/depiction-styles/*__,\r
+        {__styles/animations__|},\r
+        {__styles/ambient-Effects__|},\r
+        __BoStyles/random-quality-prompts__,\r
+        __styles/resolutions__,\r
+        __styles/Creative-Concepts__,"\r
+        #__BoStyles/random-camera-settings__"\r
+# art Styles\r
+    random-artstyle:\r
+        - __styles/art-styles__\r
+# punk style\r
+    random-punk-styles:\r
+        - __styles/punk-styles__\r
+# atmosphere\r
+    random-atmosphere:\r
+        - __styles/atmosphere/*__\r
+    random-atmosphere-Light:\r
+        - __styles/atmosphere/Light__\r
+    random-atmosphere-Dark:\r
+        - __styles/atmosphere/Dark__\r
+    random-atmosphere-Colorful:\r
+        - __styles/atmosphere/Colorful__\r
+    random-atmosphere-Intense:\r
+        - __styles/atmosphere/Intense__\r
+    random-atmosphere-Serene:\r
+        - __styles/atmosphere/Serene__\r
+    random-atmosphere-Cozy:\r
+        - __styles/atmosphere/Cozy__\r
+    random-atmosphere-Mysterious:\r
+        - __styles/atmosphere/Mysterious__\r
+    random-atmosphere-Romantic:\r
+        - __styles/atmosphere/Romantic__\r
+    random-atmosphere-Melancholic:\r
+        - __styles/atmosphere/Melancholic__\r
+    random-atmosphere-Magical:\r
+        - __styles/atmosphere/Magical__\r
+    random-atmosphere-Rustic:\r
+        - __styles/atmosphere/Rustic__\r
+    random-atmosphere-Ethereal:\r
+        - __styles/atmosphere/Ethereal__\r
+    random-atmosphere-Dramatic:\r
+        - __styles/atmosphere/Dramatic__\r
+    random-atmosphere-Nostalgic:\r
+        - __styles/atmosphere/Nostalgic__\r
+    random-atmosphere-Festive:\r
+        - __styles/atmosphere/Festive__\r
+    random-atmosphere-Minimalist:\r
+        - __styles/atmosphere/Minimalist__\r
+    random-atmosphere-Majestic:\r
+        - __styles/atmosphere/Majestic__\r
+    random-atmosphere-Surreal:\r
+        - __styles/atmosphere/Surreal__\r
+    random-atmosphere-Urban:\r
+        - __styles/atmosphere/Urban__\r
+    random-atmosphere-Winding:\r
+        - __styles/atmosphere/Winding__\r
+    random-atmosphere-reading:\r
+        - __styles/atmosphere/reading__\r
+    random-atmosphere-work:\r
+        - __styles/atmosphere/work__\r
+    random-atmosphere-teaching:\r
+        - __styles/atmosphere/teaching__\r
+    random-atmosphere-uncomfortable:\r
+        - __styles/atmosphere/uncomfortable__\r
+    random-atmosphere-productive:\r
+        - __styles/atmosphere/productive__\r
+    random-atmosphere-artistic:\r
+        - __styles/atmosphere/artistic__\r
+    random-atmosphere-natural:\r
+        - __styles/atmosphere/natural__\r
+    random-atmosphere-synthetic:\r
+        - __styles/atmosphere/synthetic__\r
+    random-atmosphere-mechanical:\r
+        - __styles/atmosphere/mechanical__\r
+    random-atmosphere-body-functional:\r
+        - __styles/atmosphere/body-functional__\r
+    random-atmosphere-decaying:\r
+        - __styles/atmosphere/decaying__\r
+    random-atmosphere-emotional:\r
+        - __styles/atmosphere/emotional__\r
+    random-atmosphere-Deteriorating:\r
+        - __styles/atmosphere/Deteriorating__\r
+    random-atmosphere-Shopping:\r
+        - __styles/atmosphere/Shopping__\r
+    random-atmosphere-dining:\r
+        - __styles/atmosphere/dining__\r
+    random-atmosphere-recreational:\r
+        - __styles/atmosphere/recreational__\r
+    random-atmosphere-VR:\r
+        - __styles/atmosphere/VR__\r
+    random-atmosphere-hospital:\r
+        - __styles/atmosphere/hospital__\r
+    random-atmosphere-Metropolitan:\r
+        - __styles/atmosphere/Metropolitan__\r
+    random-atmosphere-Rural:\r
+        - __styles/atmosphere/Rural__\r
+    random-atmosphere-Robotic:\r
+        - __styles/atmosphere/Robotic__\r
+    random-atmosphere-Engineering:\r
+        - __styles/atmosphere/Engineering__\r
+    random-atmosphere-Desert:\r
+        - __styles/atmosphere/Desert__\r
+    random-atmosphere-Mountain:\r
+        - __styles/atmosphere/Mountain__\r
+    random-atmosphere-Oceanic:\r
+        - __styles/atmosphere/Oceanic__\r
+    random-atmosphere-Forest:\r
+        - __styles/atmosphere/Forest__\r
+    random-atmosphere-Cultural:\r
+        - __styles/atmosphere/Cultural__\r
+\r
+# rendering\r
+    random-rendering:\r
+        - __styles/rendering-techniques/*__\r
+    random-rendering-Ray-Tracing:\r
+        - __styles/rendering-techniques/Ray-Tracing__\r
+    random-rendering-Ambient-Effects:\r
+        - __styles/rendering-techniques/Ambient Effects__\r
+    random-rendering-Particles-and-Effects:\r
+        - __styles/rendering-techniques/Particles and Effects__\r
+    random-rendering-Lighting-Techniques:\r
+        - __styles/rendering-techniques/Lighting Techniques__\r
+    random-rendering-Shading-Techniques:\r
+        - __styles/rendering-techniques/Shading Techniques__\r
+    random-rendering-Mapping-Techniques:\r
+        - __styles/rendering-techniques/Mapping Techniques__\r
+    random-rendering-Post-Processing-Techniques:\r
+        - __styles/rendering-techniques/Post-Processing Techniques__\r
+    random-rendering-Optimization-Techniques:\r
+        - __styles/rendering-techniques/Optimization Techniques__\r
+    random-rendering-Artistic-Rendering:\r
+        - __styles/rendering-techniques/Artistic Rendering__\r
+# graphic engines\r
+    random-graphic-engines:\r
+        - __styles/graphic-engines__\r
+# image Styles\r
+    random-image-styles:\r
+        - __styles/image-styles__\r
+# image Techniques\r
+    random-image-techniques:\r
+        - __styles/image-techniques/*__\r
+    random-image-techniques-Traditional:\r
+        - __styles/image-techniques/Traditional__\r
+    random-image-techniques-Digital:\r
+        - __styles/image-techniques/Digital__\r
+    random-image-techniques-Photographic:\r
+        - __styles/image-techniques/Photographic__\r
+    random-image-techniques-Other:\r
+        - __styles/image-techniques/Other__\r
+# depiction styles\r
+    random-depiction-styles:\r
+        - __styles/depiction-styles/*__\r
+    random-depiction-styles-2D-Styles:\r
+        - __styles/depiction-styles/2D-Styles__\r
+    random-depiction-styles-3D-Styles:\r
+        - __styles/depiction-styles/3D-Styles__\r
+    random-depiction-styles-Historical:\r
+        - __styles/depiction-styles/Historical__\r
+    random-depiction-styles-Digital-Modern-Styles:\r
+        - __styles/depiction-styles/Digital-Modern-Styles__\r
+# Animation\r
+    random-animation-style:\r
+        - __styles/animation__\r
+# ambient Effects\r
+    random-ambient-effect:\r
+        - __styles/ambient-Effects__\r
+# quality\r
+    random-quality-prompts:\r
+        - "{__styles/quality/details__|__styles/quality/styles__|__styles/quality/sharp__|__styles/quality/blur__}"\r
+# resolution\r
+    random-resolution:\r
+        - __styles/resolution__\r
+# creative concepts\r
+    random-creative-concept:\r
+        - __styles/Creative-Concepts__\r
+# Camera\r
+    random-camera-settings:\r
+        - "{__styles/camera/camera__|}, \r
+        __styles/camera/Aperture-Settings__, \r
+        __styles/camera/Shutter-Speed__, \r
+        __styles/camera/ISO-Settings__, \r
+        __styles/camera/White-Balance__, \r
+        __styles/camera/Exposure-Settings__, \r
+        __styles/camera/Shooting-Modes__, \r
+        __styles/camera/Composition-Techniques__,\r
+        __styles/camera/Focus__,\r
+        __styles/camera/Metering__"\r
+styles:\r
+    art-styles:\r
+        - Prehistoric Art\r
+        - Ancient Egyptian Art\r
+        - Ancient Greek Art\r
+        - Roman Art\r
+        - Byzantine Art\r
+        - Medieval Art\r
+        - Renaissance Art\r
+        - Baroque Art\r
+        - Rococo Art\r
+        - Neoclassical Art\r
+        - Romanticism\r
+        - Realism\r
+        - Impressionism\r
+        - Post - Impressionism\r
+        - Expressionism\r
+        - Cubism\r
+        - Surrealism\r
+        - Abstract Expressionism\r
+        - Pop Art\r
+        - Minimalism\r
+        - Conceptual Art\r
+        - Postmodernism\r
+        - Contemporary Art\r
+        - sci - fi\r
+        - Art Nouveau\r
+        - Gothic\r
+        - Fauvism\r
+        - Dadaism\r
+        - Pointillism\r
+        - Symbolism\r
+        - Photorealism\r
+        - Constructivism\r
+        - Abstract Art\r
+        - Op Art\r
+        - Futurism\r
+        - Art Deco\r
+        - Neoclassicism\r
+        - Indigenous Art\r
+        - Afrofuturism\r
+        - Street Art\r
+        - Land Art\r
+        - Installation Art\r
+        - Environmental Art\r
+        - Performance Art\r
+        - Video Art\r
+        - Outsider Art\r
+        - Naïve Art\r
+        - Folk Art\r
+        - Graffiti Art\r
+        - Art Brut\r
+        - Tonalism\r
+        - Suprematism\r
+        - Fluxus\r
+        - Ashcan School\r
+        - Precisionism\r
+        - Neue Sachlichkeit (New Objectivity)\r
+        - Magic Realism\r
+        - Video Installation\r
+        - Landscapes\r
+        - Portraiture\r
+        - Still Life\r
+        - Trompe - l'oeil\r
+        - Hyperrealism\r
+        - Kinetic Art\r
+        - Body Art\r
+        - Bio Art\r
+        - Chinese Ink Painting\r
+        - Japanese Ukiyo - e\r
+        - Persian Miniature\r
+        - Mosaic Art\r
+        - Mexican Muralism\r
+        - Social Realism\r
+        - Romantic Landscape\r
+        - Abstract Landscape\r
+        - Optical Art\r
+        - Kinetic Sculpture\r
+        - Photomontage\r
+        - Constructive Realism\r
+        - Neo - Expressionism\r
+        - Neue Wilde\r
+        - Street Photography\r
+        - Hyperpop Art\r
+        - Graffiti Writing\r
+        - Art Povera\r
+        - Happening\r
+        - Video Game Art\r
+        - Digital Painting\r
+        - Photographic Realism\r
+        - Postcolonial Art\r
+        - Installation Sculpture\r
+        - Geometric Abstraction\r
+        - Hard - Edge Painting\r
+        - Social Sculpture\r
+        - New Media Art\r
+        - Indigenous Australian Art\r
+        - Aboriginal Dot Painting\r
+        - Photocollage\r
+        - Art Informel\r
+        - Color Field Painting\r
+        - Assemblage Art\r
+        - Stuckism\r
+    punk-styles:\r
+        - Biopunk\r
+        - Dieselpunk\r
+        - Atompunk\r
+        - Clockpunk\r
+        - Solarpunk\r
+        - Post-Apocalyptic\r
+        - Retrofuturism\r
+        - Tech Noir\r
+        - Cyber-occultism\r
+        - Neo-Noir\r
+        - sci-fi\r
+        - cyberpunk\r
+        - steampunk\r
+        - Post-Cyberpunk\r
+        - Stonepunk\r
+        - Teslapunk\r
+        - Raypunk\r
+        - Decopunk\r
+        - Mythpunk\r
+        - Spacepunk\r
+        - Nanopunk\r
+        - Retro Cyberpunk\r
+        - Robotpunk\r
+        - Vaporwave\r
+        - Glitch Art\r
+        - Solarwave\r
+    atmosphere:\r
+        Light:\r
+            - light\r
+            - Radiant\r
+            - Luminous\r
+            - Cheerful\r
+            - Glowing\r
+            - Sparkling\r
+            - Shimmering\r
+            - Sunny\r
+            - Brilliant\r
+            - Beaming\r
+            - Glimmering\r
+            - Effulgent\r
+            - Gleaming\r
+            - Dazzling\r
+            - Resplendent\r
+            - Ethereal\r
+            - Glistering\r
+            - Incandescent\r
+            - Scintillating\r
+            - Twinkling\r
+            - Glistening\r
+        Dark:\r
+            - dark\r
+            - Gloomy\r
+            - Dusky\r
+            - Eerie\r
+            - Shadowy\r
+            - Murky\r
+            - Dim\r
+            - Shady\r
+            - Obscure\r
+            - Tenebrous\r
+            - Somber\r
+            - Dreary\r
+            - Cimmerian\r
+            - Twilight\r
+            - Funereal\r
+            - Stygian\r
+            - Umbral\r
+            - Crepuscular\r
+            - Sombre\r
+            - Penumbra\r
+            - Opaque\r
+        Colorful:\r
+            - colorful\r
+            - Vivid\r
+            - Chromatic\r
+            - Multicolored\r
+            - Polychromatic\r
+            - Prismatic\r
+            - Kaleidoscopic\r
+            - Variegated\r
+            - Rainbow-colored\r
+            - Technicolor\r
+            - Iridescent\r
+            - Vibrant\r
+            - Flamboyant\r
+            - Mottled\r
+            - Psychedelic\r
+            - Dappled\r
+            - Splashed\r
+            - Lustrous\r
+            - Opalescent\r
+            - Glittering\r
+            - Jazzy\r
+        Intense:\r
+            - intense\r
+            - Harsh\r
+            - Blinding\r
+            - Glaring\r
+            - Dazzling\r
+            - Brilliant\r
+            - Searing\r
+            - Fierce\r
+            - Flashing\r
+            - Blazing\r
+            - Piercing\r
+            - Radiating\r
+            - Glinting\r
+            - Flaming\r
+            - Scorching\r
+            - White-hot\r
+            - Flare\r
+            - Burnished\r
+            - Flaring\r
+            - Fiery\r
+        Serene:\r
+            - serene\r
+            - Tranquil\r
+            - Calm\r
+            - Peaceful\r
+            - Soothing\r
+            - Gentle\r
+            - Soft\r
+            - Mellow\r
+            - Subdued\r
+            - Hushed\r
+            - Tender\r
+            - Placid\r
+            - Quiet\r
+            - Still\r
+            - Balmy\r
+            - Serene\r
+            - Mild\r
+            - Ethereal\r
+            - Dreamy\r
+            - Pleasant\r
+            - Halcyo\r
+        Cozy:\r
+            - cozy\r
+            - Warm\r
+            - Soft\r
+            - Inviting\r
+            - Homely\r
+            - Comforting\r
+            - Intimate\r
+            - Snug\r
+            - Fuzzy\r
+            - Nestled\r
+            - Hygge\r
+            - Comfy\r
+            - Relaxed\r
+            - Pleasant\r
+            - Quaint\r
+            - Nurturing\r
+            - Safe\r
+            - Cuddly\r
+            - Content\r
+            - Pleasant\r
+            - Homey\r
+        Mysterious:\r
+            - Mysterious\r
+            - Cryptic\r
+            - Uncanny\r
+            - Puzzling\r
+            - Secretive\r
+            - Veiled\r
+            - Esoteric\r
+            - Unknown\r
+            - Concealed\r
+            - Shadowy\r
+            - Enigmatic\r
+            - Hidden\r
+            - Recondite\r
+            - Arcane\r
+            - Abstruse\r
+            - Unfathomable\r
+            - Inscrutable\r
+            - Evasive\r
+            - Occult\r
+            - Nebulous\r
+            - Clandestine\r
+        Romantic:\r
+            - Romantic\r
+            - Amorous\r
+            - Passionate\r
+            - Intimate\r
+            - Tender\r
+            - Affectionate\r
+            - Candlelit\r
+            - Dreamy\r
+            - Sentimental\r
+            - Charming\r
+            - Idyllic\r
+            - Love-struck\r
+            - Heartwarming\r
+            - Enchanting\r
+            - Flirtatious\r
+            - Amatory\r
+            - Sweet\r
+            - Lovable\r
+            - Alluring\r
+            - Euphoric\r
+            - Serenading\r
+        Melancholic:\r
+            - Melancholic\r
+            - Somber\r
+            - Sorrowful\r
+            - Melancholy\r
+            - Wistful\r
+            - Nostalgic\r
+            - Pensive\r
+            - Soulful\r
+            - Longing\r
+            - Tragic\r
+            - Reflective\r
+            - Poignant\r
+            - Lamenting\r
+            - Desolate\r
+            - Forlorn\r
+            - Weeping\r
+            - Mournful\r
+            - Doleful\r
+            - Sullen\r
+            - Depressing\r
+            - Dismal\r
+        Magical:\r
+            - magical\r
+            - Enchanted\r
+            - Mystical\r
+            - Spellbinding\r
+            - Whimsical\r
+            - Mesmerizing\r
+            - Otherworldly\r
+            - Ethereal\r
+            - Fairy-tale\r
+            - Bewitching\r
+            - Fantastical\r
+            - Supernatural\r
+            - Wonderous\r
+            - Enigmatic\r
+            - Illusory\r
+            - Charmed\r
+            - Miraculous\r
+            - Wizardly\r
+            - Sorcerous\r
+            - Enigmatic\r
+            - Enthralling\r
+        Rustic:\r
+            - rustic\r
+            - Vintage\r
+            - Old-fashioned\r
+            - Antique\r
+            - Weathered\r
+            - Aged\r
+            - Time-worn\r
+            - Faded\r
+            - Worn\r
+            - Classic\r
+            - Nostalgic\r
+            - Distressed\r
+            - Aged\r
+            - Coarse\r
+            - Weathered\r
+            - Tarnished\r
+            - Patina\r
+        Ethereal:\r
+            - ethereal\r
+            - Heavenly\r
+            - Transcendent\r
+            - Divine\r
+            - Angelic\r
+            - Otherworldly\r
+            - Celestial\r
+            - Spiritual\r
+            - Enchanted\r
+            - Sacred\r
+            - Supernatural\r
+            - Cosmic\r
+            - Esoteric\r
+            - Mystical\r
+            - Ephemeral\r
+            - Enigmatic\r
+            - Nebulous\r
+            - Mystifying\r
+            - Astral\r
+        Dramatic:\r
+            - dramatic\r
+            - Theatrical\r
+            - Striking\r
+            - Bold\r
+            - Grandiose\r
+            - Overwhelming\r
+            - Impressive\r
+            - Majestic\r
+            - Spectacular\r
+            - Monumental\r
+            - Dynamic\r
+            - Intense\r
+            - Showy\r
+            - Flamboyant\r
+            - Thrilling\r
+            - Forceful\r
+            - Gripping\r
+            - Compelling\r
+            - Arresting\r
+        Nostalgic:\r
+            - nostalgic\r
+            - Retro\r
+            - Sentimental\r
+            - Fond\r
+            - Sentimental\r
+            - Yearning\r
+            - Longing\r
+            - Bittersweet\r
+            - Reminiscent\r
+            - Evocative\r
+            - Vintage\r
+            - Melancholic\r
+            - Quaint\r
+            - Poignant\r
+            - Classic\r
+            - Romantic\r
+            - Historical\r
+            - Old-school\r
+            - Sigh-inducing\r
+            - Heartwarming\r
+        Festive:\r
+            - festive\r
+            - Joyful\r
+            - Merry\r
+            - Lively\r
+            - Celebratory\r
+            - Jolly\r
+            - Sparkling\r
+            - Joyous\r
+            - Vibrant\r
+            - Exuberant\r
+            - Gleeful\r
+            - Animated\r
+            - Festal\r
+            - Spirited\r
+            - Luminous\r
+            - Whimsical\r
+            - Colorful\r
+            - Playful\r
+            - Bubbly\r
+            - Energetic\r
+            - Joyful\r
+        Minimalist:\r
+            - Minimalist\r
+            - Clean\r
+            - Simple\r
+            - Subtle\r
+            - Understated\r
+            - Spare\r
+            - Streamlined\r
+            - Minimal\r
+            - Modest\r
+            - Uncluttered\r
+            - Sleek\r
+            - Refined\r
+            - Neat\r
+            - Frugal\r
+            - Bare\r
+            - Unadorned\r
+            - Effortless\r
+            - Elegant\r
+            - Tasteful\r
+            - Essential\r
+        Majestic:\r
+            - Majestic\r
+            - Regal\r
+            - Imperial\r
+            - Noble\r
+            - Stately\r
+            - Magnificent\r
+            - Dignified\r
+            - Proud\r
+            - Grand\r
+            - Royal\r
+            - Exalted\r
+            - Heroic\r
+            - Sovereign\r
+            - Glorious\r
+            - Empowering\r
+            - Monumental\r
+            - Resplendent\r
+            - August\r
+            - Commanding\r
+            - Empress/Empress\r
+        Surreal:\r
+            - Surreal\r
+            - Unreal\r
+            - Dreamlike\r
+            - Visionary\r
+            - Hallucinatory\r
+            - Unearthly\r
+            - Fanciful\r
+            - Unconventional\r
+            - Fantasy-like\r
+            - Illusory\r
+            - Outlandish\r
+            - Bizarre\r
+            - Extraordinary\r
+            - Unrealistic\r
+            - Phantasmagorical\r
+            - Grotesque\r
+            - Abstract\r
+            - Enigmatic\r
+            - Fanciful\r
+            - Whimsical\r
+        Urban:\r
+            - urban\r
+            - Cityscape\r
+            - Metropolitan\r
+            - Streetlights\r
+            - Skyscraper\r
+            - Contemporary\r
+            - Industrial\r
+            - Modern\r
+            - Urban\r
+            - Neon-lit\r
+            - Graffiti\r
+            - Futuristic\r
+            - Edgy\r
+            - Vibrant\r
+            - Dynamic\r
+            - Trendy\r
+            - Hip\r
+            - Cosmopolitan\r
+            - Streetwise\r
+            - Hipster\r
+            - Chic\r
+        Mystical:\r
+            - Mystical\r
+            - Enchanted\r
+            - Occult\r
+            - Esoteric\r
+            - Magical\r
+            - Transcendent\r
+            - Secretive\r
+            - Mystifying\r
+            - Mysterious\r
+            - Ethereal\r
+            - Supernatural\r
+            - Enigmatic\r
+            - Sorcerous\r
+            - Symbolic\r
+            - Witching\r
+            - Enchanted\r
+            - Arcane\r
+            - Uncanny\r
+            - Spiritual\r
+            - Mystic\r
+            - Haunting\r
+        Winding:\r
+            - Winding\r
+            - Twisting\r
+            - Serpentine\r
+            - Circuitous\r
+            - Meandering\r
+            - Labyrinthine\r
+            - Confusing\r
+            - Intricate\r
+            - Tortuous\r
+            - Sinuous\r
+            - Convolute\r
+            - Zigzagging\r
+            - Tangled\r
+            - Complicated\r
+            - Baffling\r
+            - Entangled\r
+            - Interwoven\r
+            - Snakelike\r
+            - Curving\r
+            - Networked\r
+        reading:\r
+            - Tranquil\r
+            - Engaging\r
+            - Immersive\r
+            - Quiet\r
+            - Reflective\r
+            - Enveloping\r
+            - Captivating\r
+            - Thoughtful\r
+            - Intimate\r
+            - Absorbing\r
+            - Comforting\r
+            - Inspiring\r
+            - Focused\r
+            - Intellectual\r
+            - Relaxing\r
+            - Imaginative\r
+            - Invigorating\r
+            - Evocative\r
+        work:\r
+            - Job\r
+            - Career\r
+            - Employment\r
+            - Occupation\r
+            - Profession\r
+            - Labor\r
+            - Office\r
+            - Workplace\r
+            - Colleagues\r
+            - Task\r
+            - Responsibility\r
+            - Project\r
+            - Deadline\r
+            - Productivity\r
+            - Efficiency\r
+            - Collaboration\r
+            - Teamwork\r
+            - Achievement\r
+            - Progress\r
+            - Success\r
+            - Innovation\r
+            - Workload\r
+            - Commitment\r
+            - Dedication\r
+            - Performance\r
+            - Skills\r
+            - Development\r
+            - Growth\r
+            - Balance\r
+            - Challenge\r
+        teaching:\r
+            - Inspiring\r
+            - Supportive\r
+            - Engaging\r
+            - Encouraging\r
+            - Collaborative\r
+            - Interactive\r
+            - Enriching\r
+            - Stimulating\r
+            - Nurturing\r
+            - Empowering\r
+            - Positive\r
+            - Dynamic\r
+            - Respectful\r
+            - Inclusive\r
+            - Educational\r
+            - Constructive\r
+            - Thought-provoking\r
+            - Motivating\r
+            - Knowledge-sharing\r
+            - Transformative\r
+            - Open-minded\r
+            - Patient\r
+            - Creative\r
+            - Welcoming\r
+            - Focused\r
+            - Reflective\r
+            - Adaptable\r
+            - Socratic\r
+            - Inspirational\r
+            - Enthusiastic\r
+        uncomfortable:\r
+            - Oppressive\r
+            - Suffocating\r
+            - Confining\r
+            - Restrictive\r
+            - Claustrophobic\r
+            - Unsettling\r
+            - Unbearable\r
+            - Isolating\r
+            - Repressive\r
+            - Stifling\r
+            - Dismal\r
+            - Hostile\r
+            - Tense\r
+            - Constrained\r
+            - Harrowing\r
+            - Chilling\r
+            - Unwelcoming\r
+            - Depressing\r
+            - Inhospitable\r
+            - Grim\r
+            - Desolate\r
+            - Forsaken\r
+            - Desperate\r
+            - Unfree\r
+            - Discomforting\r
+            - Distressing\r
+            - Suffocating\r
+            - Uninviting\r
+            - Miserable\r
+            - Harsh\r
+        productive:\r
+            - Focused\r
+            - Collaborative\r
+            - Energetic\r
+            - Efficient\r
+            - Goal-oriented\r
+            - Innovative\r
+            - Inspiring\r
+            - Motivated\r
+            - Organized\r
+            - Dynamic\r
+            - Positive\r
+            - Engaging\r
+            - Synergistic\r
+            - Resourceful\r
+            - Proactive\r
+            - Creative\r
+            - Empowering\r
+            - Results-driven\r
+            - Effective\r
+            - Teamwork\r
+            - Solutions-oriented\r
+            - Supportive\r
+            - High-performance\r
+            - Ambitious\r
+            - Adaptable\r
+            - Time-efficient\r
+            - Streamlined\r
+            - Visionary\r
+            - Goal-driven\r
+            - Progress-oriented\r
+        artistic:\r
+            - Innovative\r
+            - Imaginative\r
+            - Inspiring\r
+            - Expressive\r
+            - Inventive\r
+            - Collaborative\r
+            - Artistic\r
+            - Playful\r
+            - Open-minded\r
+            - Experimental\r
+            - Unconventional\r
+            - Stimulating\r
+            - Curious\r
+            - Diverse\r
+            - Dynamic\r
+            - Original\r
+            - Free-thinking\r
+            - Visionary\r
+            - Transformative\r
+            - Eclectic\r
+            - Energizing\r
+            - Thought-provoking\r
+            - Risk-taking\r
+            - Adaptive\r
+            - Unrestrained\r
+            - Colorful\r
+            - Unique\r
+            - Breakthrough\r
+            - Inspirational\r
+            - Fertile\r
+        natural:\r
+            - Tranquil\r
+            - Peaceful\r
+            - Calming\r
+            - Refreshing\r
+            - Organic\r
+            - Rustic\r
+            - Bucolic\r
+            - Harmonious\r
+            - Verdant\r
+            - Idyllic\r
+            - Unspoiled\r
+            - Earthy\r
+            - Invigorating\r
+            - Scenic\r
+            - Pure\r
+            - Wild\r
+            - Breathtaking\r
+            - Nurturing\r
+            - Open\r
+            - Pristine\r
+            - Balanced\r
+            - Ecosystem\r
+            - Sustainable\r
+            - Wildlife\r
+            - Outdoor\r
+            - Fresh\r
+            - Uninhibited\r
+            - Renewing\r
+            - Resplendent\r
+        synthetic:\r
+            - Synthetic\r
+            - Manufactured\r
+            - Controlled\r
+            - Engineered\r
+            - Simulated\r
+            - Constructed\r
+            - Digital\r
+            - Virtual\r
+            - Artificially enhanced\r
+            - Replicated\r
+            - Designed\r
+            - Imposed\r
+            - Technical\r
+            - Generated\r
+            - Programmed\r
+            - Synthetic intelligence\r
+            - Reproduced\r
+            - Customized\r
+            - Virtual reality\r
+            - Augmented\r
+            - Mechanized\r
+            - Imitated\r
+            - Automated\r
+            - Man-made\r
+            - Faux\r
+            - Unnatural\r
+            - Inorganic\r
+            - Reconstructed\r
+            - Simulacrum\r
+            - Processed\r
+        mechanical:\r
+            - Technical\r
+            - Precise\r
+            - Industrial\r
+            - Engineered\r
+            - Functional\r
+            - Efficient\r
+            - Automated\r
+            - Mechanical\r
+            - Robotic\r
+            - Systematic\r
+            - Organized\r
+            - Gear-driven\r
+            - Structural\r
+            - Repetitive\r
+            - Machined\r
+            - Assembly line\r
+            - Controlled\r
+            - Lubricated\r
+            - Maintenance\r
+            - Tools\r
+            - Components\r
+            - Gears\r
+            - Motors\r
+            - Hydraulics\r
+            - Machinery\r
+            - Gritty\r
+            - Gearbox\r
+            - Factory\r
+            - Manufacturing\r
+        body-functional:\r
+            - Vital\r
+            - Energetic\r
+            - Active\r
+            - Dynamic\r
+            - Adaptive\r
+            - Healthy\r
+            - Well-functioning\r
+            - Harmonious\r
+            - Responsive\r
+            - Efficient\r
+            - Balanced\r
+            - Coordinated\r
+            - Nurturing\r
+            - Resilient\r
+            - Restorative\r
+            - Strong\r
+            - Vibrant\r
+            - Self-regulating\r
+            - Holistic\r
+            - Integrative\r
+            - Rejuvenating\r
+            - Homeostatic\r
+            - Empowered\r
+            - Synchronized\r
+            - Agile\r
+            - Robust\r
+            - Reenergizing\r
+            - Innate\r
+            - Flourishing\r
+        decaying:\r
+            - Deteriorating\r
+            - Decomposing\r
+            - Degenerating\r
+            - Disintegrating\r
+            - Rotten\r
+            - Decaying\r
+            - Putrid\r
+            - Decrepit\r
+            - Eroding\r
+            - Corroding\r
+            - Withering\r
+            - Fading\r
+            - Wasting\r
+            - Collapsing\r
+            - Crumbling\r
+            - Dying\r
+            - Ruined\r
+            - Abandoned\r
+            - Neglected\r
+            - Desolate\r
+            - Dilapidated\r
+            - Moldy\r
+            - Infested\r
+            - Rancid\r
+            - Neglected\r
+            - Desolate\r
+            - Stagnant\r
+            - Despairing\r
+            - Worn-out\r
+            - Ephemeral\r
+        emotional:\r
+            - Joyful\r
+            - Tense\r
+            - Exciting\r
+            - Comforting\r
+            - Nostalgic\r
+            - Uplifting\r
+            - Relaxed\r
+            - Intense\r
+            - Hopeful\r
+            - Reflective\r
+            - Empathetic\r
+            - Enthusiastic\r
+            - Empowering\r
+            - Heartwarming\r
+            - Bittersweet\r
+            - Dramatic\r
+            - Inspiring\r
+            - Energizing\r
+            - Tranquil\r
+            - Sentimental\r
+            - Touching\r
+            - Frenetic\r
+            - Thoughtful\r
+            - Nervous\r
+            - Content\r
+            - Poignant\r
+        Deteriorating:\r
+            - Decaying\r
+            - Deteriorating\r
+            - Degenerating\r
+            - Disintegrating\r
+            - Rotten\r
+            - Neglected\r
+            - Abandoned\r
+            - Crumbling\r
+            - Withering\r
+            - Corroding\r
+            - Eroding\r
+            - Fading\r
+            - Collapsing\r
+            - Desolate\r
+            - Dilapidated\r
+            - Worn-out\r
+            - Weakened\r
+            - Fraying\r
+            - Fragile\r
+            - Breakdown\r
+            - Desperation\r
+            - Dismal\r
+            - Forsaken\r
+            - Ruined\r
+        Shopping:\r
+            - Retail Therapy\r
+            - Consumer Experience\r
+            - Variety\r
+            - Trendy\r
+            - Window Shopping\r
+            - Bargain Hunting\r
+            - Boutique\r
+            - Upscale\r
+            - Crowded\r
+            - Modern\r
+            - Convenience\r
+            - Discounts\r
+            - Branding\r
+            - Exclusive\r
+            - Spacious\r
+            - Checkout Lines\r
+            - Department Store\r
+            - Customer Service\r
+            - Window Displays\r
+            - Fashionable\r
+            - Aisles\r
+            - Sale\r
+            - Shopping Carts\r
+            - Virtual Shopping\r
+        dining:\r
+            - Culinary Experience\r
+            - Ambiance\r
+            - Intimate\r
+            - Fine Dining\r
+            - Casual\r
+            - Cozy\r
+            - Elegant\r
+            - Rustic\r
+            - Upscale\r
+            - Family-Friendly\r
+            - Romantic\r
+            - Outdoor Dining\r
+            - Dim Lighting\r
+            - Modern Decor\r
+            - Authentic\r
+            - Vibrant\r
+            - Trendy\r
+            - Comfortable Seating\r
+            - Open Kitchen\r
+            - Sophisticated\r
+            - Communal Tables\r
+            - Ethnic Flavors\r
+            - Gourmet\r
+            - Fusion Cuisine\r
+            - Relaxed\r
+            - Wine Pairing\r
+            - Farm-to-Table\r
+            - Live Music\r
+        recreational:\r
+            - Leisurely\r
+            - Playful\r
+            - Active\r
+            - Relaxing\r
+            - Energetic\r
+            - Fun-filled\r
+            - Enjoyable\r
+            - Social\r
+            - Amusing\r
+            - Entertaining\r
+            - Adventurous\r
+            - Lively\r
+            - Invigorating\r
+            - Playgrounds\r
+            - Parks\r
+            - Games\r
+            - Outdoor Activities\r
+            - Fitness\r
+            - Sports\r
+            - Open Spaces\r
+            - Teamwork\r
+            - Picnics\r
+            - Group Activities\r
+            - Refreshing\r
+            - Play Zones\r
+            - Playgrounds\r
+            - Water Activities\r
+            - Creative Pursuits\r
+        VR:\r
+            - Immersive\r
+            - Digital World\r
+            - Interactive\r
+            - Artificial Environment\r
+            - Simulated Reality\r
+            - Virtual Experience\r
+            - 3D Graphics\r
+            - VR Technology\r
+            - Alternate Reality\r
+            - Cyber Space\r
+            - Headsets\r
+            - Gaming\r
+            - Futuristic\r
+            - Avatars\r
+            - Exploration\r
+            - Holographic\r
+            - Virtual Worlds\r
+            - Teleportation\r
+            - Experiential\r
+            - Augmented Reality\r
+            - Simulated Environments\r
+            - Embodied Presence\r
+            - Sensory Feedback\r
+            - Digital Simulations\r
+        hospital:\r
+            - Clinical\r
+            - Medical Care\r
+            - Healing Environment\r
+            - Healthcare\r
+            - Caring Staff\r
+            - Hygiene\r
+            - Sterile\r
+            - Patient-Centric\r
+            - Diagnostic\r
+            - Treatment\r
+            - Recovery\r
+            - Compassionate\r
+            - Technology-Driven\r
+            - Emergency Services\r
+            - Waiting Areas\r
+            - Surgical Suites\r
+            - Specialized Units\r
+            - Healing Art\r
+            - Privacy\r
+            - Medical Equipment\r
+            - Nurses\r
+            - Doctor-Patient Interaction\r
+            - Supportive\r
+            - Wellness\r
+            - Rehabilitation\r
+            - Calm\r
+            - Monitoring\r
+        Metropolitan:\r
+            - Urban Lifestyle\r
+            - Bustling\r
+            - Skyscrapers\r
+            - Diversity\r
+            - Cultural Hub\r
+            - Vibrant Energy\r
+            - City Lights\r
+            - Modern Architecture\r
+            - Business Districts\r
+            - Entertainment Centers\r
+            - Diverse Communities\r
+            - Nightlife\r
+            - Traffic\r
+            - Public Transportation\r
+            - Cultural Events\r
+            - Shopping Centers\r
+            - Restaurants\r
+            - Theatres\r
+            - Museums\r
+            - High-Paced\r
+            - Opportunities\r
+            - Networking\r
+            - Fashionable\r
+            - Trendsetting\r
+            - Cosmopolitan\r
+            - Diversity\r
+            - Global Influences\r
+        Rural:\r
+            - Countryside\r
+            - Tranquil\r
+            - Scenic Beauty\r
+            - Open Spaces\r
+            - Serenity\r
+            - Agricultural\r
+            - Close-knit Communities\r
+            - Peaceful\r
+            - Natural Surroundings\r
+            - Farming\r
+            - Homesteads\r
+            - Fresh Air\r
+            - Slow-Paced\r
+            - Relaxed\r
+            - Pastoral\r
+            - Idyllic\r
+            - Wide Skies\r
+            - Rustic Charm\r
+            - Local Traditions\r
+            - Quiet Living\r
+            - Nature Reserves\r
+            - Traditional Crafts\r
+            - Simple Life\r
+            - Away from the City\r
+            - Close to Nature\r
+        Robotic:\r
+            - Futuristic\r
+            - Automated\r
+            - Mechanized\r
+            - Precision\r
+            - Artificial Intelligence\r
+            - Technological\r
+            - Machine-driven\r
+            - High-tech\r
+            - Efficient\r
+            - Industrial\r
+            - Programmable\r
+            - Cyborg\r
+            - Autonomous\r
+            - Humanoid\r
+            - Synthetic\r
+            - Advanced Robotics\r
+            - AI Interaction\r
+            - Machine Learning\r
+            - Robotics Labs\r
+            - Mechanical Efficiency\r
+            - Integrated Systems\r
+            - Smart Automation\r
+            - Digital Sensors\r
+            - Precision Engineering\r
+            - Seamless Operations\r
+        Engineering:\r
+            - Innovative\r
+            - Problem-solving\r
+            - Technical\r
+            - Design-driven\r
+            - Creative Solutions\r
+            - Analytical\r
+            - Collaborative\r
+            - Research-oriented\r
+            - Cutting-edge\r
+            - Prototyping\r
+            - Experimentation\r
+            - Precision\r
+            - Scientific Methods\r
+            - Systematic\r
+            - Mathematical\r
+            - Practical Application\r
+            - Teamwork\r
+            - Technical Challenges\r
+            - Technological Advancements\r
+            - Engineering Labs\r
+            - Optimizing\r
+            - Designing\r
+            - Conceptualization\r
+            - Product Development\r
+            - Engineering Ethics\r
+            - Quality Assurance\r
+        Desert:\r
+            - Arid\r
+            - Barren\r
+            - Vastness\r
+            - Hot\r
+            - Dunes\r
+            - Solitude\r
+            - Harsh\r
+            - Stark Beauty\r
+            - Sandstorms\r
+            - Unforgiving\r
+            - Dry\r
+            - Sunbaked\r
+            - Extreme Temperatures\r
+            - Endless Horizon\r
+            - Serene Silence\r
+            - Survival\r
+            - Minimal Vegetation\r
+            - Oasis\r
+            - Uninhabited\r
+            - Ancient Landscapes\r
+            - Golden Sands\r
+            - Nomadic Life\r
+            - Celestial Skies\r
+            - Tranquility\r
+        Mountain:\r
+            - Majestic\r
+            - High Altitudes\r
+            - Alpine Beauty\r
+            - Crisp Air\r
+            - Panoramic Views\r
+            - Tranquil Escapes\r
+            - Adventure\r
+            - Steep Slopes\r
+            - Snow-capped Peaks\r
+            - Natural Wonders\r
+            - Alpine Meadows\r
+            - Challenging Terrain\r
+            - Remote Wilderness\r
+            - Freshness\r
+            - Hiking Trails\r
+            - Rocky Terrain\r
+            - Serenity\r
+            - Breathtaking Landscapes\r
+            - Alpine Lakes\r
+            - Vertical Ascents\r
+            - Rocky Silence\r
+            - Wildlife Habitat\r
+            - Spiritual Serenity\r
+            - Elevation\r
+            - Exploration\r
+        Oceanic:\r
+            - Maritime\r
+            - Aquatic\r
+            - Vastness\r
+            - Tranquil Waves\r
+            - Seafaring\r
+            - Nautical\r
+            - Salt Breeze\r
+            - Coastal Beauty\r
+            - Endless Horizons\r
+            - Seaside Living\r
+            - Marine Life\r
+            - Deep Blue\r
+            - Tidal Rhythms\r
+            - Exploring Waters\r
+            - Submerged World\r
+            - Shoreline Views\r
+            - Relaxing\r
+            - Saline Aroma\r
+            - Beaches\r
+            - Maritime Activities\r
+            - Ocean Currents\r
+            - Navigational\r
+            - Coral Reefs\r
+            - Ocean Adventures\r
+            - Nautical Traditions\r
+        Forest:\r
+            - Wooded\r
+            - Lush Greenery\r
+            - Tranquil\r
+            - Rustling Leaves\r
+            - Natural Sounds\r
+            - Wilderness\r
+            - Scent of Earth\r
+            - Canopy\r
+            - Biodiversity\r
+            - Wildlife\r
+            - Sunlight Filtering\r
+            - Adventure\r
+            - Hiking Trails\r
+            - Mossy Ground\r
+            - Nature's Cathedral\r
+            - Dappled Light\r
+            - Tall Trees\r
+            - Ancient Growth\r
+            - Oxygen-rich Air\r
+            - Calming Ambience\r
+            - Sheltered\r
+            - Ecosystem\r
+            - Earthy Fragrance\r
+        Cultural:\r
+            - Diversity\r
+            - Heritage\r
+            - Ethnic Traditions\r
+            - Multicultural\r
+            - Artistic Expression\r
+            - Languages\r
+            - Festivals\r
+            - Cultural Exchange\r
+            - Ethnic Cuisine\r
+            - Historical Sites\r
+            - Customs\r
+            - Traditional Arts\r
+            - Celebrations\r
+            - Folklore\r
+            - Creative Vibrancy\r
+            - Cultural Identity\r
+            - Local Crafts\r
+            - Music and Dance\r
+            - Rituals\r
+            - Intercultural Dialogue\r
+            - Art Galleries\r
+            - Cultural Heritage\r
+            - Cultural Fusion\r
+            - Cultural Awareness\r
+            - Shared History\r
+            - Museums\r
+            - Cultural Preservation\r
+        Physical:\r
+            - Earth's Atmosphere\r
+            - Martian Atmosphere\r
+            - Lunar Atmosphere\r
+            - Venusian Atmosphere\r
+            - Atmospheric Layers\r
+            - Gaseous Composition\r
+            - Air Pressure\r
+            - Weather Patterns\r
+            - Ozone Layer\r
+            - Climate Zones\r
+            - Atmospheric Phenomena\r
+            - Auroras\r
+            - Atmospheric Pressure\r
+            - Thermosphere\r
+            - Troposphere\r
+            - Stratosphere\r
+            - Mesosphere\r
+            - Ionosphere\r
+            - Exosphere\r
+            - Atmospheric Sciences\r
+            - Atmospheric Chemistry\r
+            - Meteorology\r
+            - Air Quality\r
+            - Atmospheric Effects\r
+            - Climate Change\r
+\r
+    rendering-techniques:\r
+        Ray-Tracing:\r
+            - ray tracing\r
+            - Raymarching\r
+            - Global Illumination\r
+            - Real-Time Ray Tracing\r
+        Ambient-Effects:\r
+            - God Rays / Crepuscular Rays\r
+            - Screen-Space Reflections\r
+            - Ambient Occlusion\r
+            - Depth of Field\r
+            - Motion Blur\r
+            - Anti-Aliasing\r
+            - Anisotropic Filtering\r
+            - Screen Space Ambient Occlusion\r
+            - Soft Particles\r
+            - Depth Peeling\r
+            - Real-Time Reflections\r
+            - Environment Occlusion\r
+            - Subsurface Reflections\r
+            - Transmittance\r
+            - Caustics Rendering\r
+            - Dispersion\r
+        Particles-and-Effects:\r
+            - Particle Systems\r
+            - Stochastic Sampling\r
+            - GPU Particle Systems\r
+        Lighting-Techniques:\r
+            - Global Illumination\r
+            - Photon Mapping\r
+            - Dynamic Lighting\r
+            - Light Attenuation\r
+            - Real-Time Global Illumination\r
+            - Real-Time Shadows\r
+            - Procedural Sky\r
+            - Environment Lighting\r
+            - Dynamic Weather Systems\r
+            - Real-Time GI Caching\r
+        Shading-Techniques:\r
+            - Deferred Rendering\r
+            - Physically-Based Rendering\r
+            - Anisotropic Specular\r
+            - Procedural Shading\r
+            - Vector Displacement Mapping\r
+            - NPR (Non-Photorealistic Rendering)\r
+            - Toon Shading\r
+            - Cel Shading\r
+            - Wireframe Rendering\r
+            - NPR Hatching\r
+        Mapping-Techniques:\r
+            - Normal Mapping\r
+            - Parallax Mapping\r
+            - Displacement Mapping\r
+            - Environment Mapping\r
+            - Procedural Texturing\r
+            - Procedural Generation\r
+            - Bump Mapping\r
+            - 3D Texture Mapping\r
+        Post-Processing-Techniques:\r
+            - Tone Mapping\r
+            - Post-Processing Effects\r
+            - Reprojection Techniques\r
+        Optimization-Techniques:\r
+            - Frustum Culling\r
+            - Level of Detail\r
+            - Virtual Texturing\r
+        Artistic-Rendering:\r
+            - Matte Painting\r
+            - Compositing\r
+            - Anamorphic Lens Flare\r
+            - Line Rendering\r
+        Advanced-Rendering:\r
+            - Bidirectional Path Tracing\r
+            - Metropolis Light Transport\r
+            - Radiosity\r
+            - Tessellation\r
+            - Voxel-Based Rendering\r
+            - octane rendering\r
+    graphic-engines:\r
+        - Unity engine\r
+        - CryEngine\r
+        - Godot Engine\r
+        - Source Engine\r
+        - Frostbite engine\r
+        - Anvil engine\r
+        - REDengine engine\r
+        - id Tech engine\r
+        - Creation Engine\r
+        - RenderWare engine\r
+        - Dunia Engine\r
+        - RE Engine\r
+        - Snowdrop engine\r
+        - Stingray engine\r
+        - HeroEngine engine\r
+        - COB Engine\r
+        - Decima Engine\r
+        - Fox Engine\r
+        - AnvilNext engine\r
+    image-styles:\r
+        - Abstract\r
+        - Abstract Expressionist\r
+        - Art Deco\r
+        - Art Nouveau\r
+        - Atmospheric\r
+        - Baroque\r
+        - Chaotic\r
+        - Constructivist\r
+        - Cubist\r
+        - Cyberpunk\r
+        - Dada\r
+        - Digital Art\r
+        - Dystopian\r
+        - Dynamic\r
+        - Eerie\r
+        - Eclectic\r
+        - Ethereal\r
+        - Fantasy\r
+        - Fauvist\r
+        - Futurist\r
+        - Geometric\r
+        - Graffiti\r
+        - Grungy\r
+        - Harmonious\r
+        - Impressionistic\r
+        - Kinetic\r
+        - Land Art\r
+        - Luminous\r
+        - Melancholic\r
+        - Minimalist\r
+        - Moody\r
+        - Monochromatic\r
+        - Mysterious\r
+        - Neo-Impressionist\r
+        - Noir\r
+        - Op Art\r
+        - Pastel\r
+        - Photorealistic\r
+        - Pointillist\r
+        - Pop Art\r
+        - Post-Impressionist\r
+        - Psychedelic\r
+        - Realist\r
+        - Renaissance\r
+        - Rococo\r
+        - Romanticist\r
+        - Serene\r
+        - Steampunk\r
+        - Stark\r
+        - Street Art\r
+        - Sublime\r
+        - Surreal\r
+        - Surrealist\r
+        - Symbolist\r
+        - Tranquil\r
+        - Urban\r
+        - Vibrant\r
+        - Vintage\r
+        - Whimsical\r
+    image-techniques:\r
+        Traditional:\r
+            - Acrylic Painting\r
+            - Charcoal Drawing\r
+            - Collage\r
+            - Cliché Verre\r
+            - Dry Brush\r
+            - Encaustic Painting\r
+            - Glazing\r
+            - Grisaille\r
+            - Gum Bichromate Printing\r
+            - Impasto\r
+            - Ink Drawing\r
+            - Oil Painting\r
+            - Pastel Drawing\r
+            - Pencil Drawing\r
+            - Photogravure\r
+            - Photograms\r
+            - Printmaking\r
+            - Scumbling\r
+            - Sgraffito\r
+        Digital:\r
+            - Digital Illustration\r
+            - Digital Painting\r
+            - Photo Manipulation\r
+            - Photo Retouching\r
+        Photographic:\r
+            - Airbrushing\r
+            - Chromogenic Prints\r
+            - Collodion Process\r
+            - Cyanotype Printing\r
+            - Dodging and Burning\r
+            - Double Exposure\r
+            - Double Exposure Photography\r
+            - High Dynamic Range\r
+            - High-Speed Photography\r
+            - Infrared Photography\r
+            - Long Exposure Photography\r
+            - Macro Photography\r
+            - Multiple Exposure Photography\r
+            - Pinhole Photography\r
+            - Polaroid Transfers\r
+            - Selective Color\r
+        Other:\r
+            - Color Grading\r
+            - Decalcomania\r
+            - Silkscreen Printing\r
+    depiction-styles:\r
+        2D-Styles:\r
+            - 2D\r
+            - Realistic\r
+            - Surreal\r
+            - Abstract\r
+            - Minimalist\r
+            - Cartoony\r
+            - Manga/Anime\r
+            - Comic Book Style\r
+            - Impressionistic\r
+            - Expressionistic\r
+            - Cubist\r
+            - Pointillist\r
+            - Fauvist\r
+            - Pop Art\r
+            - Art Nouveau\r
+            - Art Deco\r
+        3D-Styles:\r
+            - 3D\r
+            - Photorealistic\r
+            - Isometric\r
+            - Orthographic\r
+            - Perspective\r
+            - Top-Down\r
+            - Front View\r
+            - Side View\r
+            - Back View\r
+            - Oblique\r
+            - Bird's Eye View\r
+            - Worm's Eye View\r
+            - Aerial View\r
+            - Cutaway View\r
+            - Exploded View\r
+            - X-Ray View\r
+            - Cross-Section View\r
+            - Augmented Reality \r
+            - Virtual Reality\r
+        Historical:\r
+            - Renaissance\r
+            - Baroque\r
+            - Rococo\r
+            - Gothic\r
+            - Prehistoric Art\r
+            - Medieval Art\r
+            - Romantic Art\r
+            - Realism Art\r
+            - Impressionism Art\r
+            - Expressionism Art\r
+            - Cubism Art\r
+            - Surrealism Art\r
+            - Abstract Expressionism\r
+            - Pop Art\r
+        Digital-Modern-Styles:\r
+            - Digital Art\r
+            - Pixel Art\r
+            - Vector Art\r
+            - Line Art\r
+            - Collage Art\r
+            - Hybrid Styles\r
+    animations:\r
+        - Ghibli\r
+        - Pixar\r
+        - Disney\r
+        - DreamWorks\r
+        - Stop Motion\r
+        - Traditional Hand-Drawn Animation\r
+        - 2D Animation\r
+        - 3D Animation\r
+        - Computer-Generated Imagery (CGI)\r
+        - Cutout Animation\r
+        - Silhouette Animation\r
+        - Puppet Animation\r
+        - Cutout Animation\r
+        - Rotoscoping\r
+        - Motion Graphics\r
+        - Anime\r
+        - Cartoon\r
+        - Realistic Animation\r
+        - Minimalist Animation\r
+        - Surreal Animation\r
+        - Experimental Animation\r
+        - Abstract Animation\r
+        - Flash Animation\r
+        - Stop Motion Puppetry\r
+        - Sand Animation\r
+        - Paint-on-Glass Animation\r
+        - Pixilation\r
+        - Digital Animation\r
+        - Clay Animation\r
+        - Cell Animation\r
+        - Watercolor Animation\r
+        - Paper Animation\r
+        - Oil Painting Animation\r
+        - Pencil Animation\r
+        - Digital Cutout Animation\r
+        - Sand Animation\r
+        - Motion Capture Animation\r
+        - CG Puppetry\r
+        - Rigid Body Animation\r
+        - Soft Body Animation\r
+        - Skeletal Animation\r
+        - Kinetic Typography Animation\r
+    Ambient-Effects:\r
+        - Bloom\r
+        - Color Grading\r
+        - Lens Flare\r
+        - Global Illumination\r
+        - Light Shaft \r
+        - God Rays \r
+        - Crepuscular Rays\r
+        - Screen-Space Reflections\r
+        - Screen Space Ambient Occlusion (SSAO)\r
+        - Depth of Field (DOF)\r
+        - Motion Blur\r
+        - Anti-Aliasing\r
+        - Anisotropic Filtering\r
+        - Depth Peeling\r
+        - Environment Occlusion\r
+        - Subsurface Scattering (SSS)\r
+        - Transmittance\r
+        - Caustics Rendering\r
+        - Dispersion (Chromatic Aberration)\r
+        - Glare Effects\r
+        - Fog\r
+        - Atmospheric Scattering\r
+        - Soft Particles\r
+        - Screen Space Shadows\r
+        - Volumetric Lighting\r
+        - Lens Distortion\r
+        - Screen Space Reflections (SSR)\r
+        - Light Attenuation\r
+        - Vignetting\r
+        - Distortion\r
+        - Aberration\r
+        - Procedural Sky\r
+        - Environment Lighting\r
+        - Rain \r
+        - Snow\r
+        - Skybox / Skydome\r
+    quality:\r
+        details:\r
+            - RAW\r
+            - Detailed\r
+            - Intricate\r
+            - Elaborate\r
+            - Exquisite\r
+            - Meticulous\r
+            - Precise\r
+            - Refined\r
+            - Delicate\r
+            - Sophisticated\r
+            - Ornate\r
+            - Finely Crafted\r
+            - Impeccable\r
+            - Polished\r
+            - Masterful\r
+            - High-Quality\r
+            - Artistic\r
+            - Elegant\r
+            - Skillful\r
+            - Proficient\r
+            - Well-executed\r
+            - Expertly Made\r
+            - Carefully Designed\r
+            - Beautifully Rendered\r
+            - Flawless\r
+            - Virtuoso\r
+            - Perfectly Crafted\r
+            - Exceptional\r
+            - Sublime\r
+            - Superb\r
+            - Outstanding\r
+            - Magnificent\r
+            - Stunning\r
+            - Exemplary\r
+            - Splendid\r
+            - Remarkable\r
+            - Superior\r
+            - Unparalleled\r
+            - Unrivaled\r
+            - Extraordinary\r
+            - Unmatched\r
+            - Phenomenal\r
+            - Astounding\r
+            - Breathtaking\r
+            - Unsurpassed\r
+        styles:\r
+            - Magnum Opus\r
+            - Tour de Force\r
+            - Opus Magnum\r
+            - Work of Art\r
+            - Tour de Maître\r
+            - Crowning Achievement\r
+            - Stroke of Genius\r
+            - Culmination of Brilliance\r
+            - Artistic Triumph\r
+            - Pinnacle of Creativity\r
+            - Epitome of Craftsmanship\r
+            - Masterful Creation\r
+            - Extraordinary Work\r
+            - Sublime Achievement\r
+            - Exceptional Magnum\r
+            - Exemplary Masterwork\r
+            - Remarkable Opus\r
+            - Supreme Masterpiece\r
+            - Unsurpassed Masterwork\r
+            - Outstanding Magnum\r
+            - Marvelous Opus\r
+            - Unparalleled Masterwork\r
+            - Brilliant Tour de Force\r
+            - Exceptional Tour de Maître\r
+            - Flawless Magnum\r
+            - Stunning Opus Magnum\r
+            - Superb Work of Art\r
+            - Astounding Tour de Force\r
+            - Exquisite Masterpiece\r
+            - Unrivaled Opus\r
+            - Phenomenal Masterwork\r
+            - Breathtaking Magnum\r
+            - Unmatched Tour de Maître\r
+            - Sublime Opus Magnum\r
+            - Perfect Work of Art\r
+            - Inspiring Tour de Force\r
+            - Exceptional Artistic Triumph\r
+            - Superlative Pinnacle of Creativity\r
+            - Remarkable Stroke of Genius\r
+        sharp:\r
+            - Sharp Focus\r
+            - Clear Background\r
+            - Crisp Details\r
+            - Full Depth\r
+            - Evenly Focused\r
+            - High Depth of Field\r
+            - Distinct Foreground and Background\r
+            - Well-Defined Edges\r
+            - Precise Clarity\r
+            - Complete Sharpness\r
+            - No Blur\r
+            - All-in-Focus\r
+            - Clear Scene\r
+            - Uniform Focus\r
+            - Clear Visuals\r
+            - Crystalline Clarity\r
+            - Perfectly Focused\r
+            - Absolute Sharpness\r
+            - Total Clarity\r
+            - Clear Perception\r
+            - Entire Scene in Focus\r
+        blur:\r
+            - Depth of Field\r
+            - Lens Blur\r
+            - Focus Blur\r
+            - Shallow Depth\r
+            - Bokeh Effect\r
+            - Soft Focus\r
+            - Blurred Background\r
+            - Selective Focus\r
+            - Focal Blur\r
+            - Out-of-Focus Area\r
+            - Defocused Background\r
+            - Fuzzy Background\r
+            - Depth Blur\r
+            - Bokeh Shapes\r
+            - Background Blur\r
+            - Bokeh Lights\r
+            - Bokeh Circles\r
+            - Bokeh Patterns\r
+            - Bokeh\r
+    resolutions:\r
+        - HD\r
+        - UHD\r
+        - 2K\r
+        - 4K\r
+        - 8K\r
+        - 16K\r
+        - 32K\r
+        - absurdres\r
+        - ultra-high resolution\r
+    Creative-Concepts:\r
+        - Innovative\r
+        - Original\r
+        - Creative\r
+        - Inventive\r
+        - Unique\r
+        - Novel\r
+        - Imaginative\r
+        - Groundbreaking\r
+        - Trailblazing\r
+        - Visionary\r
+        - Avant-garde\r
+        - Revolutionary\r
+        - Experimental\r
+        - Cutting-edge\r
+        - Futuristic\r
+        - Unconventional\r
+        - Breakthrough\r
+        - Radical\r
+        - Inventive\r
+        - Inspired\r
+        - Unorthodox\r
+        - Imagery\r
+        - Daring\r
+        - Distinctive\r
+        - Resourceful\r
+        - Creative\r
+        - Unprecedented\r
+        - Artistic\r
+        - Original\r
+        - Pioneering\r
+        - Inventive\r
+        - Iconoclastic\r
+        - Innovative\r
+        - Out-of-the-box\r
+        - Newfangled\r
+        - Ingenious\r
+        - Trailblazing\r
+        - Imaginative\r
+        - Game-changing\r
+        - Visionary\r
+        - Experimental\r
+        - Revolutionary\r
+        - Progressive\r
+        - Inventive\r
+        - Unconventional\r
+        - Forward-thinking\r
+        - Bold\r
+    camera:\r
+        Camera:\r
+            - DSLR\r
+            - Full-Frame DSLR\r
+            - Fast Autofocus\r
+            - Dynamic Range\r
+        Aperture-Settings:\r
+            - f/1.4\r
+            - f/2.8\r
+            - f/4\r
+            - f/5.6\r
+            - f/8\r
+            - f/11\r
+            - f/16\r
+            - f/22\r
+        Shutter-Speed:\r
+            - Shutter Speed 1/8000 sec\r
+            - Shutter Speed 1/4000 sec\r
+            - Shutter Speed 1/2000 sec\r
+            - Shutter Speed 1/1000 sec\r
+            - Shutter Speed 1/500 sec\r
+            - Shutter Speed 1/250 sec\r
+            - Shutter Speed 1/125 sec\r
+            - Shutter Speed 1/60 sec\r
+            - Shutter Speed 1/30 sec\r
+            - Shutter Speed 1/15 sec\r
+            - Shutter Speed 1/8 sec\r
+            - Shutter Speed 1/4 sec\r
+            - Shutter Speed 1/2 sec\r
+            - Shutter Speed 1 sec\r
+        ISO-Settings:\r
+            - ISO100\r
+            - ISO200\r
+            - ISO400\r
+            - ISO800\r
+            - ISO1600\r
+            - ISO3200\r
+            - ISO6400\r
+            - ISO12800\r
+            - ISO25600\r
+        White-Balance:\r
+            - White Balance Auto\r
+            - White Balance Daylight\r
+            - White Balance Cloudy\r
+            - White Balance Tungsten\r
+            - White Balance Fluorescent\r
+            - White Balance Shade\r
+        Exposure-Settings:\r
+            - Exposure Compensation "-3.0 EV"\r
+            - Exposure Compensation  "-2.5 EV"\r
+            - Exposure Compensation  "-2.0 EV"\r
+            - Exposure Compensation  "-1.5 EV"\r
+            - Exposure Compensation  "-1.0 EV"\r
+            - Exposure Compensation  "-0.5 EV"\r
+            - Exposure Compensation  "0 EV"\r
+            - Exposure Compensation  "+0.5 EV"\r
+            - Exposure Compensation  "+1.0 EV"\r
+            - Exposure Compensation  "+1.5 EV"\r
+            - Exposure Compensation  "+2.0 EV"\r
+            - Exposure Compensation  "+2.5 EV"\r
+            - Exposure Compensation  "+3.0 EV"\r
+        Shooting-Modes:\r
+            - Manual Shooting Mode\r
+            - Aperture Priority Shooting Mode\r
+            - Shutter Priority Shooting Mode\r
+        Composition-Techniques:\r
+            - Rule of Thirds\r
+            - Leading Lines\r
+            - Framing\r
+            - Symmetry and Balance\r
+        Focus:\r
+            - focus Mode Single\r
+            - focus Mode Continuous\r
+            - focus Mode Manual\r
+        Metering:\r
+            - Evaluative Metering\r
+            - Center-weighted Metering\r
+            - Spot Metering \r
+            - Partial Metering\r
+\r
+constructors:\r
+    - in style of\r
+    - composed of\r
+    - constructed from\r
+    - formed of\r
+    - fashioned out of\r
+    - created from\r
+    - built with\r
+    - crafted from\r
+    - constituted by\r
+    - shaped with\r
+    - produced from\r
+    - manufactured from\r
+    - fabricated with\r
+    - comprised of\r
+    - assembled from\r
+    - originating from\r
+    - derived from\r
+    - put together with\r
+    - produced using\r
+    - constructed out of\r
+shape-tracing:\r
+    - trace the shape and edges with\r
+    - outline with\r
+    - sketch the form and edges using\r
+    - follow the contour with\r
+    - draw the shape and edges using\r
+    - mark the outline with\r
+    - define the form and edges with\r
+    - delineate using\r
+    - follow the lines with\r
+    - draw along the contours using\r
+    - trace the silhouette with\r
+    - map out the shape and edges with\r
+    - chart the outline using\r
+    - trace along the contours with\r
+    - delimit the form and edges with\r
+    - depict the shape and edges using\r
+surface-swap:\r
+    - swap the surfaces for\r
+    - replace the surfaces with\r
+    - substitute the surfaces with\r
+    - exchange the surfaces with\r
+    - switch the surfaces for\r
+    - replace the surfaces using\r
+    - supplant the surfaces with\r
+    - put in place of the surfaces\r
+    - use alternate surfaces instead of\r
+    - change out the surfaces with\r
+    - install different surfaces in lieu of\r
+    - put new surfaces in the place of\r
+    - use replacement surfaces for\r
+    - sub in the surfaces with\r
+    - bring in new surfaces to replace\r
+    - implement alternative surfaces for\r
+    \r
+`;export{n as default};
