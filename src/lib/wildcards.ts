@@ -172,7 +172,7 @@ function transformYamlToFileStructure(
 const allYamls = processYamls();
 const wildcardYamls$ = from(allYamls);
 
-const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
+export const wildcardFiles$ = from(Object.entries(wildcardFiles)).pipe(
   mergeMap(([filepath, fileContentsEventually]) =>
     fileContentsEventually().then(
       (filecontents) => [filepath, filecontents] as const,
