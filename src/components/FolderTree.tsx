@@ -38,13 +38,16 @@ export function FolderTreeDisplay({ onLeafClick }: FolderTreeDisplayProps) {
       oldExpanded.length === 0 ? [...nodeIds] : [],
     );
   };
+  const expandAllMode = expanded.length === 0;
 
   return (
     <>
       <Box sx={{ my: 1, justifyContent: 'space-around', display: 'flex' }}>
-        <Button onClick={handleExpandClick}>
-          {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
-        </Button>
+        <Tooltip title={`This might be very slow...`}>
+          <Button onClick={handleExpandClick}>
+            {expandAllMode ? 'Expand all' : 'Collapse all'}
+          </Button>
+        </Tooltip>
       </Box>
       <TreeView
         defaultCollapseIcon={<ExpandMore />}
