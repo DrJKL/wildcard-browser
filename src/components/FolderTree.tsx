@@ -41,7 +41,7 @@ export function FolderTreeDisplay({ onLeafClick }: FolderTreeDisplayProps) {
 
   return (
     <>
-      <Box sx={{ mb: 1, justifyContent: 'space-around', display: 'flex' }}>
+      <Box sx={{ my: 1, justifyContent: 'space-around', display: 'flex' }}>
         <Button onClick={handleExpandClick}>
           {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
         </Button>
